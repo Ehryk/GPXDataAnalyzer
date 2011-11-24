@@ -1,0 +1,9 @@
+C:\Work\GPXDataAnalyzer\WebApplication\bin\WebApplication.dll
+C:\Work\GPXDataAnalyzer\WebApplication\bin\WebApplication.pdb
+C:\Work\GPXDataAnalyzer\WebApplication\bin\ConsoleApplication.exe
+C:\Work\GPXDataAnalyzer\WebApplication\bin\GPX.dll
+C:\Work\GPXDataAnalyzer\WebApplication\bin\ConsoleApplication.pdb
+C:\Work\GPXDataAnalyzer\WebApplication\bin\GPX.pdb
+C:\Work\GPXDataAnalyzer\WebApplication\obj\Release\ResolveAssemblyReference.cache
+C:\Work\GPXDataAnalyzer\WebApplication\obj\Release\WebApplication.dll
+C:\Work\GPXDataAnalyzer\WebApplication\obj\Release\WebApplication.pdb

@@ -1,0 +1,28 @@
+﻿Build started 11/24/2011 9:24:34 AM.
+     1>Project "C:\Work\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\DataAnalyzer.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       ResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         DataAnalyzer.vcxproj -> C:\Work\GPXDataAnalyzer\Debug\DataAnalyzer.dll
+       MetaGen:
+       Skipping target "MetaGen" because all output files are up-to-date with respect to the input files.
+       _CopyFilesMarkedCopyLocal:
+         Copying file from "C:\Work\GPXDataAnalyzer\GPX\bin\Debug\GPX.dll" to "C:\Work\GPXDataAnalyzer\Debug\GPX.dll".
+         Copying file from "C:\Work\GPXDataAnalyzer\GPX\bin\Debug\GPX.pdb" to "C:\Work\GPXDataAnalyzer\Debug\GPX.pdb".
+       FinalizeBuildStatus:
+         Deleting file "Debug\DataAnalyzer.unsuccessfulbuild".
+         Touching "Debug\DataAnalyzer.lastbuildstate".
+     1>Done Building Project "C:\Work\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.23

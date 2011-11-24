@@ -1,0 +1,9 @@
+C:\Work\GPXDataAnalyzer\ConsoleApplication\bin\Release\ConsoleApplication.exe
+C:\Work\GPXDataAnalyzer\ConsoleApplication\bin\Release\ConsoleApplication.pdb
+C:\Work\GPXDataAnalyzer\ConsoleApplication\bin\Release\DataAnalyzer.dll
+C:\Work\GPXDataAnalyzer\ConsoleApplication\bin\Release\GPX.dll
+C:\Work\GPXDataAnalyzer\ConsoleApplication\bin\Release\DataAnalyzer.pdb
+C:\Work\GPXDataAnalyzer\ConsoleApplication\bin\Release\GPX.pdb
+C:\Work\GPXDataAnalyzer\ConsoleApplication\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Work\GPXDataAnalyzer\ConsoleApplication\obj\x86\Release\ConsoleApplication.exe
+C:\Work\GPXDataAnalyzer\ConsoleApplication\obj\x86\Release\ConsoleApplication.pdb
