@@ -1,0 +1,114 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="FileUpload`0" priority="0" />
+      <Item value="String`0" priority="0" />
+      <Item value="trackPoints" priority="2" />
+      <Item value="public" priority="0" />
+      <Item value="double" priority="0" />
+      <Item value="Time" priority="0" />
+      <Item value="Time`0" priority="1" />
+      <Item value="x" priority="1" />
+      <Item value="time" priority="0" />
+      <Item value="results" priority="3" />
+      <Item value="Total`0" priority="0" />
+      <Item value="Average`0" priority="0" />
+      <Item value="lblTotalTime" priority="0" />
+      <Item value="lblAverageTime" priority="0" />
+      <Item value="lblAverageCourse" priority="0" />
+      <Item value="new" priority="0" />
+      <Item value="trkType" priority="0" />
+      <Item value="name" priority="1" />
+      <Item value="if" priority="0" />
+      <Item value="ddlTracks" priority="0" />
+      <Item value="pnlAnalysis" priority="0" />
+      <Item value="false" priority="0" />
+      <Item value="return" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Button">
+      <Item value="Click" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Format`0" priority="0" />
+      <Item value="IsNullOrWhiteSpace`0" priority="0" />
+      <Item value="IsNullOrEmpty`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:GPX.TrackResults">
+      <Item value="TotalTime" priority="1" />
+      <Item value="Times" priority="0" />
+      <Item value="Courses" priority="1" />
+      <Item value="AverageTime" priority="0" />
+      <Item value="AverageCourse" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Add`0" priority="2" />
+      <Item value="Insert`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.DropDownList">
+      <Item value="SelectedValue" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Panel">
+      <Item value="Visible" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Web.config" caret="1875" fromTop="29" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Site.Master" caret="1134" fromTop="9" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/d:Styles/f:Site.css" caret="4713" fromTop="9" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="1517" fromTop="13" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="3643" fromTop="6" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="802" fromTop="6" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="5434" fromTop="18" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="742" fromTop="15" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="1363" fromTop="7" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="8850" fromTop="20" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="8708" fromTop="13" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="3198" fromTop="8" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="4227" fromTop="10" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="4862" fromTop="7" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="345" fromTop="7" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="527" fromTop="13" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="3503" fromTop="13" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="3740" fromTop="13" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="5221" fromTop="16" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="956" fromTop="13" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="2898" fromTop="6" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="3808" fromTop="14" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="3838" fromTop="14" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="5096" fromTop="20" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="4501" fromTop="12" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="4000" fromTop="19" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="3599" fromTop="12" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="1855" fromTop="12" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="847" fromTop="6" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="2066" fromTop="12" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="3359" fromTop="10" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="353" fromTop="4" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="2829" fromTop="21" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="2373" fromTop="9" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="1517" fromTop="10" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="1497" fromTop="20" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>

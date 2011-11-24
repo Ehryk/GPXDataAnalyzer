@@ -1,0 +1,133 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Site.Master" caret="310" fromTop="0" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPXLoader.cs" caret="1209" fromTop="0" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:ReadMe.txt" caret="0" fromTop="0" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:resource.h" caret="91" fromTop="3" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:Stdafx.cpp" caret="208" fromTop="5" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:Stdafx.h" caret="195" fromTop="6" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="173" fromTop="11" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="1263" fromTop="66" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:Sample.gpx" caret="44165" fromTop="1295" />
+      <File id="D99326D4-6E9C-44B4-8A08-9FE4B7662BDA/f:Program.cs" caret="278" fromTop="14" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPXFile.cs" caret="121" fromTop="5" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPXClasses.cs" caret="482" fromTop="12" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="403" fromTop="0" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/d:Styles/f:Site.css" caret="4481" fromTop="16" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="2542" fromTop="9" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:Stdafx.h" caret="174" fromTop="9" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:Stdafx.h" caret="174" fromTop="16" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:Stdafx.h" caret="174" fromTop="11" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:Stdafx.h" caret="174" fromTop="5" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="112" fromTop="5" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:Stdafx.h" caret="174" fromTop="6" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:Stdafx.h" caret="195" fromTop="6" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="110" fromTop="8" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="245" fromTop="6" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="340" fromTop="10" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="340" fromTop="14" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="512" fromTop="11" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="246" fromTop="13" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="410" fromTop="11" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="436" fromTop="22" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="572" fromTop="15" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="652" fromTop="14" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="780" fromTop="14" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="909" fromTop="14" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="1051" fromTop="15" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="1183" fromTop="21" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="1316" fromTop="18" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="1394" fromTop="22" />
+      <File id="D99326D4-6E9C-44B4-8A08-9FE4B7662BDA/f:Program.cs" caret="271" fromTop="13" />
+      <File id="D99326D4-6E9C-44B4-8A08-9FE4B7662BDA/f:Program.cs" caret="116" fromTop="5" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPXFile.cs" caret="150" fromTop="6" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPXClasses.cs" caret="497" fromTop="13" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/d:Styles/f:Site.css" caret="4425" fromTop="11" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/d:Styles/f:Site.css" caret="4520" fromTop="21" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/d:Styles/f:Site.css" caret="4481" fromTop="16" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="public" priority="5" />
+      <Item value="GPXFile`0" priority="2" />
+      <Item value="using" priority="5" />
+      <Item value="gpx" priority="9" />
+      <Item value="string" priority="2" />
+      <Item value="private" priority="0" />
+      <Item value="return" priority="4" />
+      <Item value="if" priority="2" />
+      <Item value="null" priority="2" />
+      <Item value="XNamespace`0" priority="0" />
+      <Item value="try" priority="0" />
+      <Item value="bool" priority="0" />
+      <Item value="result" priority="2" />
+      <Item value="e" priority="0" />
+      <Item value="FileStream`0" priority="0" />
+      <Item value="Load`0" priority="0" />
+      <Item value="gpxFile" priority="0" />
+      <Item value="trkType`0" priority="3" />
+      <Item value="List" priority="0" />
+      <Item value="wptType`0" priority="1" />
+      <Item value="ToList`1" priority="1" />
+      <Item value="Select`2" priority="1" />
+      <Item value="t" priority="2" />
+      <Item value="trksegType`0" priority="2" />
+      <Item value="track" priority="4" />
+      <Item value="First`1" priority="0" />
+      <Item value="trackName" priority="0" />
+      <Item value="Clone`0" priority="0" />
+      <Item value="Count`1" priority="1" />
+      <Item value="trackSegment" priority="0" />
+      <Item value="GetTrackPoints`0" priority="0" />
+      <Item value="int" priority="0" />
+      <Item value="segment" priority="1" />
+      <Item value="ToString`0" priority="0" />
+      <Item value="DataAnalyzer" priority="0" />
+      <Item value="new" priority="0" />
+      <Item value="GPXFile" priority="1" />
+      <Item value="gpxType`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Xml.Linq.XNamespace">
+      <Item value="Get`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Exception">
+      <Item value="Message" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:gpx.gpxType">
+      <Item value="wpt" priority="0" />
+      <Item value="trk" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:gpx.trkType">
+      <Item value="name" priority="1" />
+      <Item value="trkseg" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="ToList`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:gpx.trksegType">
+      <Item value="trkpt" priority="3" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

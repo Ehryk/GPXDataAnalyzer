@@ -1,0 +1,10 @@
+C:\Work\GPSDataAnalyzer\GPX\obj\Debug\ResolveAssemblyReference.cache
+C:\Work\GPSDataAnalyzer\GPX\bin\Debug\GPX.dll
+C:\Work\GPSDataAnalyzer\GPX\bin\Debug\GPX.pdb
+C:\Work\GPSDataAnalyzer\GPX\obj\Debug\GPX.dll
+C:\Work\GPSDataAnalyzer\GPX\obj\Debug\GPX.pdb
+C:\Work\GPXDataAnalyzer\GPX\bin\Debug\GPX.dll
+C:\Work\GPXDataAnalyzer\GPX\bin\Debug\GPX.pdb
+C:\Work\GPXDataAnalyzer\GPX\obj\Debug\ResolveAssemblyReference.cache
+C:\Work\GPXDataAnalyzer\GPX\obj\Debug\GPX.dll
+C:\Work\GPXDataAnalyzer\GPX\obj\Debug\GPX.pdb
