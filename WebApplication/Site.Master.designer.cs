@@ -31,6 +31,24 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Menu NavigationMenu;
         
         /// <summary>
+        /// scriptManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager scriptManager;
+        
+        /// <summary>
+        /// udpMain control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel udpMain;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>
@@ -38,5 +56,14 @@ namespace WebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        
+        /// <summary>
+        /// CausePostback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField CausePostback;
     }
 }

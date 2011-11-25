@@ -3,27 +3,16 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-
-    <asp:Panel ID="pnlFile" CssClass="Center" style="width:100%;" runat="server">
-        <div>
-            <label class="Instructions">Select a .gpx file to upload:</label>
-            <div class="FileInput">
-                <input type="text" id="corrected" name="corrected" class="FileInputTextbox" style="width:350px;margin-right:10px;" />
-                <div class="FileInputDiv">
-                    <input type="button" value="Select File" class="BigRedButton Down" />
-                    <asp:FileUpload ID="fileUpload" class="FileInputHidden" runat="server" onchange="javascript:document.getElementById('corrected').value = this.value.split('\\').pop().split('/').pop()" />
-                </div>
-            </div>
-            <asp:Button ID="btnUpload" CssClass="RedButton Down" style="float:left;" OnClick="UploadClicked" Text="Upload" runat="server" />
-        </div>
-        <div style="clear:both;">
-            <asp:Label ID="lblStatus" Text="Upload Status:" style="margin-top:10px;" runat="server" />
-        </div>
+    
+    <asp:Panel ID="pnlFiles" CssClass="Center" style="width:100%;" runat="server">
+        <label class="Instructions">Select a File: </label>
+        <asp:DropDownList ID="ddlFiles" runat="server" OnSelectedIndexChanged="FileChanged" AutoPostBack="true" Width="300px" />
     </asp:Panel>
     
     <asp:Panel ID="pnlTracks" CssClass="Center" style="width:100%;" Visible="false" runat="server">
         <hr />
-        <label class="Instructions">Select a Track:</label> <asp:DropDownList ID="ddlTracks" runat="server" OnSelectedIndexChanged="TrackChanged" AutoPostBack="true" DataValueField="name" DataTextField="name" />
+        <label class="Instructions">Select a Track:</label>
+        <asp:DropDownList ID="ddlTracks" runat="server" OnSelectedIndexChanged="TrackChanged" AutoPostBack="true" DataValueField="name" DataTextField="name" />
     </asp:Panel>
 
     <asp:Panel ID="pnlAnalysis" Visible="false" runat="server">
@@ -33,9 +22,9 @@
             RowStyle="GridRow" AlternatingRowStyle="GridAlternateRow" HeaderStyle-CssClass="GridHeader">
             <Columns>
                 <asp:BoundField HeaderText="Time"      DataField="time" />
-                <asp:BoundField HeaderText="Latitude"  DataField="lon" />
-                <asp:BoundField HeaderText="Longitude" DataField="lat" />
-                <asp:BoundField HeaderText="Elevation" DataField="ele" />
+                <asp:BoundField HeaderText="Latitude"  DataField="lon" DataFormatString="{0:N8}&deg;" />
+                <asp:BoundField HeaderText="Longitude" DataField="lat" DataFormatString="{0:N8}&deg;" />
+                <asp:BoundField HeaderText="Elevation" DataField="ele" DataFormatString="{0:N5} m" />
             </Columns>
         </asp:GridView>
         <br />

@@ -21,12 +21,21 @@
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal" SkipLinkText="">
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="~/Upload.aspx" Text="Upload"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
                     </Items>
                 </asp:Menu>
             </div>
         </div>
+        <asp:ScriptManager ID="scriptManager" runat="server">
+        </asp:ScriptManager>
         <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+            <asp:UpdatePanel ID="udpMain" runat="server">
+                <ContentTemplate>
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+                    <asp:HiddenField ID="CausePostback" runat="server" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
         <div class="clear">
         </div>
