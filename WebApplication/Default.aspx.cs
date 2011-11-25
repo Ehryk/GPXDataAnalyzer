@@ -6,64 +6,49 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GPX;
+using WebApplication.App_Code;
 
 namespace WebApplication
 {
-    public partial class _Default : System.Web.UI.Page
+    public partial class _Default : BasePage
     {
-        private string FilePath
-        {
-            get { return Session["FilePath"] as string; }
-            set { Session["FilePath"] = value; }
-        }
-
-        private GPXFile GPX
-        {
-            get { return Session["GPX"] as GPXFile; }
-            set { Session["GPX"] = value; }
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+                BindFileDDL();
         }
 
-        protected void UploadClicked(object sender, EventArgs e)
+        protected void BindFileDDL()
         {
-            if (fileUpload.HasFile)
+            ddlFiles.Items.Clear();
+            ddlFiles.Items.Add(new ListItem(""));
+            foreach (string file in Directory.EnumerateFiles(Server.MapPath("~/Uploads/")))
+                ddlFiles.Items.Add(new ListItem(Path.GetFileName(file), file));
+
+            pnlTracks.Visible = false;
+            pnlAnalysis.Visible = false;
+        }
+
+        protected void FileChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(ddlFiles.SelectedValue))
             {
-                //try
-                //{
-                    string filename = Path.GetFileName(fileUpload.FileName);
-
-                    if (!fileUpload.FileName.ToUpper().EndsWith(".GPX"))
-                    {
-                        lblStatus.Text = "Upload status: Only .gpx files are accepted.";
-                        pnlTracks.Visible = false;
-                        pnlAnalysis.Visible = false;
-                    }
-
-                    FilePath = Server.MapPath("~/") + filename;
-                    fileUpload.SaveAs(FilePath);
-                    lblStatus.Text = "Upload status: File uploaded!";
-
-                    LoadTracks();
-
-                    pnlTracks.Visible = true;
-                //}
-                //catch (Exception ex)
-                //{
-                //    lblStatus.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
-                //    pnlTracks.Visible = false;
-                //    pnlAnalysis.Visible = false;
-                //}
-            }
-            else
-            {
-                lblStatus.Text = "Upload status: No file selected";
                 pnlTracks.Visible = false;
                 pnlAnalysis.Visible = false;
+                return;
             }
+            if (!File.Exists(ddlFiles.SelectedValue))
+            {
+                pnlTracks.Visible = false;
+                pnlAnalysis.Visible = false;
+                //lblStatus.Text = "File Doesn't Exist";
+                return;
+            }
+
+            FilePath = ddlFiles.SelectedValue;
+
+            LoadTracks();
+            pnlTracks.Visible = true;
         }
 
         protected void LoadTracks()
@@ -80,6 +65,8 @@ namespace WebApplication
             ddlTracks.DataBind();
 
             TrackChanged(ddlTracks, EventArgs.Empty);
+
+            pnlTracks.Visible = true;
         }
 
         protected void TrackChanged(object sender, EventArgs e)

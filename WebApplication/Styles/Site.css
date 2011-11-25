@@ -342,6 +342,12 @@ table td
 }
 
 
+div.menu ul li
+{
+    margin-right:10px;
+    margin-left: 10px;
+}
+
 .FileInput
 {
     margin-left:190px;
