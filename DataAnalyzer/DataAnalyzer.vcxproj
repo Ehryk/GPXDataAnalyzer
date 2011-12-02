@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{59C7A66A-4154-45B5-B820-0114C4D33C4E}</ProjectGuid>
+    <ProjectGuid>{4F567B1B-59A3-4B06-95A1-BB283B840CD8}</ProjectGuid>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>DataAnalyzer</RootNamespace>
@@ -90,15 +90,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico" />
-    <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GPX\GPX.csproj">
-      <Project>{159f1fc4-4759-4db0-8695-ffd423302db4}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

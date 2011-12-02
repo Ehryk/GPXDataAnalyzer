@@ -38,6 +38,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -56,6 +57,18 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\button_blue.gif" />
+    <Content Include="Images\button_blue_big.gif" />
+    <Content Include="Images\button_blue_small.gif" />
+    <Content Include="Images\button_grey.gif" />
+    <Content Include="Images\button_red.gif" />
+    <Content Include="Images\button_red_big.gif" />
+    <Content Include="Images\button_red_bigger.gif" />
+    <Content Include="Images\button_red_small.gif" />
+    <Content Include="Images\collapse.jpg" />
+    <Content Include="Images\expand.jpg" />
+    <Content Include="Images\working.gif" />
     <Content Include="Upload.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -139,7 +152,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
     <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +162,10 @@
     <ProjectReference Include="..\ConsoleApplication\ConsoleApplication.csproj">
       <Project>{D99326D4-6E9C-44B4-8A08-9FE4B7662BDA}</Project>
       <Name>ConsoleApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAnalyzer\DataAnalyzer.vcxproj">
+      <Project>{4F567B1B-59A3-4B06-95A1-BB283B840CD8}</Project>
+      <Name>DataAnalyzer</Name>
     </ProjectReference>
     <ProjectReference Include="..\GPX\GPX.csproj">
       <Project>{159F1FC4-4759-4DB0-8695-FFD423302DB4}</Project>

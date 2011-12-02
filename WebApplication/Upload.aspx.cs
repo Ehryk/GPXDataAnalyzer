@@ -34,6 +34,8 @@ namespace WebApplication
                 i++;
             }
 
+            lblFileCount.Text = files.Count().ToString();
+
             gvFiles.DataSource = files;
             gvFiles.DataBind();
         }

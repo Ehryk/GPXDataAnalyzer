@@ -1,0 +1,223 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPXClasses.cs" caret="1261" fromTop="0" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="9163" fromTop="16" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx.cs" caret="309" fromTop="13" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPXFile.cs" caret="399" fromTop="19" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Site.Master" caret="557" fromTop="11" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="7120" fromTop="11" />
+      <File id="D771853A-D349-464E-8B94-DB79BAED40BE/f:stdafx.h" caret="248" fromTop="8" />
+      <File id="D771853A-D349-464E-8B94-DB79BAED40BE/f:DataAnalyzerConsole.h" caret="102" fromTop="4" />
+      <File id="D99326D4-6E9C-44B4-8A08-9FE4B7662BDA/f:Program.cs" caret="12655" fromTop="28" />
+      <File id="D771853A-D349-464E-8B94-DB79BAED40BE/f:DataAnalyzerConsole.cpp" caret="1120" fromTop="10" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.h" caret="162" fromTop="0" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/d:Styles/f:Site.css" caret="6911" fromTop="1" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="585" fromTop="0" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Upload.aspx.cs" caret="1348" fromTop="6" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Upload.aspx" caret="1540" fromTop="0" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="6220" fromTop="12" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="1739" fromTop="8" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="1673" fromTop="16" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="993" fromTop="6" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="1553" fromTop="12" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="1576" fromTop="12" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="937" fromTop="10" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="569" fromTop="1" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="718" fromTop="5" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Upload.aspx.cs" caret="1111" fromTop="12" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Upload.aspx" caret="506" fromTop="6" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Upload.aspx" caret="1540" fromTop="4" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="10398" fromTop="9" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="10398" fromTop="7" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="10398" fromTop="12" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="10398" fromTop="7" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="10398" fromTop="11" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="10398" fromTop="9" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="1806" fromTop="8" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="10342" fromTop="0" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="10380" fromTop="17" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="7988" fromTop="11" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="712" fromTop="7" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="1102" fromTop="0" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="5941" fromTop="9" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="6062" fromTop="14" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="4981" fromTop="11" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="5133" fromTop="9" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="5263" fromTop="14" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="5019" fromTop="7" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="6220" fromTop="12" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="1321" fromTop="3" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="Analyzer`0" priority="0" />
+      <Item value="new" priority="4" />
+      <Item value="Analyzer" priority="0" />
+      <Item value="public" priority="4" />
+      <Item value="static" priority="4" />
+      <Item value="void" priority="6" />
+      <Item value="while" priority="0" />
+      <Item value="Console`0" priority="14" />
+      <Item value="switch" priority="1" />
+      <Item value="string" priority="4" />
+      <Item value="entry" priority="6" />
+      <Item value="command" priority="0" />
+      <Item value="case" priority="4" />
+      <Item value="break" priority="5" />
+      <Item value="bool" priority="2" />
+      <Item value="true" priority="1" />
+      <Item value="false" priority="2" />
+      <Item value="subcommand" priority="1" />
+      <Item value="DataAnalyzer" priority="1" />
+      <Item value="using" priority="0" />
+      <Item value="try" priority="0" />
+      <Item value="e" priority="0" />
+      <Item value="analyzer" priority="4" />
+      <Item value="DateTime`0" priority="0" />
+      <Item value="DataAnalyzer`0" priority="2" />
+      <Item value="return" priority="2" />
+      <Item value="da" priority="3" />
+      <Item value="AddSampleSegments`0" priority="1" />
+      <Item value="double" priority="11" />
+      <Item value="returned" priority="1" />
+      <Item value="GetSample`0" priority="0" />
+      <Item value="default" priority="1" />
+      <Item value="GetDefaultDataAnalyzer`0" priority="0" />
+      <Item value="pDA" priority="0" />
+      <Item value="GetAverageVelocity`0" priority="0" />
+      <Item value="cmd" priority="2" />
+      <Item value="if" priority="4" />
+      <Item value="Count`1" priority="0" />
+      <Item value="else" priority="1" />
+      <Item value="segments" priority="5" />
+      <Item value="TestGPXLoad`0" priority="0" />
+      <Item value="distance" priority="0" />
+      <Item value="time" priority="0" />
+      <Item value="course" priority="0" />
+      <Item value="vertical" priority="0" />
+      <Item value="flat" priority="0" />
+      <Item value="AddSegment`0" priority="0" />
+      <Item value="pnlTracks" priority="0" />
+      <Item value="protected" priority="3" />
+      <Item value="object" priority="1" />
+      <Item value="EventArgs`0" priority="2" />
+      <Item value="pnlNotSure" priority="0" />
+      <Item value="ddlActivity" priority="2" />
+      <Item value="pnlHiking" priority="0" />
+      <Item value="pnlJogging" priority="0" />
+      <Item value="pnlDownhill" priority="0" />
+      <Item value="pnlCrossCountry" priority="0" />
+      <Item value="pnlVehicle" priority="1" />
+      <Item value="pnlFlight" priority="0" />
+      <Item value="ActivityChanged`0" priority="0" />
+      <Item value="pnlActivity" priority="0" />
+      <Item value="value" priority="0" />
+      <Item value="results" priority="1" />
+      <Item value="List" priority="0" />
+      <Item value="Between`0" priority="1" />
+      <Item value="foreach" priority="0" />
+      <Item value="in" priority="0" />
+      <Item value="pSegments" priority="1" />
+      <Item value="segment" priority="4" />
+      <Item value="lblHikingTotalTime" priority="0" />
+      <Item value="Session" priority="0" />
+      <Item value="as" priority="0" />
+      <Item value="gvSegments" priority="0" />
+      <Item value="cpTrackPoints" priority="1" />
+      <Item value="toShow" priority="1" />
+      <Item value="ibTrackPoints" priority="1" />
+      <Item value="Image`0" priority="0" />
+      <Item value="panel" priority="0" />
+      <Item value="showing" priority="0" />
+      <Item value="imageButton" priority="0" />
+      <Item value="Toggle`0" priority="0" />
+      <Item value="cpSegments" priority="0" />
+      <Item value="ibSegments" priority="0" />
+      <Item value="cpTotals" priority="0" />
+      <Item value="ibTotals" priority="0" />
+      <Item value="lblSegmentCount" priority="0" />
+      <Item value="Chart`0" priority="0" />
+      <Item value="cpGraphs" priority="0" />
+      <Item value="ibGraphs" priority="0" />
+      <Item value="cpData" priority="0" />
+      <Item value="ibData" priority="0" />
+      <Item value="lblFileCount" priority="0" />
+      <Item value="files" priority="0" />
+      <Item value="cpActivity" priority="0" />
+      <Item value="ibActivity" priority="0" />
+      <Item value="cpFiles" priority="0" />
+      <Item value="ibFiles" priority="0" />
+      <Item value="cpTracks" priority="0" />
+      <Item value="ibTracks" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="WriteLine`0" priority="13" />
+      <Item value="ReadLine`0" priority="0" />
+      <Item value="Clear`0" priority="0" />
+      <Item value="Write`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Split`0" priority="5" />
+      <Item value="ToUpper`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Exception">
+      <Item value="Message" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Double">
+      <Item value="Parse`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Panel">
+      <Item value="Visible" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.DropDownList">
+      <Item value="SelectedValue" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.EventArgs">
+      <Item value="Empty" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:GPX.TrackResults">
+      <Item value="BetweenList" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Count" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:GPX.Between">
+      <Item value="Course" priority="1" />
+      <Item value="Distance" priority="0" />
+      <Item value="Time" priority="0" />
+      <Item value="VerticalDistance" priority="0" />
+      <Item value="FlatEarthDistance" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Label">
+      <Item value="Text" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.ImageButton">
+      <Item value="ImageUrl" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

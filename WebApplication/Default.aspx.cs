@@ -12,6 +12,32 @@ namespace WebApplication
 {
     public partial class _Default : BasePage
     {
+        #region Properties
+
+        protected DataAnalyzer analyzer
+        {
+            get { return Session["DataAnalyzer"] as DataAnalyzer; }
+            set { Session["DataAnalyzer"] = value; }
+        }
+
+        bool ActivityPanelsVisible
+        {
+            set
+            {
+                pnlNotSure.Visible = value;
+                pnlHiking.Visible = value;
+                pnlJogging.Visible = value;
+                pnlDownhill.Visible = value;
+                pnlCrossCountry.Visible = value;
+                pnlVehicle.Visible = value;
+                pnlFlight.Visible = value;
+            }
+        }
+
+        #endregion
+
+        #region Events
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -35,12 +61,16 @@ namespace WebApplication
             {
                 pnlTracks.Visible = false;
                 pnlAnalysis.Visible = false;
+                pnlActivity.Visible = false;
+                ActivityPanelsVisible = false;
                 return;
             }
             if (!File.Exists(ddlFiles.SelectedValue))
             {
                 pnlTracks.Visible = false;
                 pnlAnalysis.Visible = false;
+                pnlActivity.Visible = false;
+                ActivityPanelsVisible = false;
                 //lblStatus.Text = "File Doesn't Exist";
                 return;
             }
@@ -48,7 +78,6 @@ namespace WebApplication
             FilePath = ddlFiles.SelectedValue;
 
             LoadTracks();
-            pnlTracks.Visible = true;
         }
 
         protected void LoadTracks()
@@ -76,6 +105,8 @@ namespace WebApplication
             if (String.IsNullOrEmpty(ddlTracks.SelectedValue))
             {
                 pnlAnalysis.Visible = false;
+                pnlActivity.Visible = false;
+                ActivityPanelsVisible = false;
                 return;
             }
 
@@ -88,8 +119,10 @@ namespace WebApplication
             gvTrackPoints.DataSource = results.TrackPoints;
             gvTrackPoints.DataBind();
 
-            gvBetween.DataSource = results.BetweenList;
-            gvBetween.DataBind();
+            lblSegmentCount.Text = String.Format(" ({0})", results.BetweenList.Count());
+
+            gvSegments.DataSource = results.BetweenList;
+            gvSegments.DataBind();
 
             lblTotalDistance.Text = results.TotalDistance.ToString();
             lblTotalVerticalDistance.Text = results.TotalVerticalDistance.ToString();
@@ -109,6 +142,112 @@ namespace WebApplication
             lblAverageFlatEarthVelocity.Text = results.AverageFlatEarthVelocity.ToString();
 
             pnlAnalysis.Visible = true;
+
+            LoadDataAnalyzer(results.BetweenList);
+
+            pnlActivity.Visible = true;
+            ActivityChanged(ddlActivity, EventArgs.Empty);
         }
+
+        #region Collabsible Panels
+
+        protected void ToggleFiles(object sender, EventArgs e)
+        {
+            Toggle(cpFiles, ibFiles);
+        }
+
+        protected void ToggleTracks(object sender, EventArgs e)
+        {
+            Toggle(cpTracks, ibTracks);
+        }
+
+        protected void ToggleData(object sender, EventArgs e)
+        {
+            Toggle(cpData, ibData);
+        }
+
+        protected void ToggleTrackPoints(object sender, EventArgs e)
+        {
+            Toggle(cpTrackPoints, ibTrackPoints);
+        }
+
+        protected void ToggleSegments(object sender, EventArgs e)
+        {
+            Toggle(cpSegments, ibSegments);
+        }
+
+        protected void ToggleTotals(object sender, EventArgs e)
+        {
+            Toggle(cpTotals, ibTotals);
+        }
+
+        protected void ToggleGraphs(object sender, EventArgs e)
+        {
+            Toggle(cpGraphs, ibGraphs);
+        }
+
+        protected void ToggleDVA(object sender, EventArgs e)
+        {
+            Toggle(cpDVA, ibDVA);
+        }
+
+        protected void ToggleActivity(object sender, EventArgs e)
+        {
+            Toggle(cpActivity, ibActivity);
+        }
+
+        #endregion
+
+        protected void ActivityChanged(object sender, EventArgs e)
+        {
+            pnlNotSure.Visible      = ddlActivity.SelectedValue == "NotSure";
+            pnlHiking.Visible       = ddlActivity.SelectedValue == "Hiking";
+            pnlJogging.Visible      = ddlActivity.SelectedValue == "Jogging";
+            pnlDownhill.Visible     = ddlActivity.SelectedValue == "Downhill";
+            pnlCrossCountry.Visible = ddlActivity.SelectedValue == "CrossCountry";
+            pnlVehicle.Visible      = ddlActivity.SelectedValue == "Vehicle";
+            pnlFlight.Visible       = ddlActivity.SelectedValue == "Flying";
+
+            if (ddlActivity.SelectedValue == "Hiking") LoadHikingResults();
+        }
+
+        #endregion
+
+        #region Methods
+
+        protected void LoadDataAnalyzer(List<Between> pSegments)
+        {
+            analyzer = new DataAnalyzer(pSegments.Count);
+
+            foreach (Between segment in pSegments)
+            {
+                analyzer.AddSegment(segment.Distance, segment.Time, segment.Course, segment.VerticalDistance, segment.FlatEarthDistance);
+            }
+        }
+
+        protected void Toggle(Panel panel, ImageButton imageButton)
+        {
+            bool showing = panel.Visible;
+
+            if (showing)
+            {
+                //Hide it
+                panel.Visible = false;
+                imageButton.ImageUrl = "~/Images/expand.jpg";
+            }
+            else
+            {
+                //Show it
+                panel.Visible = true;
+                imageButton.ImageUrl = "~/Images/collapse.jpg";
+            }
+        }
+
+        protected void LoadHikingResults()
+        {
+            lblHikingTotalTime.Text = analyzer.GetTotalTime().ToString();
+        }
+
+        #endregion
     }
 }

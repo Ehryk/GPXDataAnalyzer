@@ -475,6 +475,13 @@ margin:0 5px;
     margin-top:3px;
 }
 
+.Section
+{
+    color:White;
+    font-size:bolder;
+    background:#4B6C9E;
+}
+
 /* Target Mozilla only */
 @-moz-document url-prefix()
 {

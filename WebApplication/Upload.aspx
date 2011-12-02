@@ -7,6 +7,7 @@
 
     <asp:Panel ID="pnlUpload" CssClass="Center" style="width:100%;" runat="server">
         <div>
+            <h1 class="Center Section">Upload a New .gpx File</h1>
             <label class="Instructions">Select a .gpx file to upload:</label>
             <div class="FileInput">
                 <input type="text" id="corrected" name="corrected" class="FileInputTextbox" style="width:350px;margin-right:10px;" />
@@ -23,8 +24,8 @@
     </asp:Panel>
 
     <asp:Panel ID="pnlFiles" runat="server">
-        <hr />
-        <h1 class="Center">Uploaded Files: <asp:Label ID="lblFileCount" runat="server" Text="" /></h1>
+        <h1 class="Center Section">Uploaded Files (<asp:Label ID="lblFileCount" runat="server" Text="" />)</h1>
+        <br />
         <asp:GridView ID="gvFiles" runat="server" AutoGenerateColumns="false" CssClass="GridView" 
             RowStyle="GridRow" AlternatingRowStyle="GridAlternateRow" HeaderStyle-CssClass="GridHeader">
             <Columns>
