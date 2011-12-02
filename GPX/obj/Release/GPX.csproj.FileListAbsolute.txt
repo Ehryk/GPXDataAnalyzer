@@ -3,3 +3,8 @@ C:\Work\GPXDataAnalyzer\GPX\bin\Release\GPX.pdb
 C:\Work\GPXDataAnalyzer\GPX\obj\Release\ResolveAssemblyReference.cache
 C:\Work\GPXDataAnalyzer\GPX\obj\Release\GPX.dll
 C:\Work\GPXDataAnalyzer\GPX\obj\Release\GPX.pdb
+D:\Work\GPXDataAnalyzer\GPX\bin\Release\GPX.dll
+D:\Work\GPXDataAnalyzer\GPX\bin\Release\GPX.pdb
+D:\Work\GPXDataAnalyzer\GPX\obj\Release\ResolveAssemblyReference.cache
+D:\Work\GPXDataAnalyzer\GPX\obj\Release\GPX.dll
+D:\Work\GPXDataAnalyzer\GPX\obj\Release\GPX.pdb

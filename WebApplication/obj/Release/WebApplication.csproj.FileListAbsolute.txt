@@ -7,3 +7,16 @@ C:\Work\GPXDataAnalyzer\WebApplication\bin\GPX.pdb
 C:\Work\GPXDataAnalyzer\WebApplication\obj\Release\ResolveAssemblyReference.cache
 C:\Work\GPXDataAnalyzer\WebApplication\obj\Release\WebApplication.dll
 C:\Work\GPXDataAnalyzer\WebApplication\obj\Release\WebApplication.pdb
+D:\Work\GPXDataAnalyzer\WebApplication\bin\WebApplication.dll
+D:\Work\GPXDataAnalyzer\WebApplication\bin\WebApplication.pdb
+D:\Work\GPXDataAnalyzer\WebApplication\bin\ConsoleApplication.exe
+D:\Work\GPXDataAnalyzer\WebApplication\bin\DataAnalyzer.dll
+D:\Work\GPXDataAnalyzer\WebApplication\bin\GPX.dll
+D:\Work\GPXDataAnalyzer\WebApplication\bin\ConsoleApplication.pdb
+D:\Work\GPXDataAnalyzer\WebApplication\bin\DataAnalyzer.pdb
+D:\Work\GPXDataAnalyzer\WebApplication\bin\GPX.pdb
+D:\Work\GPXDataAnalyzer\WebApplication\obj\Release\ResolveAssemblyReference.cache
+D:\Work\GPXDataAnalyzer\WebApplication\obj\Release\WebApplication.dll
+D:\Work\GPXDataAnalyzer\WebApplication\obj\Release\WebApplication.pdb
+D:\Work\GPXDataAnalyzer\WebApplication\bin\Uploads\Sample.gpx
+D:\Work\GPXDataAnalyzer\WebApplication\bin\Uploads\Sample2.gpx
