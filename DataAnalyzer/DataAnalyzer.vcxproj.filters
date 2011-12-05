@@ -35,6 +35,9 @@
     <ClCompile Include="DataAnalyzer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Ehryk\Downloads\Code_Final_Project_Yeaa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico">

@@ -123,213 +123,6 @@ bool DataAnalyzer::AddSegment(double distance, double time, double course, doubl
 
 #pragma endregion
 
-#pragma region External
-
-//Common
-double DataAnalyzer::GetAverageDistance()
-{
-	double total = GetTotalDistance();
-
-	double average = total / n;
-
-	return average;
-}
-
-double DataAnalyzer::GetTotalDistance()
-{
-	double total = 0;
-
-	for (i = 0; i < n; i++)
-		total += distances[i];
-
-	return total;
-}
-
-double DataAnalyzer::GetAverageTime()
-{
-	double total = GetTotalTime();
-
-	double average = total / n;
-
-	return average;
-}
-
-double DataAnalyzer::GetTotalTime()
-{
-	double total = 0;
-
-	for (i = 0; i < n; i++)
-		total += times[i];
-
-	return total;
-}
-
-double DataAnalyzer::GetAverageVelocity()
-{
-	double total = 0;
-
-	for (i = 0; i < n; i++)
-		total += velocities[i];
-
-	double average = total / n;
-
-	return average;
-}
-
-double DataAnalyzer::GetMaxVelocity()
-{
-	double max = velocities[0];
-
-	for (i = 1; i < n; i++)
-		if (max < velocities[i])
-			max = velocities[i];
-
-	return max;
-}
-
-double DataAnalyzer::GetMinElevation()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetMaxElevation()
-{
-	return -1;
-}
-
-	
-//Hiking / Jogging
-int DataAnalyzer::GetNumberHikingRests()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetHikingRestTime()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetHikingSpeed()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetAverageUpSpeed()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetAverageDownSpeed()
-{
-	return -1;
-}
-
-	
-//Skiing
-int DataAnalyzer::GetNumberRuns()
-{
-	return -1;
-}
-
-int DataAnalyzer::GetNumberFalls()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetAverageLiftSpeed()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetAverageSkiSpeed()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetAverageLiftWaitTime()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetTotalLiftWaitTime()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetAverageLiftTime()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetTotalLiftTime()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetAverageRunTime()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetTotalSkiTime()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetAverageBindingTime()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetTotalBindingTime()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetSkiDistance()
-{
-	return -1;
-}
-
-
-//Snowmobile / Car
-int DataAnalyzer::GetNumberStops()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetMaximumAcceleration()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetMaximumDeceleration()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetStoppedTime()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetCoastTime()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetAcceleratingTime()
-{
-	return -1;
-}
-
-double DataAnalyzer::GetDeceleratingTime()
-{
-	return -1;
-}
-
-#pragma endregion
-
 #pragma region Internal
 
 double DataAnalyzer::Velocity(double distance, double time)
@@ -452,5 +245,472 @@ String^ DataAnalyzer::GetCourses()
 	}
 	return str;
 }
+
+#pragma endregion
+
+#pragma region External
+
+#pragma region Common
+
+double DataAnalyzer::GetAverageDistance()
+{
+	double total = GetTotalDistance();
+
+	double average = total / n;
+
+	return average;
+}
+
+double DataAnalyzer::GetTotalDistance()
+{
+	double total = 0;
+
+	for (i = 0; i < n; i++)
+		total += distances[i];
+
+	return total;
+}
+
+double DataAnalyzer::GetAverageTime()
+{
+	double total = GetTotalTime();
+
+	double average = total / n;
+
+	return average;
+}
+
+double DataAnalyzer::GetTotalTime()
+{
+	double total = 0;
+
+	for (i = 0; i < n; i++)
+		total += times[i];
+
+	return total;
+}
+
+double DataAnalyzer::GetAverageVelocity()
+{
+	double total = 0;
+
+	for (i = 0; i < n; i++)
+		total += velocities[i];
+
+	double average = total / n;
+
+	return average;
+}
+
+double DataAnalyzer::GetMaxVelocity()
+{
+	double max = 0;
+
+	for (i = 0; i < n; i++)
+		if (max < velocities[i])
+			max = velocities[i];
+
+	return max;
+}
+
+double DataAnalyzer::GetMinElevation()
+{    
+    double min = startElevation;
+
+    for(i=0;i<n;i++)
+	{
+        if(min < verticalDistances[i])
+		{
+            min = verticalDistances[i];
+        }
+    }
+
+    return min;
+}
+
+double DataAnalyzer::GetMaxElevation()			//I wrote
+{
+	double startElevation;
+	
+	for(i=0; i<n; i++) {
+		if( max > verticalDistances[i]) {
+			max = verticalDistances[i];
+		}
+	}
+	return max;
+}
+
+#pragma endregion
+
+#pragma region Hiking / Jogging
+
+int DataAnalyzer::GetNumberHikingRests()
+{    
+	int j = 0;
+
+	for(i=0;i<n;i++)
+	{
+        if(velocities[i]<.2)
+		{
+            j++;
+        }
+	}
+
+	return j;
+}
+
+double DataAnalyzer::GetHikingRestTime() 
+{
+    int j=0;
+
+    for(i=0;i<n;i++)
+	{
+        if(velocities[i] < .2)
+		{
+            j += times[i];
+        }
+	}
+
+    return j;
+}
+
+double DataAnalyzer::GetHikingSpeed()			//I WROTE
+{
+	double speed = 0;
+	int j = 0;
+
+	for(i=0; i<n; i++) 
+	{
+		if (velocities[i] > .2)
+		{
+			speed += velocities[i];
+			j ++;
+		}
+	}
+	speed = speed/j;
+	return speed;
+}
+
+double DataAnalyzer::GetAverageUpSpeed()
+{
+	double max = 0, min=4000, total = 0;
+	int counter = 0;
+
+    for (i = 0; i < n; i++){
+        if (max > velocities[i]){
+            max=velocities[i];
+            i=j;
+        }
+    }
+    for(i=0;i<n;i++){
+        if(min<velocities[i]){
+            min=velocities[i];
+            i=k;
+        }
+    }
+    for(i=k;i<j;i++){
+        total+=velocities[i];
+        counter++;
+    }
+	return total/counter;
+}
+
+double DataAnalyzer::GetAverageDownSpeed()
+{
+	double max = 0, min=4000;
+	int counter = 0;
+
+    for (i = 0; i < n; i++){
+        if (max > velocities[i]){
+            max=velocities[i];
+            i=j;
+        }
+    }
+    for(i=0;i<n;i++){
+        if(min<velocities[i]){
+            min=velocities[i];
+            i=k;
+        }
+    }
+    for(i=j;i>k;i++){
+        total+=velocities[i];
+        counter++;
+    }
+	return total/counter;
+}
+
+#pragma endregion
+
+#pragma region Skiing / Snowboarding
+
+int DataAnalyzer::GetNumberRuns()				//I WROTE
+{
+	int runs = 0;
+	for(i=0; i<n; i++) {
+		if(verticals[i] == GetMinElevation() ± 2) {
+			runs++;
+		}
+	}
+	return runs;
+}
+
+double DataAnalyzer::GetAverageLiftSpeed()
+{
+	double max = 0, min=4000;
+	int counter = 0;
+
+    for (i = 0; i < n; i++){
+        if (max > velocities[i]){
+            max=velocities[i];
+            i=j;
+        }
+    }
+    for(i=0;i<n;i++){
+        if(min<velocities[i]){
+            min=velocities[i];
+            i=k;
+        }
+    }
+    for(i=k;i<j;i++){
+        total+=velocity[i];
+        counter++;
+    }
+	return total/counter;
+}
+
+double DataAnalyzer::GetAverageSkiSpeed()
+{
+	double max = 0, min=4000;
+	int counter = 0, total = 0;
+
+    for (i = 0; i < n; i++){
+        if (max > velocities[i]){
+            max=velocities[i];
+            i=j;
+        }
+    }
+    for(i=0;i<n;i++){
+        if(min<velocities[i]){
+            min=velocities[i];
+            i=k;
+        }
+    }
+    for(i=j;i>k;i++){
+        total+=velocities[i];
+        counter++;
+    }
+	return total/counter;
+}
+
+double DataAnalyzer::GetAverageLiftWaitTime()
+{
+	for(i=0; i<n; i++) {
+		while(verticalDistances[i] == GetMinElevation() ± 2) {
+			j=0;
+			for(i=0;i<n;i++){
+				if(velocity<.2){
+					j+=time[i]
+				}
+			}
+		}
+	}
+	return j/GetNumberRuns();
+}
+
+double DataAnalyzer::GetTotalLiftWaitTime()
+{
+	for(i=0; i<n; i++) {
+		while(verticalDistances[i] == GetMinElevation() ± 2) {
+			j=0;
+			for(i=0;i<n;i++){
+				if(velocity<.2){
+					j+=time[i]
+				}
+			}
+		}
+	}
+	return j;
+}
+	
+double DataAnalyzer::GetAverageLiftTime()
+{	
+	double total_time;
+	for(i=0; i < n - 1; i++) {
+		while(verticalDistances[i+1] > verticalDistances[i]) {
+			total_time = total_time + times[i+i];
+		}
+	}
+	return total_time/GetNumberRuns();
+}
+
+double DataAnalyzer::GetTotalLiftTime()
+{
+	double total_time;
+	for(i=0; i < n - 1; i++) {
+		while(verticalDistances[i+1] > verticalDistances[i]) {
+			total_time = total_time + times[i+i];
+		}
+	}
+	return total_time;
+}
+
+double DataAnalyzer::GetAverageRunTime()
+{
+	double max = 0, min=4000;
+
+    for (i = 0; i < n; i++){
+        if (max > velocities[i]){
+            max = velocities[i];
+            i=j;
+		}
+    }
+    for(i = j; i< n - 1; i++){
+        while(verticalDistances[i+1] < verticalDistances[i]){
+            counter++;
+            total+=time[i]
+        }
+    }
+    return total/counter
+}
+
+double DataAnalyzer::GetTotalSkiTime()
+{
+	double max = 0, min=4000;
+
+    for (i = 0; i < n; i++){
+        if (max > velocities[i]){
+            max=velocities[i];
+            i=j;
+        }
+    }
+    for(i=0;i<n;i++){
+        if(min<velocities[i]){
+            min=velocities[i];
+            i=k;
+        }
+    }
+    for(i=j;i>k;i++){
+        total+=time[i];
+    }
+	return total;
+}
+
+double DataAnalyzer::GetAverageBindingTime()
+{
+	for(i=0; i<n; i++) {
+		while(verticals[i] == GetMaxElevation() ± 2) {
+			j=0;
+			for(i=0;i<n;i++){
+				if(velocity<.2){
+					j+=time[i]
+				}
+			}
+		}
+	}
+	return j/GetNumberRuns();
+}
+
+double DataAnalyzer::GetTotalBindingTime()
+{
+	int j = 0;
+
+	for(i=0; i<n; i++) {
+		while(verticals[i] == GetMaxElevation() ± 2) {
+			j=0;
+			for(i=0;i<n;i++){
+				if(velocity<.2){
+					j+=time[i]
+				}
+			}
+		}
+	}
+	return j;
+}
+
+double DataAnalyzer::GetSkiDistance()
+{
+	double total=0;
+    for(i=0;i<n;i++){
+		if(veritcle[i+1]<veritcle[i]){
+			total+=distance[i]
+		}
+    }
+    return total;
+}
+
+#pragma endregion
+
+#pragma region Vehicle (Snowmobile/4-Wheeler/Car)
+
+int DataAnalyzer::GetNumberStops()
+{
+	for(i=0;i<n;i++){
+        if(velocity[i]<.2){
+            j++;
+        }
+	}
+	return j;
+}
+
+double DataAnalyzer::GetMaximumAcceleration()
+{
+	double accerleration = 0, max_acceleration = 0;
+	for(i=0; i<n; i++) {
+		acceleration = (velocities[i+1] - velocities[i])/times[i+1];
+		if(acceleration > max_acceleration) {
+			max_acceleration = acceleration;
+		}
+	}
+	return max_acceleration;
+}
+
+double DataAnalyzer::GetMaximumDeceleration()
+{
+	double accerleration = 0, min_acceleration = 0;
+	for(i=0; i<n; i++) {
+		acceleration = (velocities[i+1] - velocities[i])/times[i+1];
+		if(acceleration < min_acceleration) {
+			min_acceleration = acceleration;
+		}
+	}
+	return min_acceleration;
+}
+
+double DataAnalyzer::GetStoppedTime()
+{
+	j=0;
+    for(i=0;i<n;i++){
+        if(velocity<.2){
+            j+=time[i]
+        }
+	}
+    return j;
+}
+
+double DataAnalyzer::GetAcceleratingTime()
+{
+	double accerleration = 0, total_time = 0;
+	for(i=0; i<n; i++) {
+		acceleration = (velocities[i+1] - velocities[i])/times[i+1];
+		if(acceleration > 0) {
+			total_time += time[i+1];
+		}
+	}
+	return total_time;
+}
+
+double DataAnalyzer::GetDeceleratingTime()
+{
+	double accerleration = 0, total_time = 0;
+	for(i=0; i<n; i++) {
+		acceleration = (velocities[i+1] - velocities[i])/times[i+1];
+		if(acceleration < 0) {
+			total_time += time[i+1];
+		}
+	}
+	return total_time;
+}
+
+#pragma endregion
 
 #pragma endregion

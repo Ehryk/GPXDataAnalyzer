@@ -1,0 +1,87 @@
+﻿Build started 12/4/2011 6:30:35 PM.
+     1>Project "D:\Work\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Release\DataAnalyzer.unsuccessfulbuild".
+       GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       ClCompile:
+         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\DataAnalyzer.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt DataAnalyzer.cpp /clr:nostdlib 
+         DataAnalyzer.cpp
+     1>DataAnalyzer.cpp(337): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>DataAnalyzer.cpp(333): warning C4101: 'startElevation' : unreferenced local variable
+     1>DataAnalyzer.cpp(370): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+     1>DataAnalyzer.cpp(402): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(408): error C2065: 'k' : undeclared identifier
+     1>DataAnalyzer.cpp(411): error C2065: 'k' : undeclared identifier
+     1>DataAnalyzer.cpp(411): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(426): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(432): error C2065: 'k' : undeclared identifier
+     1>DataAnalyzer.cpp(435): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(435): error C2065: 'k' : undeclared identifier
+     1>DataAnalyzer.cpp(436): error C2065: 'total' : undeclared identifier
+     1>DataAnalyzer.cpp(439): error C2065: 'total' : undeclared identifier
+     1>DataAnalyzer.cpp(450): error C2065: 'verticals' : undeclared identifier
+     1>DataAnalyzer.cpp(450): error C2146: syntax error : missing ')' before identifier '±'
+     1>DataAnalyzer.cpp(450): error C2065: '±' : undeclared identifier
+     1>DataAnalyzer.cpp(450): error C2143: syntax error : missing ';' before 'constant'
+     1>DataAnalyzer.cpp(450): error C2059: syntax error : ')'
+     1>DataAnalyzer.cpp(450): error C2143: syntax error : missing ';' before '{'
+     1>DataAnalyzer.cpp(465): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(471): error C2065: 'k' : undeclared identifier
+     1>DataAnalyzer.cpp(474): error C2065: 'k' : undeclared identifier
+     1>DataAnalyzer.cpp(474): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(475): error C2065: 'total' : undeclared identifier
+     1>DataAnalyzer.cpp(475): error C2065: 'velocity' : undeclared identifier
+     1>DataAnalyzer.cpp(478): error C2065: 'total' : undeclared identifier
+     1>DataAnalyzer.cpp(489): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(495): error C2065: 'k' : undeclared identifier
+     1>DataAnalyzer.cpp(498): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(498): error C2065: 'k' : undeclared identifier
+     1>DataAnalyzer.cpp(499): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+     1>DataAnalyzer.cpp(508): error C2146: syntax error : missing ')' before identifier '±'
+     1>DataAnalyzer.cpp(508): error C2065: '±' : undeclared identifier
+     1>DataAnalyzer.cpp(508): error C2143: syntax error : missing ';' before 'constant'
+     1>DataAnalyzer.cpp(508): error C2059: syntax error : ')'
+     1>DataAnalyzer.cpp(508): error C2143: syntax error : missing ';' before '{'
+     1>DataAnalyzer.cpp(509): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(511): error C2065: 'velocity' : undeclared identifier
+     1>DataAnalyzer.cpp(512): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(512): error C2065: 'time' : undeclared identifier
+     1>DataAnalyzer.cpp(513): error C2143: syntax error : missing ';' before '}'
+     1>DataAnalyzer.cpp(517): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(523): error C2146: syntax error : missing ')' before identifier '±'
+     1>DataAnalyzer.cpp(523): error C2065: '±' : undeclared identifier
+     1>DataAnalyzer.cpp(523): error C2143: syntax error : missing ';' before 'constant'
+     1>DataAnalyzer.cpp(523): error C2059: syntax error : ')'
+     1>DataAnalyzer.cpp(523): error C2143: syntax error : missing ';' before '{'
+     1>DataAnalyzer.cpp(524): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(526): error C2065: 'velocity' : undeclared identifier
+     1>DataAnalyzer.cpp(527): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(527): error C2065: 'time' : undeclared identifier
+     1>DataAnalyzer.cpp(528): error C2143: syntax error : missing ';' before '}'
+     1>DataAnalyzer.cpp(532): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(564): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(567): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(569): error C2065: 'counter' : undeclared identifier
+     1>DataAnalyzer.cpp(570): error C2065: 'total' : undeclared identifier
+     1>DataAnalyzer.cpp(570): error C2065: 'time' : undeclared identifier
+     1>DataAnalyzer.cpp(571): error C2143: syntax error : missing ';' before '}'
+     1>DataAnalyzer.cpp(573): error C2065: 'total' : undeclared identifier
+     1>DataAnalyzer.cpp(574): error C2065: 'counter' : undeclared identifier
+     1>DataAnalyzer.cpp(574): error C2143: syntax error : missing ';' before '}'
+     1>DataAnalyzer.cpp(583): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(589): error C2065: 'k' : undeclared identifier
+     1>DataAnalyzer.cpp(592): error C2065: 'j' : undeclared identifier
+     1>DataAnalyzer.cpp(592): error C2065: 'k' : undeclared identifier
+     1>DataAnalyzer.cpp(593): error C2065: 'total' : undeclared identifier
+     1>DataAnalyzer.cpp(593): error C2065: 'time' : undeclared identifier
+     1>DataAnalyzer.cpp(595): error C2065: 'total' : undeclared identifier
+     1>DataAnalyzer.cpp(601): error C2065: 'verticals' : undeclared identifier
+     1>DataAnalyzer.cpp(601): error C2146: syntax error : missing ')' before identifier '±'
+     1>DataAnalyzer.cpp(601): fatal error C1903: unable to recover from previous error(s); stopping compilation
+     1>Done Building Project "D:\Work\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.40

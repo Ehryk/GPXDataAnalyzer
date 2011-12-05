@@ -1,0 +1,61 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Site.Master" caret="1069" fromTop="6" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="727" fromTop="0" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:Code_Final_Project_Yeaa.cpp/l:C!?Users?Ehryk?Downloads?Code_Final_Project_Yeaa.cpp" caret="773" fromTop="19" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.h" caret="526" fromTop="31" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="11671" fromTop="12" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="12257" fromTop="17" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="13700" fromTop="14" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="13721" fromTop="16" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="6951" fromTop="17" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="6623" fromTop="7" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="6859" fromTop="17" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="7615" fromTop="19" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="6651" fromTop="9" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="7103" fromTop="8" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="7196" fromTop="16" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="7269" fromTop="10" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="8903" fromTop="7" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="7539" fromTop="10" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="8202" fromTop="4" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="9372" fromTop="7" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="7720" fromTop="9" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="8048" fromTop="19" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="8510" fromTop="16" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="7366" fromTop="9" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="9681" fromTop="10" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="9841" fromTop="16" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="10095" fromTop="19" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="10320" fromTop="13" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="10630" fromTop="16" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="10873" fromTop="10" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="10786" fromTop="7" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="11184" fromTop="7" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="12061" fromTop="14" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="11827" fromTop="6" />
+      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="10912" fromTop="12" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>
