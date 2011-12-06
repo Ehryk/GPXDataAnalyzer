@@ -1,0 +1,15 @@
+[Oo]bj
+[Bb]in
+[Dd]ebug
+[Rr]elease
+*.user
+*.suo
+*.[Cc]ache
+*.bak
+*.ncb
+*.log 
+*.DS_Store
+[Tt]humbs.db 
+_ReSharper.*
+*.resharper
+Ankh.NoLoad
