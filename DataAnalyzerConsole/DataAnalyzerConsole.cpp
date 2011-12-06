@@ -72,6 +72,30 @@ int main(array<System::String^>^ args)
 			{
 				Console::WriteLine("Number of Runs = {0}", analyzer->GetNumberRuns());
 			}
+			else if (command == "NUMHIKERESTS" || command == "NHR")
+			{
+				Console::WriteLine("Number of Hiking Rests = {0}", analyzer->GetNumberHikingRests());
+			}
+			else if (command == "HIKERESTTIME" || command == "HRT")
+			{
+				Console::WriteLine("Hiking Rest Time = {0}", analyzer->GetHikingRestTime());
+			}
+			else if (command == "HIKESPEED" || command == "HS")
+			{
+				Console::WriteLine("Average Hiking Speed = {0}", analyzer->GetHikingSpeed());
+			}
+			else if (command == "LISTD" || command == "LD")
+			{
+				Console::WriteLine(analyzer->GetDistances());
+			}
+			else if (command == "LISTV" || command == "LV")
+			{
+				Console::WriteLine(analyzer->GetVelocities());
+			}
+			else if (command == "LISTT" || command == "LT")
+			{
+				Console::WriteLine(analyzer->GetTimes());
+			}
 			else if (command == "HELP" || command == "H" || command == "?")
 			{
 				PrintHelp();
@@ -101,8 +125,14 @@ static void AddSampleSegments(DataAnalyzer^ pDA)
     pDA->AddSegment(495.3, 10, 199.94, 10.09, 495.20);
     pDA->AddSegment(514.3, 10, 192.42, 4.33, 514.28);
     pDA->AddSegment(468.76, 9, 188.40, 3.85, 468.74);
+    pDA->AddSegment(1, 10, 188.40, 1, 1);
+    pDA->AddSegment(468.76, 9, 188.40, 3.85, 468.74);
     pDA->AddSegment(253.65, 5, 164.79, 5.77, 253.58);
     pDA->AddSegment(200.45, 4, 139.13, 4.33, 200.41);
+    pDA->AddSegment(1, 10, 188.40, 1, 1);
+    pDA->AddSegment(1, 10, 188.40, 1, 1);
+    pDA->AddSegment(1, 10, 188.40, 1, 1);
+    pDA->AddSegment(1, 10, 188.40, 1, 1);
     pDA->AddSegment(203.53, 4, 117.75, 2.40, 203.52);
     pDA->AddSegment(155.14, 3, 100.85, 0.96, 155.13);
     pDA->AddSegment(355.56, 7, 86.89, 4.81, 355.53);
