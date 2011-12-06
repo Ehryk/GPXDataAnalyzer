@@ -7,9 +7,7 @@ using namespace System;
 public ref class DataAnalyzer
 {
 private:
-	int i;
-	int n;
-	int max;
+	int i, j, k, n, max;
 
 	double startElevation;
 	double startLatitude;
@@ -59,7 +57,7 @@ public:
 	
 	//Skiing
 	int GetNumberRuns();
-	int GetNumberFalls();
+	//int GetNumberFalls();
 	double GetAverageLiftSpeed();
 	double GetAverageSkiSpeed();
 	double GetAverageLiftWaitTime();
@@ -77,7 +75,7 @@ public:
 	double GetMaximumAcceleration();
 	double GetMaximumDeceleration();
 	double GetStoppedTime();
-	double GetCoastTime();
+	//double GetCoastTime();
 	double GetAcceleratingTime();
 	double GetDeceleratingTime();
 

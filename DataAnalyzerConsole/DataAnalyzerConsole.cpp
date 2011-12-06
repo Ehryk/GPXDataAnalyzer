@@ -68,6 +68,14 @@ int main(array<System::String^>^ args)
 			{
 				Console::WriteLine("Maximum Elevation = {0}", analyzer->GetMaxElevation());
 			}
+			else if (command == "NUMRUNS" || command == "NR")
+			{
+				Console::WriteLine("Number of Runs = {0}", analyzer->GetNumberRuns());
+			}
+			else if (command == "HELP" || command == "H" || command == "?")
+			{
+				PrintHelp();
+			}
 
 			Console::WriteLine();
 		}
