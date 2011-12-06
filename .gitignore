@@ -9,6 +9,7 @@
 *.ncb
 *.log 
 *.DS_Store
+*sdf
 [Tt]humbs.db 
 _ReSharper.*
 *.resharper
