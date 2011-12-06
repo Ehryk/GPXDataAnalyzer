@@ -509,7 +509,7 @@ double DataAnalyzer::GetAverageLiftWaitTime()
 			j=0;
 			for(i=0;i<n;i++){
 				if(velocity<.2){
-					j+=time[i]
+					j+=times[i];
 				}
 			}
 		}
