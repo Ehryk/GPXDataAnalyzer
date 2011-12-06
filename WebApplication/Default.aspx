@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="GPX Data Analyzer" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebApplication._Default" %>
 
-<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
-    Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -62,22 +61,22 @@
             </asp:Panel>
             <h1 class="Center">Totals<asp:ImageButton ID="ibTotals" OnClick="ToggleTotals" ImageUrl="~/Images/expand.jpg" style="margin-left:20px;" runat="server" /></h1>
             <asp:Panel ID="cpTotals" runat="server" Visible="false">
-                <div>Total Distance: <asp:Label ID="lblTotalDistance" runat="server" /> m</div>
-                <div>Total Vertical Distance: <asp:Label ID="lblTotalVerticalDistance" runat="server" /> m</div>
-                <div>Total Flat Earth Distance: <asp:Label ID="lblTotalFlatEarthDistance" runat="server" /> m</div>
+                <div>Total Distance: <asp:Label ID="lblTotalDistance" runat="server" /></div>
+                <div>Total Vertical Distance: <asp:Label ID="lblTotalVerticalDistance" runat="server" /></div>
+                <div>Total Flat Earth Distance: <asp:Label ID="lblTotalFlatEarthDistance" runat="server" /></div>
                 <br />
-                <div>Total Time: <asp:Label ID="lblTotalTime" runat="server" /> s</div>
+                <div>Total Time: <asp:Label ID="lblTotalTime" runat="server" /></div>
                 <br />
-                <div>Average Distance: <asp:Label ID="lblAverageDistance" runat="server" /> m</div>
-                <div>Average Vertical Distance: <asp:Label ID="lblAverageVerticalDistance" runat="server" /> m</div>
-                <div>Average Flat Earth Distance: <asp:Label ID="lblAverageFlatEarthDistance" runat="server" /> m</div>
+                <div>Average Distance: <asp:Label ID="lblAverageDistance" runat="server" /></div>
+                <div>Average Vertical Distance: <asp:Label ID="lblAverageVerticalDistance" runat="server" /></div>
+                <div>Average Flat Earth Distance: <asp:Label ID="lblAverageFlatEarthDistance" runat="server" /></div>
                 <br />
-                <div>Average Time: <asp:Label ID="lblAverageTime" runat="server" /> s</div>
+                <div>Average Time: <asp:Label ID="lblAverageTime" runat="server" /></div>
                 <div>Average Course: <asp:Label ID="lblAverageCourse" runat="server" /></div>
                 <br />
-                <div>Average Velocity: <asp:Label ID="lblAverageVelocity" runat="server" /> m/s</div>
-                <div>Average Vertical Velocity: <asp:Label ID="lblAverageVerticalVelocity" runat="server" /> m/s</div>
-                <div>Average Flat Earth Velocity: <asp:Label ID="lblAverageFlatEarthVelocity" runat="server" /> m/s</div>
+                <div>Average Velocity: <asp:Label ID="lblAverageVelocity" runat="server" /></div>
+                <div>Average Vertical Velocity: <asp:Label ID="lblAverageVerticalVelocity" runat="server" /></div>
+                <div>Average Flat Earth Velocity: <asp:Label ID="lblAverageFlatEarthVelocity" runat="server" /></div>
             </asp:Panel>
         </asp:Panel>
 
@@ -111,32 +110,46 @@
             </asp:DropDownList>
     
             <asp:Panel ID="pnlNotSure" style="width:100%;" Visible="false" runat="server">
-                Enter an activity to see more information
+                Enter an activity to see more information!
             </asp:Panel>
     
             <asp:Panel ID="pnlHiking" style="width:100%;" Visible="false" runat="server">
-                Hiking Information Here<br />
-                <div>Total Time: <asp:Label ID="lblHikingTotalTime" runat="server" /> s</div>
+                Hiking Details:<br />
+                <div>Average Hike Speed: <asp:Label ID="lblAverageHikeSpeed" runat="server" /></div>
+                <div>Total Hike Time: <asp:Label ID="lblTotalHikeTime" runat="server" /></div>
+                <div>Average Uphill Speed: <asp:Label ID="lblUphillHikeSpeed" runat="server" /></div>
+                <div>Average Downhill Speed: <asp:Label ID="lblDownhillHikeSpeed" runat="server" /></div>
+                <div>Number of Rests: <asp:Label ID="lblNumberHikingRests" runat="server" /></div>
+                <div>Total Rest Time: <asp:Label ID="lblTotalHikeRestTime" runat="server" /></div>
             </asp:Panel>
     
             <asp:Panel ID="pnlJogging" style="width:100%;" Visible="false" runat="server">
-                Jogging Information Here
+                Jogging Details:<br />
+                <div>Average Jog Speed: <asp:Label ID="lblAverageJogSpeed" runat="server" /></div>
+                <div>Average Uphill Speed: <asp:Label ID="lblUphillJogSpeed" runat="server" /></div>
+                <div>Average Downhill Speed: <asp:Label ID="lblDownhillJogSpeed" runat="server" /></div>
+                <div>Number of Rests: <asp:Label ID="lblNumberJoggingRests" runat="server" /></div>
+                <div>Total Rest Time: <asp:Label ID="lblTotalJogRestTime" runat="server" /></div>
             </asp:Panel>
     
             <asp:Panel ID="pnlDownhill" style="width:100%;" Visible="false" runat="server">
-                Downhill Information Here
+                Downhill Skiing Details:<br />
+            </asp:Panel>
+    
+            <asp:Panel ID="pnlSnowboarding" style="width:100%;" Visible="false" runat="server">
+                Snowboarding Details:<br />
             </asp:Panel>
     
             <asp:Panel ID="pnlCrossCountry" style="width:100%;" Visible="false" runat="server">
-                Cross Country Information Here
+                Cross Country Details:<br />
             </asp:Panel>
     
             <asp:Panel ID="pnlVehicle" style="width:100%;" Visible="false" runat="server">
-                Vehicle Information Here
+                Vehicle Details:<br />
             </asp:Panel>
     
             <asp:Panel ID="pnlFlight" style="width:100%;" Visible="false" runat="server">
-                Flight Information Here
+                Flight Details:<br />
             </asp:Panel>
 
         </asp:Panel>

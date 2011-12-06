@@ -28,11 +28,12 @@ Class DataAnalyzer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     GetMaxVelocity(): PrivateScope, Public, HideBySig
     GetMinElevation(): PrivateScope, Public, HideBySig
     GetMaxElevation(): PrivateScope, Public, HideBySig
-    GetNumberHikingRests(): PrivateScope, Public, HideBySig
-    GetHikingRestTime(): PrivateScope, Public, HideBySig
+    GetHikingTime(): PrivateScope, Public, HideBySig
     GetHikingSpeed(): PrivateScope, Public, HideBySig
     GetAverageUpSpeed(): PrivateScope, Public, HideBySig
     GetAverageDownSpeed(): PrivateScope, Public, HideBySig
+    GetNumberHikingRests(): PrivateScope, Public, HideBySig
+    GetHikingRestTime(): PrivateScope, Public, HideBySig
     GetNumberRuns(): PrivateScope, Public, HideBySig
     GetAverageLiftSpeed(): PrivateScope, Public, HideBySig
     GetAverageSkiSpeed(): PrivateScope, Public, HideBySig
@@ -47,8 +48,8 @@ Class DataAnalyzer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     GetSkiDistance(): PrivateScope, Public, HideBySig
     GetNumberStops(): PrivateScope, Public, HideBySig
     GetMaximumAcceleration(): PrivateScope, Public, HideBySig
-    GetMaximumDeceleration(): PrivateScope, Public, HideBySig
-    GetStoppedTime(): PrivateScope, Public, HideBySig
+    GetMinimumAcceleration(): PrivateScope, Public, HideBySig
+    GetVehicleRestTime(): PrivateScope, Public, HideBySig
     GetAcceleratingTime(): PrivateScope, Public, HideBySig
     GetDeceleratingTime(): PrivateScope, Public, HideBySig
     Velocity(Double, Double): PrivateScope, Public, HideBySig
@@ -73,3 +74,4 @@ Class DataAnalyzer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     GetVerticalVelocities(): PrivateScope, Public, HideBySig
     GetTimes(): PrivateScope, Public, HideBySig
     GetCourses(): PrivateScope, Public, HideBySig
+    PrintList(): PrivateScope, Public, HideBySig

@@ -49,11 +49,12 @@ public:
 	double GetMaxElevation();
 	
 	//Hiking / Jogging
-	int GetNumberHikingRests();
-	double GetHikingRestTime();
+	double GetHikingTime();
 	double GetHikingSpeed();
 	double GetAverageUpSpeed();
 	double GetAverageDownSpeed();
+	int GetNumberHikingRests();
+	double GetHikingRestTime();
 	
 	//Skiing
 	int GetNumberRuns();
@@ -109,4 +110,6 @@ public:
 
 	String^ GetTimes();
 	String^ GetCourses();
+	
+	String^ PrintList();
 };

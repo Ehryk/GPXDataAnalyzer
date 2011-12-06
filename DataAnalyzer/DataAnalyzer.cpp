@@ -246,6 +246,16 @@ String^ DataAnalyzer::GetCourses()
 	return str;
 }
 
+String^ DataAnalyzer::PrintList()
+{
+	String^ str = String::Format("{0,3}/{1,-3} {2,15}   {3,15}   {4,20}\n", "i", "n", "Distance", "Time", "Velocity");
+	for (i = 0; i < n; i ++)
+	{
+		str += String::Format("{0,3}/{1,-3} {2,15} m {3,15} s {4,20} m/s\n", i, n, distances[i], times[i], velocities[i]);
+	}
+	return str;
+}
+
 #pragma endregion
 
 #pragma region External
@@ -384,6 +394,21 @@ double DataAnalyzer::GetHikingRestTime()
     return restTime;
 }
 
+double DataAnalyzer::GetHikingTime() 
+{
+    double hikeTime = 0;
+
+    for(i=0; i<n; i++)
+	{
+        if(velocities[i] >= .2)
+		{
+            hikeTime += times[i];
+        }
+	}
+
+    return hikeTime;
+}
+
 double DataAnalyzer::GetHikingSpeed()			//I WROTE
 {
 	double hikeSpeed = 0;
@@ -403,50 +428,42 @@ double DataAnalyzer::GetHikingSpeed()			//I WROTE
 
 double DataAnalyzer::GetAverageUpSpeed()
 {
-	double max = 0, min=4000, total = 0;
-	int counter = 0, j = 0;
+	double upSpeeds = 0;
+	int upSegments = 0;
 
-    for (i = 0; i < n; i++){
-        if (max > velocities[i]){
-            max=velocities[i];
-            i=j;
-        }
-    }
-    for(i=0;i<n;i++){
-        if(min<velocities[i]){
-            min=velocities[i];
-            i=k;
-        }
-    }
-    for(i=k;i<j;i++){
-        total+=velocities[i];
-        counter++;
-    }
-	return total/counter;
+	for (i=0; i<n; i++)
+	{
+		if (verticalDistances[i] > 0)
+		{
+			upSpeeds += velocities[i];
+			upSegments++;
+		}
+	}
+
+	if (upSegments == 0)
+		return 0;
+
+	return upSpeeds/upSegments;
 }
 
 double DataAnalyzer::GetAverageDownSpeed()
 {
-	double max = 0, min=4000;
-	int counter = 0, j = 0, total = 0;
+	double downSpeeds = 0;
+	int downSegments = 0;
 
-    for (i = 0; i < n; i++){
-        if (max > velocities[i]){
-            max=velocities[i];
-            i=j;
-        }
-    }
-    for(i=0;i<n;i++){
-        if(min<velocities[i]){
-            min=velocities[i];
-            i=k;
-        }
-    }
-    for(i=j;i>k;i++){
-        total+=velocities[i];
-        counter++;
-    }
-	return total/counter;
+	for (i=0; i<n; i++)
+	{
+		if (verticalDistances[i] < 0)
+		{
+			downSpeeds += velocities[i];
+			downSegments++;
+		}
+	}
+
+	if (downSegments == 0)
+		return 0;
+
+	return downSpeeds/downSegments;
 }
 
 #pragma endregion

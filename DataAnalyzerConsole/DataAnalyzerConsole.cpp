@@ -84,6 +84,10 @@ int main(array<System::String^>^ args)
 			{
 				Console::WriteLine("Average Hiking Speed = {0}", analyzer->GetHikingSpeed());
 			}
+			else if (command == "LIST" || command == "L")
+			{
+				Console::WriteLine(analyzer->PrintList());
+			}
 			else if (command == "LISTD" || command == "LD")
 			{
 				Console::WriteLine(analyzer->GetDistances());

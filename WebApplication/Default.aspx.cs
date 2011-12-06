@@ -124,22 +124,22 @@ namespace WebApplication
             gvSegments.DataSource = results.Segments;
             gvSegments.DataBind();
 
-            lblTotalDistance.Text = results.TotalDistance.ToString();
-            lblTotalVerticalDistance.Text = results.TotalVerticalDistance.ToString();
-            lblTotalFlatEarthDistance.Text = results.TotalFlatEarthDistance.ToString();
+            lblTotalDistance.Text = FormatDistance(results.TotalDistance);
+            lblTotalVerticalDistance.Text = FormatDistance(results.TotalVerticalDistance);
+            lblTotalFlatEarthDistance.Text = FormatDistance(results.TotalFlatEarthDistance);
 
-            lblTotalTime.Text = results.TotalTime.ToString();
+            lblTotalTime.Text = FormatTime(results.TotalTime);
 
-            lblAverageDistance.Text = results.AverageDistance.ToString();
-            lblAverageVerticalDistance.Text = results.AverageVerticalDistance.ToString();
-            lblAverageFlatEarthDistance.Text = results.AverageFlatEarthDistance.ToString();
+            lblAverageDistance.Text = FormatDistance(results.AverageDistance);
+            lblAverageVerticalDistance.Text = FormatDistance(results.AverageVerticalDistance);
+            lblAverageFlatEarthDistance.Text = FormatDistance(results.AverageFlatEarthDistance);
 
-            lblAverageTime.Text = results.AverageTime.ToString();
-            lblAverageCourse.Text = results.AverageCourse.ToString();
+            lblAverageTime.Text = FormatTime(results.AverageTime);
+            lblAverageCourse.Text = FormatCourse(results.AverageCourse);
 
-            lblAverageVelocity.Text = results.AverageVelocity.ToString();
-            lblAverageVerticalVelocity.Text = results.AverageVerticalVelocity.ToString();
-            lblAverageFlatEarthVelocity.Text = results.AverageFlatEarthVelocity.ToString();
+            lblAverageVelocity.Text = FormatVelocity(results.AverageVelocity);
+            lblAverageVerticalVelocity.Text = FormatVelocity(results.AverageVerticalVelocity);
+            lblAverageFlatEarthVelocity.Text = FormatVelocity(results.AverageFlatEarthVelocity);
 
             pnlAnalysis.Visible = true;
 
@@ -245,7 +245,53 @@ namespace WebApplication
 
         protected void LoadHikingResults()
         {
-            lblHikingTotalTime.Text = analyzer.GetTotalTime().ToString();
+            lblAverageHikeSpeed.Text = FormatVelocity(analyzer.GetHikingSpeed());
+            lblTotalHikeTime.Text = FormatTime(analyzer.GetHikingTime());
+            lblUphillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageUpSpeed());
+            lblDownhillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageDownSpeed());
+            lblNumberHikingRests.Text = analyzer.GetNumberHikingRests().ToString();
+            lblTotalHikeRestTime.Text = FormatTime(analyzer.GetHikingRestTime());
+        }
+
+        public static string FormatTime(double seconds)
+        {
+            int s = Convert.ToInt32(seconds);
+            if (s / 60 < 1)
+                return String.Format("{0}s", seconds);
+            if (s / 3600 < 1)
+                return String.Format("{0}m {1}s", s / 60, s % 60);
+            if (s / 3600 / 24 < 1)
+                return String.Format("{0}h {1}m {2}s", s / 3600, (s / 60) % 60, s % 60);
+
+            return String.Format("{0}d {1}h {2}m {3}s", (s / 3600 / 24) % 24, (s / 3600) % 60, (s / 60) % 60, s % 60);
+        }
+
+        public static string FormatDistance(double meters)
+        {
+            return String.Format("{0:N2} ft ({1:N2} m)", MetersToFeet(meters), meters);
+        }
+
+        public static string FormatVelocity(double metersPerSecond)
+        {
+            return String.Format("{0:N2} MPH ({1:N2} m/s)", MPStoMPH(metersPerSecond), metersPerSecond);
+        }
+
+        public static string FormatCourse(double course)
+        {
+            string[] directions = new [] {"N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"};
+
+            int index = Convert.ToInt32((course + 23) / 45);
+            return String.Format("{0:N2}&deg; {1}", course, directions[index]);
+        }
+
+        public static double MetersToFeet(double meters)
+        {
+            return meters*3.2808399;
+        }
+
+        public static double MPStoMPH(double metersPerSecond)
+        {
+            return metersPerSecond*2.23693629;
         }
 
         #endregion
