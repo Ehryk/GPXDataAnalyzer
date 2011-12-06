@@ -504,6 +504,7 @@ double DataAnalyzer::GetAverageSkiSpeed()
 
 double DataAnalyzer::GetAverageLiftWaitTime()
 {
+<<<<<<< HEAD
 	int j = 0;
 	//for(i=0; i<n; i++) {
 	//	while(verticalDistances[i] == GetMinElevation() ± 2) {
@@ -515,6 +516,18 @@ double DataAnalyzer::GetAverageLiftWaitTime()
 	//		}
 	//	}
 	//}
+=======
+	for(i=0; i<n; i++) {
+		while(verticalDistances[i] == GetMinElevation() ± 2) {
+			j=0;
+			for(i=0;i<n;i++){
+				if(velocity<.2){
+					j+=times[i];
+				}
+			}
+		}
+	}
+>>>>>>> 428fccf5c9cb001fa401cd12e996f9711f7a023b
 	return j/GetNumberRuns();
 }
 
