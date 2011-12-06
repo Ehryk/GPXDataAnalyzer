@@ -20,7 +20,7 @@ namespace GPX
 
         public List<double> Courses;
 
-        public List<Between> BetweenList;
+        public List<Segment> Segments;
 
         public double TotalDistance;
         public double TotalVerticalDistance;
@@ -40,7 +40,7 @@ namespace GPX
         public double AverageFlatEarthVelocity;
     }
 
-    public class Between
+    public class Segment
     {
         public string Name { get; set; }
         public double Distance { get; set; }
@@ -72,7 +72,7 @@ namespace GPX
             results.VerticalVelocities = new List<double>();
             results.FlatEarthVelocities = new List<double>();
 
-            results.BetweenList = new List<Between>();
+            results.Segments = new List<Segment>();
 
             if (trackPoints.Count < 2)
             {
@@ -105,7 +105,7 @@ namespace GPX
 
                 results.Courses.Add(course);
 
-                results.BetweenList.Add(new Between
+                results.Segments.Add(new Segment
                                         {
                                             Name = String.Format("Point {0} to {1}", x, x + 1),
                                             Distance = distance,

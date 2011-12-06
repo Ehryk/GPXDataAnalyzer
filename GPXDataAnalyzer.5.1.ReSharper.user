@@ -9,32 +9,22 @@
   <RecentFiles>
     <RecentFiles>
       <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPXClasses.cs" caret="1261" fromTop="0" />
-      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="9163" fromTop="16" />
       <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx.cs" caret="309" fromTop="13" />
       <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPXFile.cs" caret="399" fromTop="19" />
       <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Site.Master" caret="557" fromTop="11" />
-      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.cpp" caret="7120" fromTop="11" />
       <File id="D771853A-D349-464E-8B94-DB79BAED40BE/f:stdafx.h" caret="248" fromTop="8" />
       <File id="D771853A-D349-464E-8B94-DB79BAED40BE/f:DataAnalyzerConsole.h" caret="102" fromTop="4" />
       <File id="D99326D4-6E9C-44B4-8A08-9FE4B7662BDA/f:Program.cs" caret="12655" fromTop="28" />
       <File id="D771853A-D349-464E-8B94-DB79BAED40BE/f:DataAnalyzerConsole.cpp" caret="1120" fromTop="10" />
-      <File id="4F567B1B-59A3-4B06-95A1-BB283B840CD8/f:DataAnalyzer.h" caret="162" fromTop="0" />
       <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/d:Styles/f:Site.css" caret="6911" fromTop="1" />
       <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="585" fromTop="0" />
       <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Upload.aspx.cs" caret="1348" fromTop="6" />
       <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Upload.aspx" caret="1540" fromTop="0" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="6220" fromTop="12" />
       <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="1739" fromTop="8" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="3772" fromTop="11" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="4972" fromTop="15" />
     </RecentFiles>
     <RecentEdits>
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="1673" fromTop="16" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="993" fromTop="6" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="1553" fromTop="12" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="1576" fromTop="12" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="937" fromTop="10" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="569" fromTop="1" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="718" fromTop="5" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Upload.aspx.cs" caret="1111" fromTop="12" />
       <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Upload.aspx" caret="506" fromTop="6" />
       <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Upload.aspx" caret="1540" fromTop="4" />
       <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="10398" fromTop="9" />
@@ -49,14 +39,22 @@
       <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="7988" fromTop="11" />
       <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="712" fromTop="7" />
       <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="1102" fromTop="0" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="5941" fromTop="9" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="6062" fromTop="14" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="4981" fromTop="11" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="5133" fromTop="9" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="5263" fromTop="14" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="5019" fromTop="7" />
-      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="6220" fromTop="12" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="5932" fromTop="9" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="6053" fromTop="14" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="4972" fromTop="11" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="5124" fromTop="9" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="5254" fromTop="14" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="5010" fromTop="7" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="6211" fromTop="12" />
       <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="1321" fromTop="3" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="569" fromTop="10" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="1128" fromTop="3" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="2317" fromTop="14" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="3772" fromTop="11" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="7044" fromTop="11" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="7158" fromTop="15" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="3751" fromTop="13" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="4856" fromTop="11" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

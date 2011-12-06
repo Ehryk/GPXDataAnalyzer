@@ -119,9 +119,9 @@ namespace WebApplication
             gvTrackPoints.DataSource = results.TrackPoints;
             gvTrackPoints.DataBind();
 
-            lblSegmentCount.Text = String.Format(" ({0})", results.BetweenList.Count());
+            lblSegmentCount.Text = String.Format(" ({0})", results.Segments.Count());
 
-            gvSegments.DataSource = results.BetweenList;
+            gvSegments.DataSource = results.Segments;
             gvSegments.DataBind();
 
             lblTotalDistance.Text = results.TotalDistance.ToString();
@@ -143,7 +143,7 @@ namespace WebApplication
 
             pnlAnalysis.Visible = true;
 
-            LoadDataAnalyzer(results.BetweenList);
+            LoadDataAnalyzer(results.Segments);
 
             pnlActivity.Visible = true;
             ActivityChanged(ddlActivity, EventArgs.Empty);
@@ -215,11 +215,11 @@ namespace WebApplication
 
         #region Methods
 
-        protected void LoadDataAnalyzer(List<Between> pSegments)
+        protected void LoadDataAnalyzer(List<Segment> pSegments)
         {
             analyzer = new DataAnalyzer(pSegments.Count);
 
-            foreach (Between segment in pSegments)
+            foreach (Segment segment in pSegments)
             {
                 analyzer.AddSegment(segment.Distance, segment.Time, segment.Course, segment.VerticalDistance, segment.FlatEarthDistance);
             }
