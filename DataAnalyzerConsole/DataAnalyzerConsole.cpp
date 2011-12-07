@@ -114,11 +114,15 @@ int main(array<System::String^>^ args)
 			}
 			else if (command == "GETAVERAGELIFT" || command == "ALT")
 			{
-				Console::WriteLine("Average Lift TIMe = {0}", analyzer->GetAverageLiftTime());
+				Console::WriteLine("Average Lift TIME = {0}", analyzer->GetAverageLiftTime());
+			}
+			else if (command == "GETTOTALLIFT" || command == "TLT")
+			{
+				Console::WriteLine("TOTAL Lift TIME = {0}", analyzer->GetAverageLiftTime());
 			}
 			else if (command == "GETAVGRUNTIME" || command == "ART")
 			{
-				Console::WriteLine("Average Run TIMe = {0}", analyzer->GetAverageRunTime());
+				Console::WriteLine("Average Run TIME = {0}", analyzer->GetAverageRunTime());
 			}
 			else if (command == "TOTALSKITIME" || command == "TST")
 			{

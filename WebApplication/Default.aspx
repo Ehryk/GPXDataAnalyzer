@@ -134,6 +134,9 @@
     
             <asp:Panel ID="pnlDownhill" style="width:100%;" Visible="false" runat="server">
                 Downhill Skiing Details:<br />
+                <div>Number of Runs: <asp:Label ID="lblNumberOfRuns" runat="server" /></div>
+                <div>Average Lift Speed: <asp:Label ID="lblAverageLiftSpeed" runat="server" /></div>
+                <div>Average Ski Speed: <asp:Label ID="lblAverageSkiSpeed" runat="server" /></div>
             </asp:Panel>
     
             <asp:Panel ID="pnlSnowboarding" style="width:100%;" Visible="false" runat="server">

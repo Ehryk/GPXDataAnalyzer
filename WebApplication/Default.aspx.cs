@@ -253,6 +253,13 @@ namespace WebApplication
             lblTotalHikeRestTime.Text = FormatTime(analyzer.GetHikingRestTime());
         }
 
+        protected void LoadSkiingResults()
+        {
+            lblNumberOfRuns.Text = analyzer.GetNumberRuns();
+            lblAverageLiftSpeed.Text = FormatVelocity(analyzer.GetAverageLiftSpeed());
+            lblAverageSkiSpeed.Text = FormatVelocity(analyzer.GetAverageSkiSpeed());
+        }
+
         public static string FormatTime(double seconds)
         {
             int s = Convert.ToInt32(seconds);
