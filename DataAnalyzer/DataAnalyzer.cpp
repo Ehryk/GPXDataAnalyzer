@@ -251,7 +251,7 @@ String^ DataAnalyzer::PrintList()
 	String^ str = String::Format("{0,3}/{1,-3} {2,15}   {3,15}   {4,20}\n", "i", "n", "Distance", "Time", "Velocity");
 	for (i = 0; i < n; i ++)
 	{
-		str += String::Format("{0,3}/{1,-3} {2,15} m {3,15} s {4,20} m/s\n", i, n, distances[i], times[i], velocities[i]);
+		str += String::Format("{0,3}/{1,-3} {2,15} m {3,15} s {4,20} m/s\n", i, n-1, distances[i], times[i], velocities[i]);
 	}
 	return str;
 }
@@ -472,61 +472,53 @@ double DataAnalyzer::GetAverageDownSpeed()
 
 int DataAnalyzer::GetNumberRuns()				//I WROTE
 {
-	int runs = 0;
-	//for(i=0; i<n; i++) {
-	//	if(verticals[i] == GetMinElevation() ± 2) {
-	//		runs++;
-	//	}
-	//}
-	return runs;
+//	int runs = 0;
+//	for(i=0; i<n; i++) {
+//		if(verticals[i] == GetMinElevation() ± 2) {
+//			runs++;
+//		}
+//	}
+	return 0;
 }
 
 double DataAnalyzer::GetAverageLiftSpeed()
 {
-	double max = 0, min=4000;
-	int counter = 0, j = 0, total = 0;
+	double upSpeeds = 0;
+	int upSegments = 0;
 
-    for (i = 0; i < n; i++){
-        if (max > velocities[i]){
-            max=velocities[i];
-            i=j;
-        }
-    }
-    for(i=0;i<n;i++){
-        if(min<velocities[i]){
-            min=velocities[i];
-            i=k;
-        }
-    }
-    for(i=k;i<j;i++){
-        total+=velocities[i];
-        counter++;
-    }
-	return total/counter;
+	for (i=0; i<n; i++)
+	{
+		if (verticalDistances[i] > 0)
+		{
+			upSpeeds += velocities[i];
+			upSegments++;
+		}
+	}
+
+	if (upSegments == 0)
+		return 0;
+
+	return upSpeeds/upSegments;
 }
 
 double DataAnalyzer::GetAverageSkiSpeed()
 {
-	double max = 0, min=4000;
-	int counter = 0, total = 0;
+	double downSpeeds = 0;
+	int downSegments = 0;
 
-    for (i = 0; i < n; i++){
-        if (max > velocities[i]){
-            max=velocities[i];
-            i=j;
-        }
-    }
-    for(i=0;i<n;i++){
-        if(min<velocities[i]){
-            min=velocities[i];
-            i=k;
-        }
-    }
-    for(i=j;i>k;i++){
-        total+=velocities[i];
-        counter++;
-    }
-	return total/counter;
+	for (i=0; i<n; i++)
+	{
+		if (verticalDistances[i] > 0)
+		{
+			downSpeeds += velocities[i];
+			downSegments++;
+		}
+	}
+
+	if (downSegments == 0)
+		return 0;
+
+	return downSpeeds/downSegments;
 }
 
 double DataAnalyzer::GetAverageLiftWaitTime()
@@ -593,8 +585,8 @@ double DataAnalyzer::GetAverageRunTime()
             i=j;
 		}
     }
-    for(i = j; i< n - 1; i++){
-        while(verticalDistances[i+1] < verticalDistances[i]){
+    for(i = 0; i< n - 1; i++){
+        while(verticalDistances[i+1] < 0 && verticalDistances[i]<0){
             counter++;
             total+=times[i];
         }
@@ -638,7 +630,7 @@ double DataAnalyzer::GetAverageBindingTime()
 	//		}
 	//	}
 	//}
-	return j/GetNumberRuns();
+	return 0;//j/GetNumberRuns();
 }
 
 double DataAnalyzer::GetTotalBindingTime()
@@ -697,32 +689,34 @@ int DataAnalyzer::GetNumberStops()
 
 double DataAnalyzer::GetMaximumAcceleration()
 {
-	double acceleration = 0, max_acceleration = -4000;
+	double maxAcceleration = 0;
 
 	for(i=1; i<n; i++)
 	{
-		acceleration = Acceleration(velocities[i-1], velocities[i], times[i]);
-		if(acceleration > max_acceleration) 
+		double acceleration = Acceleration(velocities[i-1], velocities[i], times[i]);
+		if(acceleration > maxAcceleration) 
 		{
-			max_acceleration = acceleration;
+			maxAcceleration = acceleration;
 		}
 	}
 
-	return max_acceleration;
+	return maxAcceleration;
 }
 
-double DataAnalyzer::GetMinimumAcceleration()
+double DataAnalyzer::GetMaximumDeceleration()
 {
-	double acceleration = 0, min_acceleration = -4000;
-	for(i=1; i<n; i++) 
+	double maxDeceleration = 0;
+
+	for(i=1; i<n; i++)
 	{
-		acceleration = (velocities[i] - velocities[i-1])/times[i];
-		if(acceleration < min_acceleration) 
+		double acceleration = Acceleration(velocities[i-1], velocities[i], times[i]);
+		if(acceleration > maxDeceleration) 
 		{
-			min_acceleration = acceleration;
+			maxDeceleration = acceleration;
 		}
 	}
-	return min_acceleration;
+
+	return 0 - maxDeceleration;
 }
 
 double DataAnalyzer::GetVehicleRestTime()

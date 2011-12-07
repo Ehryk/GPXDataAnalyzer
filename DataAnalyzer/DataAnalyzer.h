@@ -74,7 +74,7 @@ public:
 	//Snowmobile / Car
 	int GetNumberStops();
 	double GetMaximumAcceleration();
-	double GetMinimumAcceleration();
+	double GetMaximumDeceleration();
 	double GetVehicleRestTime();
 	//double GetCoastTime();
 	double GetAcceleratingTime();

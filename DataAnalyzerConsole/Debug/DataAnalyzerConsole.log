@@ -1,33 +1,30 @@
-﻿Build started 12/6/2011 2:49:34 AM.
-     1>Project "D:\Work\GPXDataAnalyzer\DataAnalyzerConsole\DataAnalyzerConsole.vcxproj" on node 3 (build target(s)).
+﻿Build started 12/6/2011 7:22:41 PM.
+     1>Project "C:\Work\GPXDataAnalyzer\DataAnalyzerConsole\DataAnalyzerConsole.vcxproj" on node 3 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\DataAnalyzerConsole.unsuccessfulbuild" because "AlwaysCreate" was specified.
        GenerateTargetFrameworkMonikerAttribute:
        Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\DataAnalyzerConsole.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FUD:\Work\GPXDataAnalyzer\Debug\DataAnalyzer.dll /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt stdafx.cpp /clr:nostdlib 
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\DataAnalyzerConsole.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FUD:\Work\GPXDataAnalyzer\Debug\DataAnalyzer.dll /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt AssemblyInfo.cpp DataAnalyzerConsole.cpp /clr:nostdlib 
-         AssemblyInfo.cpp
+         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\DataAnalyzerConsole.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FUC:\Work\GPXDataAnalyzer\Debug\DataAnalyzer.dll /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt DataAnalyzerConsole.cpp /clr:nostdlib 
          DataAnalyzerConsole.cpp
-         Generating Code...
          All outputs are up-to-date.
        ResourceCompile:
          All outputs are up-to-date.
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Work\GPXDataAnalyzer\Debug\DataAnalyzerConsole.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\DataAnalyzerConsole.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Work\GPXDataAnalyzer\Debug\DataAnalyzerConsole.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\app.res
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Work\GPXDataAnalyzer\Debug\DataAnalyzerConsole.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\DataAnalyzerConsole.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Work\GPXDataAnalyzer\Debug\DataAnalyzerConsole.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\app.res
          Debug\AssemblyInfo.obj
          Debug\DataAnalyzerConsole.obj
          Debug\stdafx.obj
          "Debug\.NETFramework,Version=v4.0.AssemblyAttributes.obj"
-         DataAnalyzerConsole.vcxproj -> D:\Work\GPXDataAnalyzer\Debug\DataAnalyzerConsole.exe
+         DataAnalyzerConsole.vcxproj -> C:\Work\GPXDataAnalyzer\Debug\DataAnalyzerConsole.exe
        Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Work\GPXDataAnalyzer\Debug\DataAnalyzerConsole.exe;#1" /manifest Debug\DataAnalyzerConsole.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Work\GPXDataAnalyzer\Debug\DataAnalyzerConsole.exe;#1" /manifest Debug\DataAnalyzerConsole.exe.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Debug\DataAnalyzerConsole.unsuccessfulbuild".
          Touching "Debug\DataAnalyzerConsole.lastbuildstate".
-     1>Done Building Project "D:\Work\GPXDataAnalyzer\DataAnalyzerConsole\DataAnalyzerConsole.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Work\GPXDataAnalyzer\DataAnalyzerConsole\DataAnalyzerConsole.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.94
+Time Elapsed 00:00:00.76
