@@ -338,7 +338,7 @@ double DataAnalyzer::GetMinElevation()
     return min;
 }
 
-double DataAnalyzer::GetMaxElevation()			//I wrote
+double DataAnalyzer::GetMaxElevation()			
 {
 	double elevation = startElevation;
 	double max = elevation;
@@ -409,7 +409,7 @@ double DataAnalyzer::GetHikingTime()
     return hikeTime;
 }
 
-double DataAnalyzer::GetHikingSpeed()			//I WROTE
+double DataAnalyzer::GetHikingSpeed()		
 {
 	double hikeSpeed = 0;
 	int hikeSegments = 0;
@@ -470,17 +470,61 @@ double DataAnalyzer::GetAverageDownSpeed()
 
 #pragma region Skiing / Snowboarding
 
-int DataAnalyzer::GetNumberRuns()		//Doesn't show Output, but compiles		
+int DataAnalyzer::GetNumberRuns()			
 {
 	int runs = 0;
-	for(i=1; i<n; i++) {
-		if(verticalDistances[i-1] < 0 && verticalDistances[i] > 0) {
-			while(velocities[i] < .5) {
-				runs++;
+
+	for(i=0; i<n; i++) {
+		if(verticalDistances[i] < 0) {
+			//Noving downhill
+			runs++;
+			
+			while(verticalDistances[i] < .2 && i < n) {
+				//Move counter forward until you start moving up again
+				i++;
 			}
 		}
 	}
 	return runs;
+}
+
+int DataAnalyzer::GetNumberLifts()				
+{
+	int runs = 0;
+
+	for(i=0; i<n; i++) {
+		if(verticalDistances[i] > 0) {
+			//Moving uphill
+			runs++;
+			
+			while(verticalDistances[i] > .2 && i < n) {
+				//Move counter forward until you start moving down again
+				i++;
+			}
+		}
+	}
+	return runs;
+}
+
+int DataAnalyzer::GetNumberFalls()			
+{
+	int falls = 0;
+
+	for(i=0; i<n; i++) {
+		if(verticalDistances[i] < 0 && velocities[i] < .2) {
+			//Moving downhill AND hit slow spot
+			
+			while(velocities[i] < .2 && i < n) {
+				//Move counter forward until you start moving fast again
+				i++;
+			}
+
+			if (verticalDistances[i] < 0)
+				falls++;
+		}
+	}
+
+	return falls;
 }
 
 double DataAnalyzer::GetAverageLiftSpeed()
@@ -523,22 +567,32 @@ double DataAnalyzer::GetAverageSkiSpeed()
 	return downSpeeds/downSegments;
 }
 
-double DataAnalyzer::GetAverageLiftWaitTime()		//Doesn't show output, but it compiles
+double DataAnalyzer::GetAverageLiftWaitTime()		
 {
-	double j = 0.0;
-	for(i=1; i<n; i++) {
-		if(verticalDistances[i-1] < 0 && verticalDistances[i] > 0) {
-			while(velocities[i] < .2){
-				j += times[i];
+	double waitTime = 0;
+
+	for(i=0; i<n; i++) {
+		if(verticalDistances[i] < 0 && velocities[i] < .2) {
+			//Moving downhill AND hit slow spot
+			double stopTime = 0;
+			
+			while(velocities[i] < .2 && i < n) {
+				//Move counter forward until you start moving fast again
+				stopTime += times[i];
+				i++;
 			}
+
+			if (verticalDistances[i] > 0)
+				waitTime += stopTime;
 		}
 	}
-	return j/GetNumberRuns();
+
+	return waitTime;
 }
 
 double DataAnalyzer::GetTotalLiftWaitTime()		
 {
-	int waitTime = 0;
+	double waitTime = 0;
 
 	for(i=1; i<n; i++)
 	{
@@ -548,10 +602,10 @@ double DataAnalyzer::GetTotalLiftWaitTime()
 		}
 	}
 
-	return waitTime;		//How can this double function output an int variable?
+	return waitTime;		
 }
 	
-double DataAnalyzer::GetAverageLiftTime()		//Doesn't show output, but it compiles
+double DataAnalyzer::GetAverageLiftTime()		
 {	
 	double totalTime = 0;
 	for(i=1; i < n - 1; i++) {
@@ -564,7 +618,7 @@ double DataAnalyzer::GetAverageLiftTime()		//Doesn't show output, but it compile
 	return totalTime/GetNumberRuns();
 }
 
-double DataAnalyzer::GetTotalLiftTime()		//Doesn't show output, but it compiles
+double DataAnalyzer::GetTotalLiftTime()		
 {
 	double total_time;
 	for(i=0; i < n - 1; i++) {

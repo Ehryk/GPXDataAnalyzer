@@ -58,7 +58,8 @@ public:
 	
 	//Skiing
 	int GetNumberRuns();
-	//int GetNumberFalls();
+	int GetNumberLifts();
+	int GetNumberFalls();
 	double GetAverageLiftSpeed();
 	double GetAverageSkiSpeed();
 	double GetAverageLiftWaitTime();
