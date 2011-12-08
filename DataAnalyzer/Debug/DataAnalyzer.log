@@ -1,33 +1,23 @@
-﻿Build started 12/7/2011 4:13:02 PM.
-     1>Project "C:\CSE 205\Code Trade\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" on node 2 (build target(s)).
+﻿Build started 12/7/2011 8:59:38 PM.
+     1>Project "C:\Users\adegang1\Downloads\Ehryk-GPXDataAnalyzer\Ehryk-GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\DataAnalyzer.unsuccessfulbuild" because "AlwaysCreate" was specified.
        GenerateTargetFrameworkMonikerAttribute:
        Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
        ClCompile:
          All outputs are up-to-date.
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\DataAnalyzer.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt DataAnalyzer.cpp /clr:nostdlib 
-         DataAnalyzer.cpp
-     1>DataAnalyzer.cpp(547): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
-     1>DataAnalyzer.cpp(726): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
-     1>c:\cse 205\code trade\gpxdataanalyzer\dataanalyzer\dataanalyzer.cpp(573): warning C4700: uninitialized local variable 'total_time' used
+         All outputs are up-to-date.
          All outputs are up-to-date.
        ResourceCompile:
          All outputs are up-to-date.
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\CSE 205\Code Trade\GPXDataAnalyzer\Debug\DataAnalyzer.dll" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\DataAnalyzer.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\CSE 205\Code Trade\GPXDataAnalyzer\Debug\DataAnalyzer.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /DLL Debug\app.res
-         Debug\AssemblyInfo.obj
-         Debug\DataAnalyzer.obj
-         Debug\Stdafx.obj
-         "Debug\.NETFramework,Version=v4.0.AssemblyAttributes.obj"
-         DataAnalyzer.vcxproj -> C:\CSE 205\Code Trade\GPXDataAnalyzer\Debug\DataAnalyzer.dll
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\CSE 205\Code Trade\GPXDataAnalyzer\Debug\DataAnalyzer.dll;#2" /manifest Debug\DataAnalyzer.dll.intermediate.manifest
+         All outputs are up-to-date.
+         DataAnalyzer.vcxproj -> C:\Users\adegang1\Downloads\Ehryk-GPXDataAnalyzer\Ehryk-GPXDataAnalyzer\Debug\DataAnalyzer.dll
        FinalizeBuildStatus:
          Deleting file "Debug\DataAnalyzer.unsuccessfulbuild".
          Touching "Debug\DataAnalyzer.lastbuildstate".
-     1>Done Building Project "C:\CSE 205\Code Trade\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Users\adegang1\Downloads\Ehryk-GPXDataAnalyzer\Ehryk-GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.76
+Time Elapsed 00:00:00.95

@@ -208,7 +208,9 @@ namespace WebApplication
             pnlVehicle.Visible      = ddlActivity.SelectedValue == "Vehicle";
             pnlFlight.Visible       = ddlActivity.SelectedValue == "Flying";
 
-            if (ddlActivity.SelectedValue == "Hiking") LoadHikingResults();
+            if (ddlActivity.SelectedValue == "Hiking" || ddlActivity.SelectedValue == "Jogging") LoadHikingResults();
+            if (ddlActivity.SelectedValue == "Downhill") LoadSkiingResults();
+            if (ddlActivity.SelectedValue == "Vehicle") LoadVehicleResults();
         }
 
         #endregion
@@ -255,9 +257,15 @@ namespace WebApplication
 
         protected void LoadSkiingResults()
         {
-            lblNumberOfRuns.Text = analyzer.GetNumberRuns();
+            lblNumberOfRuns.Text = analyzer.GetNumberRuns().ToString();
             lblAverageLiftSpeed.Text = FormatVelocity(analyzer.GetAverageLiftSpeed());
             lblAverageSkiSpeed.Text = FormatVelocity(analyzer.GetAverageSkiSpeed());
+        }
+
+        protected void LoadVehicleResults()
+        {
+            lblMaxAcceleration.Text = FormatAcceleration(analyzer.GetMaximumAcceleration());
+            lblMaxDeceleration.Text = FormatAcceleration(analyzer.GetMaximumDeceleration());
         }
 
         public static string FormatTime(double seconds)
@@ -283,6 +291,11 @@ namespace WebApplication
             return String.Format("{0:N2} MPH ({1:N2} m/s)", MPStoMPH(metersPerSecond), metersPerSecond);
         }
 
+        public static string FormatAcceleration(double metersPerSecondPerSecond)
+        {
+            return String.Format("{0:N2} g ({1:N2} m/s^2)", MPSStoG(metersPerSecondPerSecond), metersPerSecondPerSecond);
+        }
+
         public static string FormatCourse(double course)
         {
             string[] directions = new [] {"N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"};
@@ -298,7 +311,12 @@ namespace WebApplication
 
         public static double MPStoMPH(double metersPerSecond)
         {
-            return metersPerSecond*2.23693629;
+            return metersPerSecond * 2.23693629;
+        }
+
+        public static double MPSStoG(double metersPerSecondPerSecond)
+        {
+            return metersPerSecondPerSecond * 0.101971621;
         }
 
         #endregion

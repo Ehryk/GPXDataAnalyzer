@@ -517,6 +517,33 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Panel pnlDownhill;
         
         /// <summary>
+        /// lblNumberOfRuns control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumberOfRuns;
+        
+        /// <summary>
+        /// lblAverageLiftSpeed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAverageLiftSpeed;
+        
+        /// <summary>
+        /// lblAverageSkiSpeed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAverageSkiSpeed;
+        
+        /// <summary>
         /// pnlSnowboarding control.
         /// </summary>
         /// <remarks>
@@ -542,6 +569,24 @@ namespace WebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlVehicle;
+        
+        /// <summary>
+        /// lblMaxAcceleration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMaxAcceleration;
+        
+        /// <summary>
+        /// lblMaxDeceleration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMaxDeceleration;
         
         /// <summary>
         /// pnlFlight control.
