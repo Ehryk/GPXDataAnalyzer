@@ -16,7 +16,7 @@
     </p>
     <p>
         Planning, data collection, and activity specific analysis done by:<br />
-        <b>Paul Winter</b> - UAA<br />
+        <b>Paul Winter</b> - UAA <a href="mailto:pjmwinter@hotmail.com">Email</a><br />
         <b>Travis Wilson</b> - UAA<br />
         <b>Gabe Degange</b> - UAA
     </p>

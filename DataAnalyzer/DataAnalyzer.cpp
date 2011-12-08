@@ -470,15 +470,17 @@ double DataAnalyzer::GetAverageDownSpeed()
 
 #pragma region Skiing / Snowboarding
 
-int DataAnalyzer::GetNumberRuns()				//I WROTE
+int DataAnalyzer::GetNumberRuns()		//Doesn't show Output, but compiles		
 {
-//	int runs = 0;
-//	for(i=0; i<n; i++) {
-//		if(verticals[i] == GetMinElevation() ± 2) {
-//			runs++;
-//		}
-//	}
-	return 0;
+	int runs = 0;
+	for(i=1; i<n; i++) {
+		if(verticalDistances[i-1] < 0 && verticalDistances[i] > 0) {
+			while(velocities[i] < .5) {
+				runs++;
+			}
+		}
+	}
+	return runs;
 }
 
 double DataAnalyzer::GetAverageLiftSpeed()
@@ -521,23 +523,20 @@ double DataAnalyzer::GetAverageSkiSpeed()
 	return downSpeeds/downSegments;
 }
 
-double DataAnalyzer::GetAverageLiftWaitTime()
+double DataAnalyzer::GetAverageLiftWaitTime()		//Doesn't show output, but it compiles
 {
-	int j = 0;
-	//for(i=0; i<n; i++) {
-	//	while(verticalDistances[i] == GetMinElevation() ± 2) {
-	//		j=0;
-	//		for(i=0;i<n;i++){
-	//			if(velocity<.2){
-	//				j+=time[i];
-	//			}
-	//		}
-	//	}
-	//}
+	double j = 0.0;
+	for(i=1; i<n; i++) {
+		if(verticalDistances[i-1] < 0 && verticalDistances[i] > 0) {
+			while(velocities[i] < .2){
+				j += times[i];
+			}
+		}
+	}
 	return j/GetNumberRuns();
 }
 
-double DataAnalyzer::GetTotalLiftWaitTime()
+double DataAnalyzer::GetTotalLiftWaitTime()		
 {
 	int waitTime = 0;
 
@@ -549,44 +548,40 @@ double DataAnalyzer::GetTotalLiftWaitTime()
 		}
 	}
 
-	return waitTime;
+	return waitTime;		//How can this double function output an int variable?
 }
 	
-double DataAnalyzer::GetAverageLiftTime()
+double DataAnalyzer::GetAverageLiftTime()		//Doesn't show output, but it compiles
 {	
-	double total_time;
-	for(i=0; i < n - 1; i++) {
-		while(verticalDistances[i+1] > verticalDistances[i]) {
-			total_time = total_time + times[i+i];
+	double totalTime = 0;
+	for(i=1; i < n - 1; i++) {
+		if(verticalDistances[i-1] > 0) {
+			while(velocities[i] > .5) {
+				totalTime += times[i];
+			}
 		}
 	}
-	return total_time/GetNumberRuns();
+	return totalTime/GetNumberRuns();
 }
 
-double DataAnalyzer::GetTotalLiftTime()
+double DataAnalyzer::GetTotalLiftTime()		//Doesn't show output, but it compiles
 {
 	double total_time;
 	for(i=0; i < n - 1; i++) {
-		while(verticalDistances[i+1] > verticalDistances[i]) {
-			total_time = total_time + times[i+i];
+		if(verticalDistances[i] > 0) {
+			while(velocities[i] < 1) {
+				total_time += times[i+i];
+			}
 		}
 	}
 	return total_time;
 }
 
-double DataAnalyzer::GetAverageRunTime()
+double DataAnalyzer::GetAverageRunTime()		
 {
-	double max = 0, min=4000;
-	int counter = 0, total = 0;
-
-    for (i = 0; i < n; i++){
-        if (max > velocities[i]){
-            max = velocities[i];
-            i=j;
-		}
-    }
-    for(i = 0; i< n - 1; i++){
-        while(verticalDistances[i+1] < 0 && verticalDistances[i]<0){
+	double counter = 0, total = 0;
+	for(i = 1; i < n; i++){
+        if(verticalDistances[i-1] < 0 && verticalDistances[i]<0){
             counter++;
             total+=times[i];
         }
@@ -751,7 +746,7 @@ double DataAnalyzer::GetDeceleratingTime()
 	double acceleration = 0, total_time = 0;
 	for(i=1; i<n; i++)
 	{
-		acceleration = (velocities[i] - velocities[i-1])/times[i];
+		acceleration = (velocities[i] - velocities[i-1])/(times[i]-times[i-1]);
 		if(acceleration < 0)
 		{
 			total_time += times[i];
