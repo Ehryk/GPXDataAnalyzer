@@ -1,23 +1,21 @@
-﻿Build started 12/7/2011 9:53:16 PM.
-     1>Project "C:\Work\GPXDataAnalyzer\DataAnalyzerConsole\DataAnalyzerConsole.vcxproj" on node 3 (build target(s)).
-     1>InitializeBuildStatus:
-         Creating "Debug\DataAnalyzerConsole.unsuccessfulbuild" because "AlwaysCreate" was specified.
-       GenerateTargetFrameworkMonikerAttribute:
-       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
-       ClCompile:
-         All outputs are up-to-date.
-         All outputs are up-to-date.
-         All outputs are up-to-date.
-       ResourceCompile:
-         All outputs are up-to-date.
-       Link:
-         All outputs are up-to-date.
-         DataAnalyzerConsole.vcxproj -> C:\Work\GPXDataAnalyzer\Debug\DataAnalyzerConsole.exe
-       FinalizeBuildStatus:
-         Deleting file "Debug\DataAnalyzerConsole.unsuccessfulbuild".
-         Touching "Debug\DataAnalyzerConsole.lastbuildstate".
-     1>Done Building Project "C:\Work\GPXDataAnalyzer\DataAnalyzerConsole\DataAnalyzerConsole.vcxproj" (build target(s)).
+﻿Build started 12/8/2011 7:49:17 AM.
+Project "C:\Work\GPXDataAnalyzer\DataAnalyzerConsole\DataAnalyzerConsole.vcxproj" on node 2 (build target(s)).
+InitializeBuildStatus:
+  Touching "Debug\DataAnalyzerConsole.unsuccessfulbuild".
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\DataAnalyzerConsole.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FUC:\Work\GPXDataAnalyzer\Debug\DataAnalyzer.dll /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt stdafx.cpp /clr:nostdlib 
+  stdafx.cpp
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\DataAnalyzerConsole.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FUC:\Work\GPXDataAnalyzer\Debug\DataAnalyzer.dll /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt AssemblyInfo.cpp DataAnalyzerConsole.cpp /clr:nostdlib 
+  AssemblyInfo.cpp
+  DataAnalyzerConsole.cpp
+  Generating Code...
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /analyze- /errorReport:prompt "C:\Users\Ehryk\AppData\Local\Temp\.NETFramework,Version=v4.0.AssemblyAttributes.cpp"
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+C:\Users\Ehryk\AppData\Local\Temp\.NETFramework,Version=v4.0.AssemblyAttributes.cpp : fatal error C1083: Cannot open compiler generated file: 'Debug\.NETFramework,Version=v4.0.AssemblyAttributes.obj': Permission denied
+Done Building Project "C:\Work\GPXDataAnalyzer\DataAnalyzerConsole\DataAnalyzerConsole.vcxproj" (build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.26
+Time Elapsed 00:00:04.49

@@ -761,7 +761,7 @@ double DataAnalyzer::GetMaximumDeceleration()
 	for(i=1; i<n; i++)
 	{
 		double acceleration = Acceleration(velocities[i-1], velocities[i], times[i]);
-		if(acceleration > maxDeceleration) 
+		if(acceleration < maxDeceleration) 
 		{
 			maxDeceleration = acceleration;
 		}
@@ -781,6 +781,20 @@ double DataAnalyzer::GetVehicleRestTime()
         }
 	}
     return j;
+}
+
+double DataAnalyzer::GetCoastTime()
+{
+	double acceleration, total_time = 0;
+
+	for(i=1; i<n; i++) {
+		acceleration = (velocities[i] - velocities[i-1])/times[i];
+		if(-1 < acceleration && acceleration < 1 && velocities[i] > 10)
+		{
+			total_time += times[i];
+		}
+	}
+	return total_time;
 }
 
 double DataAnalyzer::GetAcceleratingTime()

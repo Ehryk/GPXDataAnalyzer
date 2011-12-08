@@ -77,7 +77,7 @@ public:
 	double GetMaximumAcceleration();
 	double GetMaximumDeceleration();
 	double GetVehicleRestTime();
-	//double GetCoastTime();
+	double GetCoastTime();
 	double GetAcceleratingTime();
 	double GetDeceleratingTime();
 

@@ -328,22 +328,31 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Panel cpGraphs;
         
         /// <summary>
-        /// ibDVA control.
+        /// ibVelocity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ibDVA;
+        protected global::System.Web.UI.WebControls.ImageButton ibVelocity;
         
         /// <summary>
-        /// cpDVA control.
+        /// cpVelocity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel cpDVA;
+        protected global::System.Web.UI.WebControls.Panel cpVelocity;
+        
+        /// <summary>
+        /// chartVelocity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart chartVelocity;
         
         /// <summary>
         /// pnlActivity control.
@@ -391,13 +400,22 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Panel pnlNotSure;
         
         /// <summary>
-        /// pnlHiking control.
+        /// pnlSlow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlHiking;
+        protected global::System.Web.UI.WebControls.Panel pnlSlow;
+        
+        /// <summary>
+        /// lblSlowTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSlowTitle;
         
         /// <summary>
         /// lblAverageHikeSpeed control.
@@ -436,6 +454,42 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Label lblDownhillHikeSpeed;
         
         /// <summary>
+        /// lblMinElevation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMinElevation;
+        
+        /// <summary>
+        /// lblMaxElevation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMaxElevation;
+        
+        /// <summary>
+        /// lblStartElevation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStartElevation;
+        
+        /// <summary>
+        /// lblEndElevation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEndElevation;
+        
+        /// <summary>
         /// lblNumberHikingRests control.
         /// </summary>
         /// <remarks>
@@ -454,60 +508,6 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Label lblTotalHikeRestTime;
         
         /// <summary>
-        /// pnlJogging control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlJogging;
-        
-        /// <summary>
-        /// lblAverageJogSpeed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAverageJogSpeed;
-        
-        /// <summary>
-        /// lblUphillJogSpeed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUphillJogSpeed;
-        
-        /// <summary>
-        /// lblDownhillJogSpeed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDownhillJogSpeed;
-        
-        /// <summary>
-        /// lblNumberJoggingRests control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNumberJoggingRests;
-        
-        /// <summary>
-        /// lblTotalJogRestTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalJogRestTime;
-        
-        /// <summary>
         /// pnlDownhill control.
         /// </summary>
         /// <remarks>
@@ -517,6 +517,15 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Panel pnlDownhill;
         
         /// <summary>
+        /// lblDownhillTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDownhillTitle;
+        
+        /// <summary>
         /// lblNumberOfRuns control.
         /// </summary>
         /// <remarks>
@@ -524,6 +533,42 @@ namespace WebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNumberOfRuns;
+        
+        /// <summary>
+        /// lblNumberOfLifts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumberOfLifts;
+        
+        /// <summary>
+        /// lblNumberOfFalls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumberOfFalls;
+        
+        /// <summary>
+        /// lblTotalDownhillDistance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalDownhillDistance;
+        
+        /// <summary>
+        /// lblVerticalDistance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVerticalDistance;
         
         /// <summary>
         /// lblAverageLiftSpeed control.
@@ -544,40 +589,49 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Label lblAverageSkiSpeed;
         
         /// <summary>
-        /// pnlSnowboarding control.
+        /// pnlFast control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSnowboarding;
+        protected global::System.Web.UI.WebControls.Panel pnlFast;
         
         /// <summary>
-        /// pnlCrossCountry control.
+        /// lblFastTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCrossCountry;
+        protected global::System.Web.UI.WebControls.Label lblFastTitle;
         
         /// <summary>
-        /// pnlVehicle control.
+        /// lblTotalFastDistance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlVehicle;
+        protected global::System.Web.UI.WebControls.Label lblTotalFastDistance;
         
         /// <summary>
-        /// lblMaxAcceleration control.
+        /// lblNumberStops control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMaxAcceleration;
+        protected global::System.Web.UI.WebControls.Label lblNumberStops;
+        
+        /// <summary>
+        /// lblMinDeceleration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMinDeceleration;
         
         /// <summary>
         /// lblMaxDeceleration control.
@@ -589,6 +643,42 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Label lblMaxDeceleration;
         
         /// <summary>
+        /// lblVehicleRestTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVehicleRestTime;
+        
+        /// <summary>
+        /// lblCoastTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCoastTime;
+        
+        /// <summary>
+        /// lblAccelerationTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAccelerationTime;
+        
+        /// <summary>
+        /// lblDecelerationTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDecelerationTime;
+        
+        /// <summary>
         /// pnlFlight control.
         /// </summary>
         /// <remarks>
@@ -596,5 +686,95 @@ namespace WebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlFlight;
+        
+        /// <summary>
+        /// lblFlightTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFlightTitle;
+        
+        /// <summary>
+        /// lblTotalFlightTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalFlightTime;
+        
+        /// <summary>
+        /// lblTotalFlightDistance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalFlightDistance;
+        
+        /// <summary>
+        /// lvlAverageFlightVelocity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lvlAverageFlightVelocity;
+        
+        /// <summary>
+        /// lblAverageClimbingVelocity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAverageClimbingVelocity;
+        
+        /// <summary>
+        /// lblAverageDescentVelocity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAverageDescentVelocity;
+        
+        /// <summary>
+        /// lblAverageFlightVelocity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAverageFlightVelocity;
+        
+        /// <summary>
+        /// lblMaximumVelocity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMaximumVelocity;
+        
+        /// <summary>
+        /// lblMaximumAcceleration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMaximumAcceleration;
+        
+        /// <summary>
+        /// lblMaximumDeceleration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMaximumDeceleration;
     }
 }

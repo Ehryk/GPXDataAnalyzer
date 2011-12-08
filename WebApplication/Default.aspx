@@ -3,6 +3,13 @@
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+    <style type="text/css">
+        label
+        {
+            font-weight:bold;
+            margin:2px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     
@@ -82,12 +89,38 @@
 
         <h1 class="Center Section">Graphs<asp:ImageButton ID="ibGraphs" OnClick="ToggleGraphs" ImageUrl="~/Images/expand.jpg" style="margin-left:20px;" runat="server" /></h1>
         <asp:Panel ID="cpGraphs" runat="server" Visible="false">
-            <h1 class="Center">Distance, Velocity, Acceleration<asp:ImageButton ID="ibDVA" OnClick="ToggleDVA" ImageUrl="~/Images/collapse.jpg" style="margin-left:20px;" runat="server" /></h1>
-            <asp:Panel ID="cpDVA" runat="server" Visible="true">
-                <%--<asp:Chart ID="chartDVA" runat="server">
-                    <series><asp:Series Name="Series1"></asp:Series></series>
-                    <chartareas><asp:ChartArea Name="ChartArea1"></asp:ChartArea></chartareas>
-                </asp:Chart>--%>
+            <h1 class="Center">Velocity<asp:ImageButton ID="ibVelocity" OnClick="ToggleVelocity" ImageUrl="~/Images/collapse.jpg" style="margin-left:20px;" runat="server" /></h1>
+            <asp:Panel ID="cpVelocity" runat="server" Visible="true">
+                <asp:Chart ID="chartVelocity" runat="server"><Series>
+                    <asp:Series Name="Velocity" ChartType="Area" Color="LightGray">
+                        <Points>
+                            <asp:DataPoint XValue="0" YValues="1000" />
+                            <asp:DataPoint XValue="5" YValues="2500" />
+                            <asp:DataPoint XValue="10" YValues="6000" />
+                            <asp:DataPoint XValue="15" YValues="4000" />
+                            <asp:DataPoint XValue="20" YValues="2500" />
+                            <asp:DataPoint XValue="25" YValues="2000" />
+                            <asp:DataPoint XValue="30" YValues="1500" />
+                            <asp:DataPoint XValue="35" YValues="1200" />
+                            <asp:DataPoint XValue="40" YValues="1000" />
+                            <asp:DataPoint XValue="45" YValues="500" />
+                            <asp:DataPoint XValue="50" YValues="0" />
+                        </Points>
+                    </asp:Series>
+                </Series>
+                <ChartAreas>
+                    <asp:ChartArea Name="chaVelocity" BackColor="#f2f2f2">
+                        <AxisY Title="Velocity" Interval="1000" IntervalType="Auto" IsMarginVisible="false">
+                            <LabelStyle Font="Aerial, 8.25pt" />
+                            <MajorGrid Enabled="false" />
+                        </AxisY>
+                        <AxisX Title="Time" Interval="10" IntervalType="Auto" IsStartedFromZero="true" Minimum="0" IsMarginVisible="false">
+                            <LabelStyle Font="Aerial, 8.25pt" />
+                            <MajorGrid Enabled="false" />
+                        </AxisX>
+                    </asp:ChartArea>
+                </ChartAreas>
+            </asp:Chart>
             </asp:Panel>
         </asp:Panel>
     </asp:Panel>
@@ -102,59 +135,83 @@
                 <asp:ListItem Text="Jogging" Value="Jogging"></asp:ListItem>
                 <asp:ListItem Text="Downhill Skiing" Value="Downhill"></asp:ListItem>
                 <asp:ListItem Text="Cross Country Skiing" Value="CrossCountry"></asp:ListItem>
-                <asp:ListItem Text="Snowboarding" Value="Downhill"></asp:ListItem>
-                <asp:ListItem Text="Snowmobiling" Value="Vehicle"></asp:ListItem>
-                <asp:ListItem Text="4-Wheeling" Value="Vehicle"></asp:ListItem>
-                <asp:ListItem Text="Driving" Value="Vehicle"></asp:ListItem>
+                <asp:ListItem Text="Snowboarding" Value="Snowboarding"></asp:ListItem>
+                <asp:ListItem Text="Snowmobiling" Value="Snowmobiling"></asp:ListItem>
+                <asp:ListItem Text="4-Wheeling" Value="4Wheeling"></asp:ListItem>
+                <asp:ListItem Text="Driving" Value="Driving"></asp:ListItem>
                 <asp:ListItem Text="Flying" Value="Flying"></asp:ListItem>
             </asp:DropDownList>
     
             <asp:Panel ID="pnlNotSure" style="width:100%;" Visible="false" runat="server">
-                Enter an activity to see more information!
+                <h3 class="Center">Enter an activity to see more information!</h3>
             </asp:Panel>
     
-            <asp:Panel ID="pnlHiking" style="width:100%;" Visible="false" runat="server">
-                Hiking Details:<br />
-                <div>Average Hike Speed: <asp:Label ID="lblAverageHikeSpeed" runat="server" /></div>
-                <div>Total Hike Time: <asp:Label ID="lblTotalHikeTime" runat="server" /></div>
+            <asp:Panel ID="pnlSlow" style="width:100%;" Visible="false" runat="server">
+                <h3 class="Center"><asp:Label ID="lblSlowTitle" runat="server" /></h3>
+
+                <div>Average <%= ddlActivity.SelectedItem.Text %> Speed: <asp:Label ID="lblAverageHikeSpeed" runat="server" /></div>
+                <div>Total <%= ddlActivity.SelectedItem.Text %> Time: <asp:Label ID="lblTotalHikeTime" runat="server" /></div>
+
                 <div>Average Uphill Speed: <asp:Label ID="lblUphillHikeSpeed" runat="server" /></div>
                 <div>Average Downhill Speed: <asp:Label ID="lblDownhillHikeSpeed" runat="server" /></div>
+                
+                <div>Lowest Elevation: <asp:Label ID="lblMinElevation" runat="server" /></div>
+                <div>Highest Elevation: <asp:Label ID="lblMaxElevation" runat="server" /></div>
+                
+                <div>Starting Elevation: <asp:Label ID="lblStartElevation" runat="server" /></div>
+                <div>Ending Elevation: <asp:Label ID="lblEndElevation" runat="server" /></div>
+
                 <div>Number of Rests: <asp:Label ID="lblNumberHikingRests" runat="server" /></div>
                 <div>Total Rest Time: <asp:Label ID="lblTotalHikeRestTime" runat="server" /></div>
             </asp:Panel>
     
-            <asp:Panel ID="pnlJogging" style="width:100%;" Visible="false" runat="server">
-                Jogging Details:<br />
-                <div>Average Jog Speed: <asp:Label ID="lblAverageJogSpeed" runat="server" /></div>
-                <div>Average Uphill Speed: <asp:Label ID="lblUphillJogSpeed" runat="server" /></div>
-                <div>Average Downhill Speed: <asp:Label ID="lblDownhillJogSpeed" runat="server" /></div>
-                <div>Number of Rests: <asp:Label ID="lblNumberJoggingRests" runat="server" /></div>
-                <div>Total Rest Time: <asp:Label ID="lblTotalJogRestTime" runat="server" /></div>
-            </asp:Panel>
-    
             <asp:Panel ID="pnlDownhill" style="width:100%;" Visible="false" runat="server">
-                Downhill Skiing Details:<br />
+                <h3 class="Center"><asp:Label ID="lblDownhillTitle" runat="server" /></h3>
+                
                 <div>Number of Runs: <asp:Label ID="lblNumberOfRuns" runat="server" /></div>
+                <div>Number of Lifts: <asp:Label ID="lblNumberOfLifts" runat="server" /></div>
+                <div>Number of Falls: <asp:Label ID="lblNumberOfFalls" runat="server" /></div>
+                
+                <div>Total Distance: <asp:Label ID="lblTotalDownhillDistance" runat="server" /></div>
+                <div>Vertical Difference: <asp:Label ID="lblVerticalDistance" runat="server" /></div>
+
                 <div>Average Lift Speed: <asp:Label ID="lblAverageLiftSpeed" runat="server" /></div>
-                <div>Average Ski Speed: <asp:Label ID="lblAverageSkiSpeed" runat="server" /></div>
+                <div>Average <%= ddlActivity.SelectedItem.Text %> Speed: <asp:Label ID="lblAverageSkiSpeed" runat="server" /></div>
             </asp:Panel>
     
-            <asp:Panel ID="pnlSnowboarding" style="width:100%;" Visible="false" runat="server">
-                Snowboarding Details:<br />
-            </asp:Panel>
-    
-            <asp:Panel ID="pnlCrossCountry" style="width:100%;" Visible="false" runat="server">
-                Cross Country Details:<br />
-            </asp:Panel>
-    
-            <asp:Panel ID="pnlVehicle" style="width:100%;" Visible="false" runat="server">
-                Vehicle Details:<br />
-                <div>Maximum Acceleration: <asp:Label ID="lblMaxAcceleration" runat="server" /></div>
+            <asp:Panel ID="pnlFast" style="width:100%;" Visible="false" runat="server">
+
+                <h3 class="Center"><asp:Label ID="lblFastTitle" runat="server" /></h3>
+
+                <div>Total Distance: <asp:Label ID="lblTotalFastDistance" runat="server" /></div>
+                
+                <div>Number of Stops: <asp:Label ID="lblNumberStops" runat="server" /></div>
+                <div>Maximum Acceleration: <asp:Label ID="lblMinDeceleration" runat="server" /></div>
                 <div>Maximum Deceleration: <asp:Label ID="lblMaxDeceleration" runat="server" /></div>
+                
+                <div>Rest Time: <asp:Label ID="lblVehicleRestTime" runat="server" /></div>
+                <div>Coasting Time: <asp:Label ID="lblCoastTime" runat="server" /></div>
+                <div>Acceleration Time: <asp:Label ID="lblAccelerationTime" runat="server" /></div>
+                <div>Deceleration Time: <asp:Label ID="lblDecelerationTime" runat="server" /></div>
+
             </asp:Panel>
     
             <asp:Panel ID="pnlFlight" style="width:100%;" Visible="false" runat="server">
-                Flight Details:<br />
+
+                <h3 class="Center"><asp:Label ID="lblFlightTitle" runat="server" /></h3>
+                
+                <div>Total Time in Flight: <asp:Label ID="lblTotalFlightTime" runat="server" /></div>
+                <div>Total Distance Flown: <asp:Label ID="lblTotalFlightDistance" runat="server" /></div>
+                
+                <div>Average Flight Velocity: <asp:Label ID="lvlAverageFlightVelocity" runat="server" /></div>
+                <div>Average Climbing Velocity: <asp:Label ID="lblAverageClimbingVelocity" runat="server" /></div>
+                <div>Average Descent Velocity: <asp:Label ID="lblAverageDescentVelocity" runat="server" /></div>
+
+                <div>Average Velocity: <asp:Label ID="lblAverageFlightVelocity" runat="server" /></div>
+                <div>Maximum Velocity: <asp:Label ID="lblMaximumVelocity" runat="server" /></div>
+                <div>Maximum Acceleration: <asp:Label ID="lblMaximumAcceleration" runat="server" /></div>
+                <div>Maximum Deceleration: <asp:Label ID="lblMaximumDeceleration" runat="server" /></div>
+
             </asp:Panel>
 
         </asp:Panel>

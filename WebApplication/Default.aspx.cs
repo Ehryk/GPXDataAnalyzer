@@ -25,11 +25,9 @@ namespace WebApplication
             set
             {
                 pnlNotSure.Visible = value;
-                pnlHiking.Visible = value;
-                pnlJogging.Visible = value;
+                pnlSlow.Visible = value;
                 pnlDownhill.Visible = value;
-                pnlCrossCountry.Visible = value;
-                pnlVehicle.Visible = value;
+                pnlFast.Visible = value;
                 pnlFlight.Visible = value;
             }
         }
@@ -143,7 +141,7 @@ namespace WebApplication
 
             pnlAnalysis.Visible = true;
 
-            LoadDataAnalyzer(results.Segments);
+            LoadDataAnalyzer(results);
 
             pnlActivity.Visible = true;
             ActivityChanged(ddlActivity, EventArgs.Empty);
@@ -188,7 +186,7 @@ namespace WebApplication
 
         protected void ToggleDVA(object sender, EventArgs e)
         {
-            Toggle(cpDVA, ibDVA);
+            Toggle(cpVelocity, ibVelocity);
         }
 
         protected void ToggleActivity(object sender, EventArgs e)
@@ -201,27 +199,36 @@ namespace WebApplication
         protected void ActivityChanged(object sender, EventArgs e)
         {
             pnlNotSure.Visible      = ddlActivity.SelectedValue == "NotSure";
-            pnlHiking.Visible       = ddlActivity.SelectedValue == "Hiking";
-            pnlJogging.Visible      = ddlActivity.SelectedValue == "Jogging";
+            ActivityPanelsVisible = false;
+
+            if (ddlActivity.SelectedValue == "Hiking" || ddlActivity.SelectedValue == "Jogging" || ddlActivity.SelectedValue == "CrossCountry")
+            {
+                LoadSlowResults(ddlActivity.SelectedValue + " Results");
+            }
+            pnlSlow.Visible       = ddlActivity.SelectedValue == "Hiking";
             pnlDownhill.Visible     = ddlActivity.SelectedValue == "Downhill";
-            pnlCrossCountry.Visible = ddlActivity.SelectedValue == "CrossCountry";
-            pnlVehicle.Visible      = ddlActivity.SelectedValue == "Vehicle";
+            pnlFast.Visible = ddlActivity.SelectedValue == "CrossCountry";
             pnlFlight.Visible       = ddlActivity.SelectedValue == "Flying";
 
-            if (ddlActivity.SelectedValue == "Hiking" || ddlActivity.SelectedValue == "Jogging") LoadHikingResults();
-            if (ddlActivity.SelectedValue == "Downhill") LoadSkiingResults();
-            if (ddlActivity.SelectedValue == "Vehicle") LoadVehicleResults();
+            if (ddlActivity.SelectedValue == "Hiking" || ddlActivity.SelectedValue == "Jogging") LoadSlowResults();
+            if (ddlActivity.SelectedValue == "Downhill") LoadDownhillResults();
+            if (ddlActivity.SelectedValue == "Vehicle") LoadFastResults();
         }
 
         #endregion
 
         #region Methods
 
-        protected void LoadDataAnalyzer(List<Segment> pSegments)
+        protected void LoadDataAnalyzer(TrackResults pResults)
         {
-            analyzer = new DataAnalyzer(pSegments.Count);
+            wptType start = pResults.TrackPoints.FirstOrDefault();
 
-            foreach (Segment segment in pSegments)
+            if (start != null)
+                analyzer = new DataAnalyzer(pResults.Segments.Count, (double)start.ele, start.time, (double)start.lat, (double)start.lon);
+            else
+                analyzer = new DataAnalyzer(pResults.Segments.Count);
+
+            foreach (Segment segment in pResults.Segments)
             {
                 analyzer.AddSegment(segment.Distance, segment.Time, segment.Course, segment.VerticalDistance, segment.FlatEarthDistance);
             }
@@ -245,8 +252,9 @@ namespace WebApplication
             }
         }
 
-        protected void LoadHikingResults()
+        protected void LoadHikingResults(string pTitle)
         {
+            lblSlowTitle.Text = pTitle;
             lblAverageHikeSpeed.Text = FormatVelocity(analyzer.GetHikingSpeed());
             lblTotalHikeTime.Text = FormatTime(analyzer.GetHikingTime());
             lblUphillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageUpSpeed());
@@ -255,14 +263,20 @@ namespace WebApplication
             lblTotalHikeRestTime.Text = FormatTime(analyzer.GetHikingRestTime());
         }
 
-        protected void LoadSkiingResults()
+        protected void LoadDownhillResults(string pTitle)
         {
             lblNumberOfRuns.Text = analyzer.GetNumberRuns().ToString();
             lblAverageLiftSpeed.Text = FormatVelocity(analyzer.GetAverageLiftSpeed());
             lblAverageSkiSpeed.Text = FormatVelocity(analyzer.GetAverageSkiSpeed());
         }
 
-        protected void LoadVehicleResults()
+        protected void LoadFastResults(string pTitle)
+        {
+            lblMaxAcceleration.Text = FormatAcceleration(analyzer.GetMaximumAcceleration());
+            lblMaxDeceleration.Text = FormatAcceleration(analyzer.GetMaximumDeceleration());
+        }
+
+        protected void LoadFlightResults(string pTitle)
         {
             lblMaxAcceleration.Text = FormatAcceleration(analyzer.GetMaximumAcceleration());
             lblMaxDeceleration.Text = FormatAcceleration(analyzer.GetMaximumDeceleration());
