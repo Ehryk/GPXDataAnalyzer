@@ -338,7 +338,7 @@ double DataAnalyzer::GetMinElevation()
     return min;
 }
 
-double DataAnalyzer::GetMaxElevation()			//I wrote
+double DataAnalyzer::GetMaxElevation()			
 {
 	double elevation = startElevation;
 	double max = elevation;
@@ -409,7 +409,7 @@ double DataAnalyzer::GetHikingTime()
     return hikeTime;
 }
 
-double DataAnalyzer::GetHikingSpeed()			//I WROTE
+double DataAnalyzer::GetHikingSpeed()		
 {
 	double hikeSpeed = 0;
 	int hikeSegments = 0;
@@ -470,15 +470,61 @@ double DataAnalyzer::GetAverageDownSpeed()
 
 #pragma region Skiing / Snowboarding
 
-int DataAnalyzer::GetNumberRuns()				//I WROTE
+int DataAnalyzer::GetNumberRuns()			
 {
-//	int runs = 0;
-//	for(i=0; i<n; i++) {
-//		if(verticals[i] == GetMinElevation() ± 2) {
-//			runs++;
-//		}
-//	}
-	return 0;
+	int runs = 0;
+
+	for(i=0; i<n; i++) {
+		if(verticalDistances[i] < 0) {
+			//Noving downhill
+			runs++;
+			
+			while(verticalDistances[i] < .2 && i < n) {
+				//Move counter forward until you start moving up again
+				i++;
+			}
+		}
+	}
+	return runs;
+}
+
+int DataAnalyzer::GetNumberLifts()				
+{
+	int runs = 0;
+
+	for(i=0; i<n; i++) {
+		if(verticalDistances[i] > 0) {
+			//Moving uphill
+			runs++;
+			
+			while(verticalDistances[i] > .2 && i < n) {
+				//Move counter forward until you start moving down again
+				i++;
+			}
+		}
+	}
+	return runs;
+}
+
+int DataAnalyzer::GetNumberFalls()			
+{
+	int falls = 0;
+
+	for(i=0; i<n; i++) {
+		if(verticalDistances[i] < 0 && velocities[i] < .2) {
+			//Moving downhill AND hit slow spot
+			
+			while(velocities[i] < .2 && i < n) {
+				//Move counter forward until you start moving fast again
+				i++;
+			}
+
+			if (verticalDistances[i] < 0)
+				falls++;
+		}
+	}
+
+	return falls;
 }
 
 double DataAnalyzer::GetAverageLiftSpeed()
@@ -521,25 +567,32 @@ double DataAnalyzer::GetAverageSkiSpeed()
 	return downSpeeds/downSegments;
 }
 
-double DataAnalyzer::GetAverageLiftWaitTime()
+double DataAnalyzer::GetAverageLiftWaitTime()		
 {
-	int j = 0;
-	//for(i=0; i<n; i++) {
-	//	while(verticalDistances[i] == GetMinElevation() ± 2) {
-	//		j=0;
-	//		for(i=0;i<n;i++){
-	//			if(velocity<.2){
-	//				j+=time[i];
-	//			}
-	//		}
-	//	}
-	//}
-	return j/GetNumberRuns();
+	double waitTime = 0;
+
+	for(i=0; i<n; i++) {
+		if(verticalDistances[i] < 0 && velocities[i] < .2) {
+			//Moving downhill AND hit slow spot
+			double stopTime = 0;
+			
+			while(velocities[i] < .2 && i < n) {
+				//Move counter forward until you start moving fast again
+				stopTime += times[i];
+				i++;
+			}
+
+			if (verticalDistances[i] > 0)
+				waitTime += stopTime;
+		}
+	}
+
+	return waitTime;
 }
 
-double DataAnalyzer::GetTotalLiftWaitTime()
+double DataAnalyzer::GetTotalLiftWaitTime()		
 {
-	int waitTime = 0;
+	double waitTime = 0;
 
 	for(i=1; i<n; i++)
 	{
@@ -549,44 +602,40 @@ double DataAnalyzer::GetTotalLiftWaitTime()
 		}
 	}
 
-	return waitTime;
+	return waitTime;		
 }
 	
-double DataAnalyzer::GetAverageLiftTime()
+double DataAnalyzer::GetAverageLiftTime()		
 {	
-	double total_time;
-	for(i=0; i < n - 1; i++) {
-		while(verticalDistances[i+1] > verticalDistances[i]) {
-			total_time = total_time + times[i+i];
+	double totalTime = 0;
+	for(i=1; i < n - 1; i++) {
+		if(verticalDistances[i-1] > 0) {
+			while(velocities[i] > .5) {
+				totalTime += times[i];
+			}
 		}
 	}
-	return total_time/GetNumberRuns();
+	return totalTime/GetNumberRuns();
 }
 
-double DataAnalyzer::GetTotalLiftTime()
+double DataAnalyzer::GetTotalLiftTime()		
 {
 	double total_time;
 	for(i=0; i < n - 1; i++) {
-		while(verticalDistances[i+1] > verticalDistances[i]) {
-			total_time = total_time + times[i+i];
+		if(verticalDistances[i] > 0) {
+			while(velocities[i] < 1) {
+				total_time += times[i+i];
+			}
 		}
 	}
 	return total_time;
 }
 
-double DataAnalyzer::GetAverageRunTime()
+double DataAnalyzer::GetAverageRunTime()		
 {
-	double max = 0, min=4000;
-	int counter = 0, total = 0;
-
-    for (i = 0; i < n; i++){
-        if (max > velocities[i]){
-            max = velocities[i];
-            i=j;
-		}
-    }
-    for(i = 0; i< n - 1; i++){
-        while(verticalDistances[i+1] < 0 && verticalDistances[i]<0){
+	double counter = 0, total = 0;
+	for(i = 1; i < n; i++){
+        if(verticalDistances[i-1] < 0 && verticalDistances[i]<0){
             counter++;
             total+=times[i];
         }
@@ -618,36 +667,38 @@ double DataAnalyzer::GetTotalSkiTime()
 
 double DataAnalyzer::GetAverageBindingTime()
 {
-	j = 0;
+	double restTime = 0;
+	int count = 0;
 
-	//for(i=0; i<n; i++) {
-	//	while(verticals[i] == GetMaxElevation() ± 2) {
-	//		j=0;
-	//		for(i=0;i<n;i++){
-	//			if(velocity<.2){
-	//				j+=time[i]
-	//			}
-	//		}
-	//	}
-	//}
-	return 0;//j/GetNumberRuns();
+    for(i=1; i<n; i++)
+	{
+       while(verticalDistances[i-1] > 0 && verticalDistances[i] < 0) 
+	   {
+			if(velocities[i-1] < .2)
+			{
+				restTime += times[i-1];
+				count++;
+			}
+	   }
+	}
+    return restTime/count;
 }
 
 double DataAnalyzer::GetTotalBindingTime()
 {
-	int j = 0;
+	double restTime = 0;
 
-	//for(i=0; i<n; i++) {
-	//	while(verticals[i] == GetMaxElevation() ± 2) {
-	//		j=0;
-	//		for(i=0;i<n;i++){
-	//			if(velocity<.2){
-	//				j+=time[i]
-	//			}
-	//		}
-	//	}
-	//}
-	return j;
+    for(i=1; i<n; i++)
+	{
+       while(verticalDistances[i-1] > 0 && verticalDistances[i] < 0) 
+	   {
+			if(velocities[i-1] < .2)
+			{
+				restTime += times[i-1];
+			}
+	   }
+	}
+    return restTime;
 }
 
 double DataAnalyzer::GetSkiDistance()
@@ -735,10 +786,10 @@ double DataAnalyzer::GetVehicleRestTime()
 double DataAnalyzer::GetAcceleratingTime()
 {
 	double acceleration = 0, total_time = 0;
-	for(i=0; i<n; i++) {
-		acceleration = (velocities[i+1] - velocities[i])/times[i+1];
+	for(i=1; i<n; i++) {
+		acceleration = (velocities[i] - velocities[i-1])/times[i];
 		if(acceleration > 0) {
-			total_time += times[i+1];
+			total_time += times[i];
 		}
 	}
 	return total_time;
@@ -749,7 +800,7 @@ double DataAnalyzer::GetDeceleratingTime()
 	double acceleration = 0, total_time = 0;
 	for(i=1; i<n; i++)
 	{
-		acceleration = (velocities[i] - velocities[i-1])/times[i];
+		acceleration = (velocities[i] - velocities[i-1])/(times[i]-times[i-1]);
 		if(acceleration < 0)
 		{
 			total_time += times[i];

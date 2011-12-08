@@ -90,8 +90,8 @@ int main(array<System::String^>^ args)
 			{
 				Console::WriteLine("Average Hiking Speed = {0}", analyzer->GetAverageDownSpeed());
 			}
-			//skiing
-			else if (command == "NUMRUNS" || command == "NR")
+			//Skiing/Snowboarding
+			else if (command == "NUMRUNS" || command == "NR")		
 			{
 				Console::WriteLine("Number of Runs = {0}", analyzer->GetNumberRuns());
 			}
@@ -103,43 +103,68 @@ int main(array<System::String^>^ args)
 			{
 				Console::WriteLine("Average Ski Speed = {0}", analyzer->GetAverageSkiSpeed());
 			}
-			else if (command == "GETAVERAGELIFTWAIT" || command == "ALW")
+			else if (command == "GETAVERAGELIFTWAIT" || command == "ALW")		
 			{
-				Console::WriteLine("Average Lift Wait TIME = {0}", analyzer->GetAverageLiftWaitTime());
+				Console::WriteLine("Average Lift Wait Time = {0}", analyzer->GetAverageLiftWaitTime());
 			}
-			
 			else if (command == "TOTALWAITTIME" || command == "TWT")
 			{
 				Console::WriteLine("Total Lift Wait TIME = {0}", analyzer->GetTotalLiftWaitTime());
 			}
-			else if (command == "GETAVERAGELIFT" || command == "ALT")
+			else if (command == "GETAVERAGELIFT" || command == "ALT")	//	
 			{
 				Console::WriteLine("Average Lift TIME = {0}", analyzer->GetAverageLiftTime());
 			}
-			else if (command == "GETTOTALLIFT" || command == "TLT")
+			else if (command == "GETTOTALLIFT" || command == "TLT")		//	
 			{
-				Console::WriteLine("TOTAL Lift TIME = {0}", analyzer->GetAverageLiftTime());
+				Console::WriteLine("TOTAL Lift TIME = {0}", analyzer->GetTotalLiftTime());
 			}
 			else if (command == "GETAVGRUNTIME" || command == "ART")
 			{
 				Console::WriteLine("Average Run TIME = {0}", analyzer->GetAverageRunTime());
 			}
-			else if (command == "TOTALSKITIME" || command == "TST")
+			else if (command == "TOTALSKITIME" || command == "TST")			//no ski time
 			{
 				Console::WriteLine("Total Ski Time = {0}", analyzer->GetTotalSkiTime());
 			}
-			else if (command == "AVERAGEBINDINGTIME" || command == "ABT")
+			else if (command == "AVERAGEBINDINGTIME" || command == "ABT")	//	
 			{
 				Console::WriteLine("Average binding Time = {0}", analyzer->GetAverageBindingTime());
 			}
-			else if (command == "TTLBINDTIME" || command == "TBT")    // returns 0
+			else if (command == "TTLBINDTIME" || command == "TBT")    //
 			{
 				Console::WriteLine("Total binding Time = {0}", analyzer->GetTotalBindingTime());
 			}
-			else if (command == "SKIDISTANCE" || command == "SD")				//WORKing
+			else if (command == "SKIDISTANCE" || command == "SD")				
 			{
 				Console::WriteLine("Total Ski Distance = {0}", analyzer->GetSkiDistance());
 			}
+			//Snowmachine, Car, etc.
+			else if (command == "NUMBERSTOPS" || command == "NS")				
+			{
+				Console::WriteLine("Total number of Stops = {0}", analyzer->GetNumberStops());
+			}
+			else if (command == "MAXACCELERATION" || command == "MA")				
+			{
+				Console::WriteLine("Maximum Acceleration = {0}", analyzer->GetMaximumAcceleration());
+			}
+			else if (command == "MAXDECELERATION" || command == "MD")				
+			{
+				Console::WriteLine("Maximum Deceleration = {0}", analyzer->GetMaximumDeceleration());
+			}
+			else if (command == "VEHICLERESTTIME" || command == "VRT")				
+			{
+				Console::WriteLine("Total Rest Time = {0}", analyzer->GetVehicleRestTime());
+			}
+			else if (command == "ACCELERATINGTIME" || command == "AT")				
+			{
+				Console::WriteLine("Total Time While Accelerating = {0}", analyzer->GetAcceleratingTime());
+			}
+			else if (command == "DECELERATINGTIME" || command == "DT")				
+			{
+				Console::WriteLine("Total Time While Decelerating= {0}", analyzer->GetDeceleratingTime());
+			}
+			//Lists
 			else if (command == "LIST" || command == "L")
 			{
 				Console::WriteLine(analyzer->PrintList());
@@ -181,20 +206,24 @@ int main(array<System::String^>^ args)
 
 static void AddSampleSegments(DataAnalyzer^ pDA)
 {
+	//SampleSegments(Distance, Time, Course, Vertical, Horizontal)
     pDA->AddSegment(393.93, 8, 205.98, 9.61, 393.81);
     pDA->AddSegment(495.3, 10, 199.94, 10.09, 495.20);
     pDA->AddSegment(514.3, 10, 192.42, 4.33, 514.28);
-    pDA->AddSegment(468.76, 9, 188.40, 3.85, 468.74);
-    pDA->AddSegment(1, 10, 188.40, 1, 1);
-    pDA->AddSegment(468.76, 9, 188.40, 3.85, 468.74);
-    pDA->AddSegment(253.65, 5, 164.79, 5.77, 253.58);
+    pDA->AddSegment(468.76, 9, 188.40, 3.85, -50.87);
+    pDA->AddSegment(2, 10, 188.40, -1, 1);
+    pDA->AddSegment(468.76, 9, 188.40, -3.85, 468.74);
+    pDA->AddSegment(253.65, 5, 164.79, -5.77, 253.58);
+    pDA->AddSegment(253.65, 5, 164.79, -5.77, 253.58);
+    pDA->AddSegment(253.65, 5, 164.79, -5.77, 253.58);
+    pDA->AddSegment(253.65, 5, 164.79, -5.77, 253.58);
     pDA->AddSegment(200.45, 4, 139.13, 4.33, 200.41);
     pDA->AddSegment(1, 10, 188.40, 1, 1);
-    pDA->AddSegment(1, 10, 188.40, -1, 1);
+    pDA->AddSegment(1, 10, 188.40, -2.7, 1);
     pDA->AddSegment(1, 10, 188.40, -1, 1);
     pDA->AddSegment(1, 10, 188.40, 1, 1);
     pDA->AddSegment(203.53, 4, 117.75, 2.40, 203.52);
-    pDA->AddSegment(155.14, 3, 100.85, 0.96, 155.13);
+    pDA->AddSegment(155.14, 3, 100.85, -0.96, 155.13);
     pDA->AddSegment(355.56, 7, 86.89, 4.81, 355.53);
     pDA->AddSegment(242.13, 5, 70.93, 11.54, 241.85);
 }

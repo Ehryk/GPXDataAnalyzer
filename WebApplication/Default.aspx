@@ -149,6 +149,8 @@
     
             <asp:Panel ID="pnlVehicle" style="width:100%;" Visible="false" runat="server">
                 Vehicle Details:<br />
+                <div>Maximum Acceleration: <asp:Label ID="lblMaxAcceleration" runat="server" /></div>
+                <div>Maximum Deceleration: <asp:Label ID="lblMaxDeceleration" runat="server" /></div>
             </asp:Panel>
     
             <asp:Panel ID="pnlFlight" style="width:100%;" Visible="false" runat="server">
