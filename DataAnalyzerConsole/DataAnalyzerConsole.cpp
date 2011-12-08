@@ -91,7 +91,7 @@ int main(array<System::String^>^ args)
 				Console::WriteLine("Average Hiking Speed = {0}", analyzer->GetAverageDownSpeed());
 			}
 			//Skiing/Snowboarding
-			else if (command == "NUMRUNS" || command == "NR")		//Doesn't show output, but it compiles
+			else if (command == "NUMRUNS" || command == "NR")		
 			{
 				Console::WriteLine("Number of Runs = {0}", analyzer->GetNumberRuns());
 			}
@@ -103,7 +103,7 @@ int main(array<System::String^>^ args)
 			{
 				Console::WriteLine("Average Ski Speed = {0}", analyzer->GetAverageSkiSpeed());
 			}
-			else if (command == "GETAVERAGELIFTWAIT" || command == "ALW")		//Doesn't show output, but it compiles
+			else if (command == "GETAVERAGELIFTWAIT" || command == "ALW")		
 			{
 				Console::WriteLine("Average Lift Wait Time = {0}", analyzer->GetAverageLiftWaitTime());
 			}
@@ -111,11 +111,11 @@ int main(array<System::String^>^ args)
 			{
 				Console::WriteLine("Total Lift Wait TIME = {0}", analyzer->GetTotalLiftWaitTime());
 			}
-			else if (command == "GETAVERAGELIFT" || command == "ALT")		//Doesn't show output, but it compiles
+			else if (command == "GETAVERAGELIFT" || command == "ALT")	//	
 			{
 				Console::WriteLine("Average Lift TIME = {0}", analyzer->GetAverageLiftTime());
 			}
-			else if (command == "GETTOTALLIFT" || command == "TLT")			//Doesn't show output, but it compiles
+			else if (command == "GETTOTALLIFT" || command == "TLT")		//	
 			{
 				Console::WriteLine("TOTAL Lift TIME = {0}", analyzer->GetTotalLiftTime());
 			}
@@ -123,15 +123,15 @@ int main(array<System::String^>^ args)
 			{
 				Console::WriteLine("Average Run TIME = {0}", analyzer->GetAverageRunTime());
 			}
-			else if (command == "TOTALSKITIME" || command == "TST")
+			else if (command == "TOTALSKITIME" || command == "TST")			//no ski time
 			{
 				Console::WriteLine("Total Ski Time = {0}", analyzer->GetTotalSkiTime());
 			}
-			else if (command == "AVERAGEBINDINGTIME" || command == "ABT")
+			else if (command == "AVERAGEBINDINGTIME" || command == "ABT")	//	
 			{
 				Console::WriteLine("Average binding Time = {0}", analyzer->GetAverageBindingTime());
 			}
-			else if (command == "TTLBINDTIME" || command == "TBT")    
+			else if (command == "TTLBINDTIME" || command == "TBT")    //
 			{
 				Console::WriteLine("Total binding Time = {0}", analyzer->GetTotalBindingTime());
 			}
@@ -213,6 +213,9 @@ static void AddSampleSegments(DataAnalyzer^ pDA)
     pDA->AddSegment(468.76, 9, 188.40, 3.85, -50.87);
     pDA->AddSegment(2, 10, 188.40, -1, 1);
     pDA->AddSegment(468.76, 9, 188.40, -3.85, 468.74);
+    pDA->AddSegment(253.65, 5, 164.79, -5.77, 253.58);
+    pDA->AddSegment(253.65, 5, 164.79, -5.77, 253.58);
+    pDA->AddSegment(253.65, 5, 164.79, -5.77, 253.58);
     pDA->AddSegment(253.65, 5, 164.79, -5.77, 253.58);
     pDA->AddSegment(200.45, 4, 139.13, 4.33, 200.41);
     pDA->AddSegment(1, 10, 188.40, 1, 1);
