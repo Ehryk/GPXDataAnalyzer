@@ -255,7 +255,7 @@ namespace WebApplication
 
         protected void LoadSkiingResults()
         {
-            lblNumberOfRuns.Text = analyzer.GetNumberRuns();
+            lblNumberOfRuns.Text = analyzer.GetNumberRuns().ToString();
             lblAverageLiftSpeed.Text = FormatVelocity(analyzer.GetAverageLiftSpeed());
             lblAverageSkiSpeed.Text = FormatVelocity(analyzer.GetAverageSkiSpeed());
         }
