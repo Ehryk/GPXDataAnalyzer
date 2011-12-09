@@ -66,7 +66,7 @@
                     </EmptyDataTemplate>
                 </asp:GridView>
             </asp:Panel>
-            <h1 class="Center">Totals<asp:ImageButton ID="ibTotals" OnClick="ToggleTotals" ImageUrl="~/Images/expand.jpg" style="margin-left:20px;" runat="server" /></h1>
+            <h1 class="Center">Basic Analysis<asp:ImageButton ID="ibTotals" OnClick="ToggleTotals" ImageUrl="~/Images/expand.jpg" style="margin-left:20px;" runat="server" /></h1>
             <asp:Panel ID="cpTotals" runat="server" Visible="false">
                 <div>Total Distance: <asp:Label ID="lblTotalDistance" runat="server" /></div>
                 <div>Total Vertical Distance: <asp:Label ID="lblTotalVerticalDistance" runat="server" /></div>
@@ -91,7 +91,7 @@
         <asp:Panel ID="cpGraphs" runat="server" Visible="false">
             <h1 class="Center">Velocity<asp:ImageButton ID="ibVelocity" OnClick="ToggleVelocity" ImageUrl="~/Images/collapse.jpg" style="margin-left:20px;" runat="server" /></h1>
             <asp:Panel ID="cpVelocity" runat="server" Visible="true">
-                <h3>Coming Soon!!!</h3>
+                <h3 class="Center">Coming Soon!!!</h3>
 <%--                <asp:Chart ID="chartVelocity" runat="server"><Series>
                     <asp:Series Name="Velocity" ChartType="Area" Color="LightGray">
                         <Points>
@@ -142,14 +142,16 @@
                 <asp:ListItem Text="Driving" Value="Driving"></asp:ListItem>
                 <asp:ListItem Text="Flying" Value="Flying"></asp:ListItem>
             </asp:DropDownList>
+        </asp:Panel>
+
+        <h1 class="Center Section"><asp:Label ID="lblResultsTitle" runat="server" Text="Results" /><asp:ImageButton ID="ibResults" OnClick="ToggleResults" ImageUrl="~/Images/collapse.jpg" style="margin-left:20px;" runat="server" /></h1>
+        <asp:Panel ID="cpResults" runat="server" Visible="true">
     
             <asp:Panel ID="pnlNotSure" style="width:100%;" Visible="false" runat="server">
                 <h3 class="Center">Enter an activity to see more information!</h3>
             </asp:Panel>
     
             <asp:Panel ID="pnlSlow" style="width:100%;" Visible="false" runat="server">
-                <h3 class="Center"><asp:Label ID="lblSlowTitle" runat="server" /></h3>
-
                 <div>Average <%= ddlActivity.SelectedItem.Text %> Speed: <asp:Label ID="lblAverageHikeSpeed" runat="server" /></div>
                 <div>Total <%= ddlActivity.SelectedItem.Text %> Time: <asp:Label ID="lblTotalHikeTime" runat="server" /></div>
 
@@ -167,8 +169,6 @@
             </asp:Panel>
     
             <asp:Panel ID="pnlDownhill" style="width:100%;" Visible="false" runat="server">
-                <h3 class="Center"><asp:Label ID="lblDownhillTitle" runat="server" /></h3>
-                
                 <div>Number of Runs: <asp:Label ID="lblNumberOfRuns" runat="server" /></div>
                 <div>Number of Lifts: <asp:Label ID="lblNumberOfLifts" runat="server" /></div>
                 <div>Number of Falls: <asp:Label ID="lblNumberOfFalls" runat="server" /></div>
@@ -181,9 +181,6 @@
             </asp:Panel>
     
             <asp:Panel ID="pnlFast" style="width:100%;" Visible="false" runat="server">
-
-                <h3 class="Center"><asp:Label ID="lblFastTitle" runat="server" /></h3>
-
                 <div>Total Distance: <asp:Label ID="lblTotalFastDistance" runat="server" /></div>
                 <div>Total <%= ddlActivity.SelectedItem.Text %> Time: <asp:Label ID="lblTotalFastTime" runat="server" /></div>
                 
@@ -195,13 +192,9 @@
                 <div>Coasting Time: <asp:Label ID="lblCoastTime" runat="server" /></div>
                 <div>Acceleration Time: <asp:Label ID="lblAccelerationTime" runat="server" /></div>
                 <div>Deceleration Time: <asp:Label ID="lblDecelerationTime" runat="server" /></div>
-
             </asp:Panel>
     
             <asp:Panel ID="pnlFlight" style="width:100%;" Visible="false" runat="server">
-
-                <h3 class="Center"><asp:Label ID="lblFlightTitle" runat="server" /></h3>
-                
                 <div>Total Time in Flight: <asp:Label ID="lblTotalFlightTime" runat="server" /></div>
                 <div>Total Distance Flown: <asp:Label ID="lblTotalFlightDistance" runat="server" /></div>
                 

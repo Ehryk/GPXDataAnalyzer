@@ -194,6 +194,11 @@ namespace WebApplication
             Toggle(cpActivity, ibActivity);
         }
 
+        protected void ToggleResults(object sender, EventArgs e)
+        {
+            Toggle(cpResults, ibResults);
+        }
+
         #endregion
 
         protected void ActivityChanged(object sender, EventArgs e)
@@ -202,6 +207,7 @@ namespace WebApplication
 
             if (ddlActivity.SelectedValue == "NotSure")
             {
+                lblResultsTitle.Text = "Results";
                 pnlNotSure.Visible = true;
             }
             if (ddlActivity.SelectedValue == "Hiking" || ddlActivity.SelectedValue == "Jogging" || ddlActivity.SelectedValue == "CrossCountry")
@@ -265,7 +271,7 @@ namespace WebApplication
 
         protected void LoadSlowResults(string pTitle)
         {
-            lblSlowTitle.Text = pTitle;
+            lblResultsTitle.Text = pTitle;
 
             lblAverageHikeSpeed.Text = FormatVelocity(analyzer.GetHikingSpeed());
             lblTotalHikeTime.Text = FormatTime(analyzer.GetHikingTime());
@@ -285,7 +291,7 @@ namespace WebApplication
 
         protected void LoadDownhillResults(string pTitle)
         {
-            lblDownhillTitle.Text = pTitle;
+            lblResultsTitle.Text = pTitle;
             lblNumberOfRuns.Text = analyzer.GetNumberRuns().ToString();
             lblNumberOfLifts.Text = analyzer.GetNumberRuns().ToString();
             lblNumberOfFalls.Text = analyzer.GetNumberRuns().ToString();
@@ -299,7 +305,7 @@ namespace WebApplication
 
         protected void LoadFastResults(string pTitle)
         {
-            lblFastTitle.Text = pTitle;
+            lblResultsTitle.Text = pTitle;
             lblTotalFastTime.Text = FormatTime(analyzer.GetTotalTime());
             lblTotalFastDistance.Text = FormatDistance(analyzer.GetTotalDistance());
 
@@ -315,7 +321,7 @@ namespace WebApplication
 
         protected void LoadFlightResults(string pTitle)
         {
-            lblFlightTitle.Text = pTitle;
+            lblResultsTitle.Text = pTitle;
             lblTotalFlightTime.Text = FormatTime(analyzer.GetTotalTime());
             lblTotalFlightDistance.Text = FormatDistance(analyzer.GetTotalDistance());
 
