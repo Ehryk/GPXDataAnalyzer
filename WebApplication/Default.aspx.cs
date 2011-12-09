@@ -184,7 +184,7 @@ namespace WebApplication
             Toggle(cpGraphs, ibGraphs);
         }
 
-        protected void ToggleDVA(object sender, EventArgs e)
+        protected void ToggleVelocity(object sender, EventArgs e)
         {
             Toggle(cpVelocity, ibVelocity);
         }
@@ -198,21 +198,32 @@ namespace WebApplication
 
         protected void ActivityChanged(object sender, EventArgs e)
         {
-            pnlNotSure.Visible      = ddlActivity.SelectedValue == "NotSure";
             ActivityPanelsVisible = false;
 
+            if (ddlActivity.SelectedValue == "NotSure")
+            {
+                pnlNotSure.Visible = true;
+            }
             if (ddlActivity.SelectedValue == "Hiking" || ddlActivity.SelectedValue == "Jogging" || ddlActivity.SelectedValue == "CrossCountry")
             {
-                LoadSlowResults(ddlActivity.SelectedValue + " Results");
+                LoadSlowResults(ddlActivity.SelectedItem.Text + " Results");
+                pnlSlow.Visible = true;
             }
-            pnlSlow.Visible       = ddlActivity.SelectedValue == "Hiking";
-            pnlDownhill.Visible     = ddlActivity.SelectedValue == "Downhill";
-            pnlFast.Visible = ddlActivity.SelectedValue == "CrossCountry";
-            pnlFlight.Visible       = ddlActivity.SelectedValue == "Flying";
-
-            if (ddlActivity.SelectedValue == "Hiking" || ddlActivity.SelectedValue == "Jogging") LoadSlowResults();
-            if (ddlActivity.SelectedValue == "Downhill") LoadDownhillResults();
-            if (ddlActivity.SelectedValue == "Vehicle") LoadFastResults();
+            else if (ddlActivity.SelectedValue == "Downhill" || ddlActivity.SelectedValue == "Snowboarding")
+            {
+                LoadDownhillResults(ddlActivity.SelectedItem.Text + " Results");
+                pnlDownhill.Visible = true;
+            }
+            else if (ddlActivity.SelectedValue == "Snowmobiling" || ddlActivity.SelectedValue == "4Wheeling" || ddlActivity.SelectedValue == "Driving")
+            {
+                LoadFastResults(ddlActivity.SelectedItem.Text + " Results");
+                pnlFast.Visible = true;
+            }
+            else if (ddlActivity.SelectedItem.Text == "Flying")
+            {
+                LoadFlightResults("Flight Results");
+                pnlFlight.Visible = true;
+            }
         }
 
         #endregion
@@ -252,34 +263,69 @@ namespace WebApplication
             }
         }
 
-        protected void LoadHikingResults(string pTitle)
+        protected void LoadSlowResults(string pTitle)
         {
             lblSlowTitle.Text = pTitle;
+
             lblAverageHikeSpeed.Text = FormatVelocity(analyzer.GetHikingSpeed());
             lblTotalHikeTime.Text = FormatTime(analyzer.GetHikingTime());
+
+            lblMinElevation.Text = FormatDistance(analyzer.GetMinElevation());
+            lblMaxElevation.Text = FormatDistance(analyzer.GetMaxElevation());
+
+            lblStartElevation.Text = FormatDistance(analyzer.GetStartElevation());
+            lblEndElevation.Text = FormatDistance(analyzer.GetEndElevation());
+
             lblUphillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageUpSpeed());
             lblDownhillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageDownSpeed());
+
             lblNumberHikingRests.Text = analyzer.GetNumberHikingRests().ToString();
             lblTotalHikeRestTime.Text = FormatTime(analyzer.GetHikingRestTime());
         }
 
         protected void LoadDownhillResults(string pTitle)
         {
+            lblDownhillTitle.Text = pTitle;
             lblNumberOfRuns.Text = analyzer.GetNumberRuns().ToString();
+            lblNumberOfLifts.Text = analyzer.GetNumberRuns().ToString();
+            lblNumberOfFalls.Text = analyzer.GetNumberRuns().ToString();
+
+            lblTotalDownhillDistance.Text = FormatDistance(analyzer.GetSkiDistance());
+            lblVerticalDistance.Text = FormatDistance(analyzer.GetMaxElevation() - analyzer.GetEndElevation());
+
             lblAverageLiftSpeed.Text = FormatVelocity(analyzer.GetAverageLiftSpeed());
             lblAverageSkiSpeed.Text = FormatVelocity(analyzer.GetAverageSkiSpeed());
         }
 
         protected void LoadFastResults(string pTitle)
         {
+            lblFastTitle.Text = pTitle;
+            lblTotalFastTime.Text = FormatTime(analyzer.GetTotalTime());
+            lblTotalFastDistance.Text = FormatDistance(analyzer.GetTotalDistance());
+
+            lblNumberStops.Text = analyzer.GetNumberStops().ToString();
             lblMaxAcceleration.Text = FormatAcceleration(analyzer.GetMaximumAcceleration());
             lblMaxDeceleration.Text = FormatAcceleration(analyzer.GetMaximumDeceleration());
+
+            lblVehicleRestTime.Text = FormatTime(analyzer.GetVehicleRestTime());
+            lblCoastTime.Text = FormatTime(analyzer.GetCoastTime());
+            lblAccelerationTime.Text = FormatAcceleration(analyzer.GetAcceleratingTime());
+            lblDecelerationTime.Text = FormatAcceleration(analyzer.GetDeceleratingTime());
         }
 
         protected void LoadFlightResults(string pTitle)
         {
-            lblMaxAcceleration.Text = FormatAcceleration(analyzer.GetMaximumAcceleration());
-            lblMaxDeceleration.Text = FormatAcceleration(analyzer.GetMaximumDeceleration());
+            lblFlightTitle.Text = pTitle;
+            lblTotalFlightTime.Text = FormatTime(analyzer.GetTotalTime());
+            lblTotalFlightDistance.Text = FormatDistance(analyzer.GetTotalDistance());
+
+            lvlAverageFlightVelocity.Text = FormatVelocity(analyzer.GetAverageSkiSpeed());
+            lblAverageClimbingVelocity.Text = FormatVelocity(analyzer.GetAverageUpSpeed());
+            lblAverageDescentVelocity.Text = FormatVelocity(analyzer.GetAverageDownSpeed());
+
+            lblMaximumVelocity.Text = FormatVelocity(analyzer.GetMaxVelocity());
+            lblMaximumAcceleration.Text = FormatAcceleration(analyzer.GetMaximumAcceleration());
+            lblMaximumDeceleration.Text = FormatAcceleration(analyzer.GetMaximumDeceleration());
         }
 
         public static string FormatTime(double seconds)

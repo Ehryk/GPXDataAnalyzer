@@ -91,7 +91,8 @@
         <asp:Panel ID="cpGraphs" runat="server" Visible="false">
             <h1 class="Center">Velocity<asp:ImageButton ID="ibVelocity" OnClick="ToggleVelocity" ImageUrl="~/Images/collapse.jpg" style="margin-left:20px;" runat="server" /></h1>
             <asp:Panel ID="cpVelocity" runat="server" Visible="true">
-                <asp:Chart ID="chartVelocity" runat="server"><Series>
+                <h3>Coming Soon!!!</h3>
+<%--                <asp:Chart ID="chartVelocity" runat="server"><Series>
                     <asp:Series Name="Velocity" ChartType="Area" Color="LightGray">
                         <Points>
                             <asp:DataPoint XValue="0" YValues="1000" />
@@ -120,7 +121,7 @@
                         </AxisX>
                     </asp:ChartArea>
                 </ChartAreas>
-            </asp:Chart>
+            </asp:Chart>--%>
             </asp:Panel>
         </asp:Panel>
     </asp:Panel>
@@ -184,9 +185,10 @@
                 <h3 class="Center"><asp:Label ID="lblFastTitle" runat="server" /></h3>
 
                 <div>Total Distance: <asp:Label ID="lblTotalFastDistance" runat="server" /></div>
+                <div>Total <%= ddlActivity.SelectedItem.Text %> Time: <asp:Label ID="lblTotalFastTime" runat="server" /></div>
                 
                 <div>Number of Stops: <asp:Label ID="lblNumberStops" runat="server" /></div>
-                <div>Maximum Acceleration: <asp:Label ID="lblMinDeceleration" runat="server" /></div>
+                <div>Maximum Acceleration: <asp:Label ID="lblMaxAcceleration" runat="server" /></div>
                 <div>Maximum Deceleration: <asp:Label ID="lblMaxDeceleration" runat="server" /></div>
                 
                 <div>Rest Time: <asp:Label ID="lblVehicleRestTime" runat="server" /></div>
@@ -207,7 +209,6 @@
                 <div>Average Climbing Velocity: <asp:Label ID="lblAverageClimbingVelocity" runat="server" /></div>
                 <div>Average Descent Velocity: <asp:Label ID="lblAverageDescentVelocity" runat="server" /></div>
 
-                <div>Average Velocity: <asp:Label ID="lblAverageFlightVelocity" runat="server" /></div>
                 <div>Maximum Velocity: <asp:Label ID="lblMaximumVelocity" runat="server" /></div>
                 <div>Maximum Acceleration: <asp:Label ID="lblMaximumAcceleration" runat="server" /></div>
                 <div>Maximum Deceleration: <asp:Label ID="lblMaximumDeceleration" runat="server" /></div>

@@ -346,15 +346,6 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Panel cpVelocity;
         
         /// <summary>
-        /// chartVelocity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart chartVelocity;
-        
-        /// <summary>
         /// pnlActivity control.
         /// </summary>
         /// <remarks>
@@ -616,6 +607,15 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Label lblTotalFastDistance;
         
         /// <summary>
+        /// lblTotalFastTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalFastTime;
+        
+        /// <summary>
         /// lblNumberStops control.
         /// </summary>
         /// <remarks>
@@ -625,13 +625,13 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Label lblNumberStops;
         
         /// <summary>
-        /// lblMinDeceleration control.
+        /// lblMaxAcceleration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMinDeceleration;
+        protected global::System.Web.UI.WebControls.Label lblMaxAcceleration;
         
         /// <summary>
         /// lblMaxDeceleration control.
@@ -740,15 +740,6 @@ namespace WebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAverageDescentVelocity;
-        
-        /// <summary>
-        /// lblAverageFlightVelocity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAverageFlightVelocity;
         
         /// <summary>
         /// lblMaximumVelocity control.
