@@ -4,7 +4,7 @@
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <style type="text/css">
-        label
+        span
         {
             font-weight:bold;
             margin:2px;
