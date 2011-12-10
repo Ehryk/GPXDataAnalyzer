@@ -49,6 +49,15 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.DropDownList ddlFiles;
         
         /// <summary>
+        /// lblFileStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFileStatus;
+        
+        /// <summary>
         /// pnlTracks control.
         /// </summary>
         /// <remarks>

@@ -20,15 +20,29 @@ namespace WebApplication
         //    set { Session["DataAnalyzer"] = value; }
         //}
 
-        bool ActivityPanelsVisible
+        protected bool ActivityPanelsVisible
         {
             set
             {
+                pnlActivitySpecific.Visible = true;
                 pnlNotSure.Visible = value;
                 pnlSlow.Visible = value;
                 pnlDownhill.Visible = value;
                 pnlFast.Visible = value;
                 pnlFlight.Visible = value;
+            }
+        }
+
+        protected string FileStatus
+        {
+            get
+            {
+                return lblFileStatus.Text;
+            }
+            set
+            {
+                lblFileStatus.Text = value;
+                lblFileStatus.Visible = !String.IsNullOrWhiteSpace(value);
             }
         }
 
@@ -51,6 +65,7 @@ namespace WebApplication
 
             pnlTracks.Visible = false;
             pnlAnalysis.Visible = false;
+            pnlActivitySpecific.Visible = false;
         }
 
         protected void FileChanged(object sender, EventArgs e)
@@ -61,6 +76,8 @@ namespace WebApplication
                 pnlAnalysis.Visible = false;
                 pnlActivity.Visible = false;
                 ActivityPanelsVisible = false;
+                pnlActivitySpecific.Visible = false;
+                FileStatus = "Select a file.";
                 return;
             }
             if (!File.Exists(ddlFiles.SelectedValue))
@@ -69,9 +86,12 @@ namespace WebApplication
                 pnlAnalysis.Visible = false;
                 pnlActivity.Visible = false;
                 ActivityPanelsVisible = false;
-                //lblStatus.Text = "File Doesn't Exist";
+                pnlActivitySpecific.Visible = false;
+                FileStatus = "File not found.";
                 return;
             }
+
+            FileStatus = "";
 
             FilePath = ddlFiles.SelectedValue;
 
@@ -147,6 +167,41 @@ namespace WebApplication
             ActivityChanged(ddlActivity, EventArgs.Empty);
         }
 
+        protected void ActivityChanged(object sender, EventArgs e)
+        {
+            ActivityPanelsVisible = false;
+
+            if (ddlActivity.SelectedValue == "NotSure")
+            {
+                lblResultsTitle.Text = "Results";
+                pnlNotSure.Visible = true;
+            }
+            if (ddlActivity.SelectedValue == "Hiking" || ddlActivity.SelectedValue == "Jogging" || ddlActivity.SelectedValue == "CrossCountry")
+            {
+                LoadSlowResults(ddlActivity.SelectedItem.Text + " Results");
+                pnlSlow.Visible = true;
+            }
+            else if (ddlActivity.SelectedValue == "Downhill" || ddlActivity.SelectedValue == "Snowboarding")
+            {
+                LoadDownhillResults(ddlActivity.SelectedItem.Text + " Results");
+                pnlDownhill.Visible = true;
+            }
+            else if (ddlActivity.SelectedValue == "Snowmobiling" || ddlActivity.SelectedValue == "4Wheeling" || ddlActivity.SelectedValue == "Driving")
+            {
+                LoadFastResults(ddlActivity.SelectedItem.Text + " Results");
+                pnlFast.Visible = true;
+            }
+            else if (ddlActivity.SelectedItem.Text == "Flying")
+            {
+                LoadFlightResults("Flight Results");
+                pnlFlight.Visible = true;
+            }
+
+            pnlActivitySpecific.Visible = true;
+        }
+
+        #endregion
+
         #region Collabsible Panels
 
         protected void ToggleFiles(object sender, EventArgs e)
@@ -197,39 +252,6 @@ namespace WebApplication
         protected void ToggleResults(object sender, EventArgs e)
         {
             Toggle(cpResults, ibResults);
-        }
-
-        #endregion
-
-        protected void ActivityChanged(object sender, EventArgs e)
-        {
-            ActivityPanelsVisible = false;
-
-            if (ddlActivity.SelectedValue == "NotSure")
-            {
-                lblResultsTitle.Text = "Results";
-                pnlNotSure.Visible = true;
-            }
-            if (ddlActivity.SelectedValue == "Hiking" || ddlActivity.SelectedValue == "Jogging" || ddlActivity.SelectedValue == "CrossCountry")
-            {
-                LoadSlowResults(ddlActivity.SelectedItem.Text + " Results");
-                pnlSlow.Visible = true;
-            }
-            else if (ddlActivity.SelectedValue == "Downhill" || ddlActivity.SelectedValue == "Snowboarding")
-            {
-                LoadDownhillResults(ddlActivity.SelectedItem.Text + " Results");
-                pnlDownhill.Visible = true;
-            }
-            else if (ddlActivity.SelectedValue == "Snowmobiling" || ddlActivity.SelectedValue == "4Wheeling" || ddlActivity.SelectedValue == "Driving")
-            {
-                LoadFastResults(ddlActivity.SelectedItem.Text + " Results");
-                pnlFast.Visible = true;
-            }
-            else if (ddlActivity.SelectedItem.Text == "Flying")
-            {
-                LoadFlightResults("Flight Results");
-                pnlFlight.Visible = true;
-            }
         }
 
         #endregion

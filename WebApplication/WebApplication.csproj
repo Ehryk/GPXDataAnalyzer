@@ -67,7 +67,9 @@
     <Content Include="Images\button_red_bigger.gif" />
     <Content Include="Images\button_red_small.gif" />
     <Content Include="Images\collapse.jpg" />
+    <Content Include="Images\collapse.png" />
     <Content Include="Images\expand.jpg" />
+    <Content Include="Images\expand.png" />
     <Content Include="Images\working.gif" />
     <Content Include="Upload.aspx" />
     <Content Include="Styles\Site.css" />

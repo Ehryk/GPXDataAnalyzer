@@ -19,6 +19,7 @@
             <label class="Instructions">Select a File: </label>
             <asp:DropDownList ID="ddlFiles" runat="server" OnSelectedIndexChanged="FileChanged" AutoPostBack="true" Width="300px" />
         </asp:Panel>
+        <asp:Label ID="lblFileStatus" ForeColor="Red" runat="server" />
     </asp:Panel>
     
     <asp:Panel ID="pnlTracks" CssClass="Center" style="width:100%;" Visible="false" runat="server">
@@ -145,7 +146,7 @@
         </asp:Panel>
     </asp:Panel>
     
-    <asp:Panel ID="pnlActivitySpecific" style="width:100%;" Visible="true" runat="server">
+    <asp:Panel ID="pnlActivitySpecific" style="width:100%;" Visible="false" runat="server">
         <h1 class="Center Section"><asp:Label ID="lblResultsTitle" runat="server" Text="Results" /><asp:ImageButton ID="ibResults" OnClick="ToggleResults" ImageUrl="~/Images/expand.png" style="margin-left:20px;" runat="server" /></h1>
         <asp:Panel ID="cpResults" runat="server" Visible="false">
     
