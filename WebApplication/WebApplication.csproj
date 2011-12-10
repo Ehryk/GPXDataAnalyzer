@@ -159,14 +159,6 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleApplication\ConsoleApplication.csproj">
-      <Project>{D99326D4-6E9C-44B4-8A08-9FE4B7662BDA}</Project>
-      <Name>ConsoleApplication</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataAnalyzer\DataAnalyzer.vcxproj">
-      <Project>{4F567B1B-59A3-4B06-95A1-BB283B840CD8}</Project>
-      <Name>DataAnalyzer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GPX\GPX.csproj">
       <Project>{159F1FC4-4759-4DB0-8695-FFD423302DB4}</Project>
       <Name>GPX</Name>

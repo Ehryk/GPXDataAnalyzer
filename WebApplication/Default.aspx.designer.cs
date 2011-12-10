@@ -382,6 +382,15 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.DropDownList ddlActivity;
         
         /// <summary>
+        /// pnlActivitySpecific control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlActivitySpecific;
+        
+        /// <summary>
         /// lblResultsTitle control.
         /// </summary>
         /// <remarks>

@@ -14,11 +14,11 @@ namespace WebApplication
     {
         #region Properties
 
-        protected DataAnalyzer analyzer
-        {
-            get { return Session["DataAnalyzer"] as DataAnalyzer; }
-            set { Session["DataAnalyzer"] = value; }
-        }
+        //protected DataAnalyzer analyzer
+        //{
+        //    get { return Session["DataAnalyzer"] as DataAnalyzer; }
+        //    set { Session["DataAnalyzer"] = value; }
+        //}
 
         bool ActivityPanelsVisible
         {
@@ -240,15 +240,15 @@ namespace WebApplication
         {
             wptType start = pResults.TrackPoints.FirstOrDefault();
 
-            if (start != null)
-                analyzer = new DataAnalyzer(pResults.Segments.Count, (double)start.ele, start.time, (double)start.lat, (double)start.lon);
-            else
-                analyzer = new DataAnalyzer(pResults.Segments.Count);
+            //if (start != null)
+            //    analyzer = new DataAnalyzer(pResults.Segments.Count, (double)start.ele, start.time, (double)start.lat, (double)start.lon);
+            //else
+            //    analyzer = new DataAnalyzer(pResults.Segments.Count);
 
-            foreach (Segment segment in pResults.Segments)
-            {
-                analyzer.AddSegment(segment.Distance, segment.Time, segment.Course, segment.VerticalDistance, segment.FlatEarthDistance);
-            }
+            //foreach (Segment segment in pResults.Segments)
+            //{
+            //    analyzer.AddSegment(segment.Distance, segment.Time, segment.Course, segment.VerticalDistance, segment.FlatEarthDistance);
+            //}
         }
 
         protected void Toggle(Panel panel, ImageButton imageButton)
@@ -259,13 +259,13 @@ namespace WebApplication
             {
                 //Hide it
                 panel.Visible = false;
-                imageButton.ImageUrl = "~/Images/expand.jpg";
+                imageButton.ImageUrl = "~/Images/expand.png";
             }
             else
             {
                 //Show it
                 panel.Visible = true;
-                imageButton.ImageUrl = "~/Images/collapse.jpg";
+                imageButton.ImageUrl = "~/Images/collapse.png";
             }
         }
 
@@ -273,65 +273,65 @@ namespace WebApplication
         {
             lblResultsTitle.Text = pTitle;
 
-            lblAverageHikeSpeed.Text = FormatVelocity(analyzer.GetHikingSpeed());
-            lblTotalHikeTime.Text = FormatTime(analyzer.GetHikingTime());
+            //lblAverageHikeSpeed.Text = FormatVelocity(analyzer.GetHikingSpeed());
+            //lblTotalHikeTime.Text = FormatTime(analyzer.GetHikingTime());
 
-            lblMinElevation.Text = FormatDistance(analyzer.GetMinElevation());
-            lblMaxElevation.Text = FormatDistance(analyzer.GetMaxElevation());
+            //lblMinElevation.Text = FormatDistance(analyzer.GetMinElevation());
+            //lblMaxElevation.Text = FormatDistance(analyzer.GetMaxElevation());
 
-            lblStartElevation.Text = FormatDistance(analyzer.GetStartElevation());
-            lblEndElevation.Text = FormatDistance(analyzer.GetEndElevation());
+            //lblStartElevation.Text = FormatDistance(analyzer.GetStartElevation());
+            //lblEndElevation.Text = FormatDistance(analyzer.GetEndElevation());
 
-            lblUphillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageUpSpeed());
-            lblDownhillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageDownSpeed());
+            //lblUphillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageUpSpeed());
+            //lblDownhillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageDownSpeed());
 
-            lblNumberHikingRests.Text = analyzer.GetNumberHikingRests().ToString();
-            lblTotalHikeRestTime.Text = FormatTime(analyzer.GetHikingRestTime());
+            //lblNumberHikingRests.Text = analyzer.GetNumberHikingRests().ToString();
+            //lblTotalHikeRestTime.Text = FormatTime(analyzer.GetHikingRestTime());
         }
 
         protected void LoadDownhillResults(string pTitle)
         {
             lblResultsTitle.Text = pTitle;
-            lblNumberOfRuns.Text = analyzer.GetNumberRuns().ToString();
-            lblNumberOfLifts.Text = analyzer.GetNumberRuns().ToString();
-            lblNumberOfFalls.Text = analyzer.GetNumberRuns().ToString();
+            //lblNumberOfRuns.Text = analyzer.GetNumberRuns().ToString();
+            //lblNumberOfLifts.Text = analyzer.GetNumberRuns().ToString();
+            //lblNumberOfFalls.Text = analyzer.GetNumberRuns().ToString();
 
-            lblTotalDownhillDistance.Text = FormatDistance(analyzer.GetSkiDistance());
-            lblVerticalDistance.Text = FormatDistance(analyzer.GetMaxElevation() - analyzer.GetEndElevation());
+            //lblTotalDownhillDistance.Text = FormatDistance(analyzer.GetSkiDistance());
+            //lblVerticalDistance.Text = FormatDistance(analyzer.GetMaxElevation() - analyzer.GetEndElevation());
 
-            lblAverageLiftSpeed.Text = FormatVelocity(analyzer.GetAverageLiftSpeed());
-            lblAverageSkiSpeed.Text = FormatVelocity(analyzer.GetAverageSkiSpeed());
+            //lblAverageLiftSpeed.Text = FormatVelocity(analyzer.GetAverageLiftSpeed());
+            //lblAverageSkiSpeed.Text = FormatVelocity(analyzer.GetAverageSkiSpeed());
         }
 
         protected void LoadFastResults(string pTitle)
         {
             lblResultsTitle.Text = pTitle;
-            lblTotalFastTime.Text = FormatTime(analyzer.GetTotalTime());
-            lblTotalFastDistance.Text = FormatDistance(analyzer.GetTotalDistance());
+            //lblTotalFastTime.Text = FormatTime(analyzer.GetTotalTime());
+            //lblTotalFastDistance.Text = FormatDistance(analyzer.GetTotalDistance());
 
-            lblNumberStops.Text = analyzer.GetNumberStops().ToString();
-            lblMaxAcceleration.Text = FormatAcceleration(analyzer.GetMaximumAcceleration());
-            lblMaxDeceleration.Text = FormatAcceleration(analyzer.GetMaximumDeceleration());
+            //lblNumberStops.Text = analyzer.GetNumberStops().ToString();
+            //lblMaxAcceleration.Text = FormatAcceleration(analyzer.GetMaximumAcceleration());
+            //lblMaxDeceleration.Text = FormatAcceleration(analyzer.GetMaximumDeceleration());
 
-            lblVehicleRestTime.Text = FormatTime(analyzer.GetVehicleRestTime());
-            lblCoastTime.Text = FormatTime(analyzer.GetCoastTime());
-            lblAccelerationTime.Text = FormatAcceleration(analyzer.GetAcceleratingTime());
-            lblDecelerationTime.Text = FormatAcceleration(analyzer.GetDeceleratingTime());
+            //lblVehicleRestTime.Text = FormatTime(analyzer.GetVehicleRestTime());
+            //lblCoastTime.Text = FormatTime(analyzer.GetCoastTime());
+            //lblAccelerationTime.Text = FormatAcceleration(analyzer.GetAcceleratingTime());
+            //lblDecelerationTime.Text = FormatAcceleration(analyzer.GetDeceleratingTime());
         }
 
         protected void LoadFlightResults(string pTitle)
         {
             lblResultsTitle.Text = pTitle;
-            lblTotalFlightTime.Text = FormatTime(analyzer.GetTotalTime());
-            lblTotalFlightDistance.Text = FormatDistance(analyzer.GetTotalDistance());
+            //lblTotalFlightTime.Text = FormatTime(analyzer.GetTotalTime());
+            //lblTotalFlightDistance.Text = FormatDistance(analyzer.GetTotalDistance());
 
-            lvlAverageFlightVelocity.Text = FormatVelocity(analyzer.GetAverageSkiSpeed());
-            lblAverageClimbingVelocity.Text = FormatVelocity(analyzer.GetAverageUpSpeed());
-            lblAverageDescentVelocity.Text = FormatVelocity(analyzer.GetAverageDownSpeed());
+            //lvlAverageFlightVelocity.Text = FormatVelocity(analyzer.GetAverageSkiSpeed());
+            //lblAverageClimbingVelocity.Text = FormatVelocity(analyzer.GetAverageUpSpeed());
+            //lblAverageDescentVelocity.Text = FormatVelocity(analyzer.GetAverageDownSpeed());
 
-            lblMaximumVelocity.Text = FormatVelocity(analyzer.GetMaxVelocity());
-            lblMaximumAcceleration.Text = FormatAcceleration(analyzer.GetMaximumAcceleration());
-            lblMaximumDeceleration.Text = FormatAcceleration(analyzer.GetMaximumDeceleration());
+            //lblMaximumVelocity.Text = FormatVelocity(analyzer.GetMaxVelocity());
+            //lblMaximumAcceleration.Text = FormatAcceleration(analyzer.GetMaximumAcceleration());
+            //lblMaximumDeceleration.Text = FormatAcceleration(analyzer.GetMaximumDeceleration());
         }
 
         public static string FormatTime(double seconds)

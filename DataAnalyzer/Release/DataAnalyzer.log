@@ -1,7 +1,7 @@
-﻿Build started 12/2/2011 7:29:28 AM.
-     1>Project "C:\Work\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" on node 2 (rebuild target(s)).
-     1>_PrepareForClean:
-         Deleting file "Release\DataAnalyzer.lastbuildstate".
+﻿Build started 12/10/2011 3:56:54 AM.
+     1>Project "C:\Work\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" on node 2 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "C:\Work\GPXDataAnalyzer\Release\".
        InitializeBuildStatus:
          Creating "Release\DataAnalyzer.unsuccessfulbuild" because "AlwaysCreate" was specified.
        GenerateTargetFrameworkMonikerAttribute:
@@ -12,25 +12,26 @@
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\DataAnalyzer.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt AssemblyInfo.cpp DataAnalyzer.cpp /clr:nostdlib 
          AssemblyInfo.cpp
          DataAnalyzer.cpp
+     1>DataAnalyzer.cpp(780): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
          Generating Code...
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /TP /analyze- /errorReport:prompt "C:\Users\Ehryk\AppData\Local\Temp\.NETFramework,Version=v4.0.AssemblyAttributes.cpp"
-         .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+     1>c:\work\gpxdataanalyzer\dataanalyzer\dataanalyzer.cpp(627): warning C4700: uninitialized local variable 'total_time' used
+         All outputs are up-to-date.
        ResourceCompile:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Release\app.res" app.rc 
+         All outputs are up-to-date.
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Work\Ehryk\Release\DataAnalyzer.dll" /INCREMENTAL:NO /NOLOGO /MANIFEST /ManifestFile:"Release\DataAnalyzer.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Work\Ehryk\Release\DataAnalyzer.pdb" /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /DLL Release\app.res
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Work\GPXDataAnalyzer\Release\DataAnalyzer.dll" /INCREMENTAL:NO /NOLOGO /MANIFEST /ManifestFile:"Release\DataAnalyzer.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Work\GPXDataAnalyzer\Release\DataAnalyzer.pdb" /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /DLL Release\app.res
          Release\AssemblyInfo.obj
          Release\DataAnalyzer.obj
          Release\Stdafx.obj
          "Release\.NETFramework,Version=v4.0.AssemblyAttributes.obj"
-         DataAnalyzer.vcxproj -> C:\Work\Ehryk\Release\DataAnalyzer.dll
+         DataAnalyzer.vcxproj -> C:\Work\GPXDataAnalyzer\Release\DataAnalyzer.dll
        Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Work\Ehryk\Release\DataAnalyzer.dll;#2" /manifest Release\DataAnalyzer.dll.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Work\GPXDataAnalyzer\Release\DataAnalyzer.dll;#2" /manifest Release\DataAnalyzer.dll.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Release\DataAnalyzer.unsuccessfulbuild".
          Touching "Release\DataAnalyzer.lastbuildstate".
-     1>Done Building Project "C:\Work\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" (rebuild target(s)).
+     1>Done Building Project "C:\Work\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.82
+Time Elapsed 00:00:02.92

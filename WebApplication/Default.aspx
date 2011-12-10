@@ -14,7 +14,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     
     <asp:Panel ID="pnlFiles" CssClass="Center" style="width:100%;" runat="server">
-        <h1 class="Center Section">File<asp:ImageButton ID="ibFiles" OnClick="ToggleFiles" ImageUrl="~/Images/collapse.jpg" style="margin-left:20px;" runat="server" /></h1>
+        <h1 class="Center Section">File<asp:ImageButton ID="ibFiles" OnClick="ToggleFiles" ImageUrl="~/Images/collapse.png" style="margin-left:20px;" runat="server" /></h1>
         <asp:Panel ID="cpFiles" runat="server" Visible="true">
             <label class="Instructions">Select a File: </label>
             <asp:DropDownList ID="ddlFiles" runat="server" OnSelectedIndexChanged="FileChanged" AutoPostBack="true" Width="300px" />
@@ -22,7 +22,7 @@
     </asp:Panel>
     
     <asp:Panel ID="pnlTracks" CssClass="Center" style="width:100%;" Visible="false" runat="server">
-        <h1 class="Center Section">Track<asp:ImageButton ID="ibTracks" OnClick="ToggleTracks" ImageUrl="~/Images/collapse.jpg" style="margin-left:20px;" runat="server" /></h1>
+        <h1 class="Center Section">Track<asp:ImageButton ID="ibTracks" OnClick="ToggleTracks" ImageUrl="~/Images/collapse.png" style="margin-left:20px;" runat="server" /></h1>
         <asp:Panel ID="cpTracks" runat="server" Visible="true">
             <label class="Instructions">Select a Track:</label>
             <asp:DropDownList ID="ddlTracks" runat="server" OnSelectedIndexChanged="TrackChanged" AutoPostBack="true" DataValueField="name" DataTextField="name" />
@@ -30,9 +30,9 @@
     </asp:Panel>
 
     <asp:Panel ID="pnlAnalysis" Visible="false" runat="server">
-        <h1 class="Center Section">Data<asp:ImageButton ID="ibData" OnClick="ToggleData" ImageUrl="~/Images/expand.jpg" style="margin-left:20px;" runat="server" /></h1>
-        <asp:Panel ID="cpData" runat="server" Visible="false">
-            <h1 class="Center">Track Points: <asp:Label ID="lblTrackPointCount" runat="server" Text="" /> <asp:ImageButton ID="ibTrackPoints" OnClick="ToggleTrackPoints" ImageUrl="~/Images/expand.jpg" style="margin-left:20px;" runat="server" /></h1>
+        <h1 class="Center Section">Data<asp:ImageButton ID="ibData" OnClick="ToggleData" ImageUrl="~/Images/collapse.png" style="margin-left:20px;" runat="server" /></h1>
+        <asp:Panel ID="cpData" runat="server" Visible="true">
+            <h1 class="Center">Track Points: <asp:Label ID="lblTrackPointCount" runat="server" Text="" /> <asp:ImageButton ID="ibTrackPoints" OnClick="ToggleTrackPoints" ImageUrl="~/Images/expand.png" style="margin-left:20px;" runat="server" /></h1>
             <asp:Panel ID="cpTrackPoints" runat="server" Visible="false">
                 <asp:GridView ID="gvTrackPoints" runat="server" AutoGenerateColumns="false" CssClass="GridView" 
                     RowStyle="GridRow" AlternatingRowStyle="GridAlternateRow" HeaderStyle-CssClass="GridHeader">
@@ -44,7 +44,7 @@
                     </Columns>
                 </asp:GridView>
             </asp:Panel>
-            <h1 class="Center">Segments <asp:Label ID="lblSegmentCount" runat="server" Text="" /> <asp:ImageButton ID="ibSegments" OnClick="ToggleSegments" ImageUrl="~/Images/expand.jpg" style="margin-left:20px;" runat="server" /></h1>
+            <h1 class="Center">Segments <asp:Label ID="lblSegmentCount" runat="server" Text="" /> <asp:ImageButton ID="ibSegments" OnClick="ToggleSegments" ImageUrl="~/Images/expand.png" style="margin-left:20px;" runat="server" /></h1>
             <asp:Panel ID="cpSegments" runat="server" Visible="false">
                 <asp:GridView ID="gvSegments" runat="server" AutoGenerateColumns="false" CssClass="GridView" 
                     RowStyle="GridRow" AlternatingRowStyle="GridAlternateRow" HeaderStyle-CssClass="GridHeader">
@@ -66,7 +66,7 @@
                     </EmptyDataTemplate>
                 </asp:GridView>
             </asp:Panel>
-            <h1 class="Center">Basic Analysis<asp:ImageButton ID="ibTotals" OnClick="ToggleTotals" ImageUrl="~/Images/expand.jpg" style="margin-left:20px;" runat="server" /></h1>
+            <h1 class="Center">Basic Analysis<asp:ImageButton ID="ibTotals" OnClick="ToggleTotals" ImageUrl="~/Images/expand.png" style="margin-left:20px;" runat="server" /></h1>
             <asp:Panel ID="cpTotals" runat="server" Visible="false">
                 <div>Total Distance: <asp:Label ID="lblTotalDistance" runat="server" /></div>
                 <div>Total Vertical Distance: <asp:Label ID="lblTotalVerticalDistance" runat="server" /></div>
@@ -87,9 +87,9 @@
             </asp:Panel>
         </asp:Panel>
 
-        <h1 class="Center Section">Graphs<asp:ImageButton ID="ibGraphs" OnClick="ToggleGraphs" ImageUrl="~/Images/expand.jpg" style="margin-left:20px;" runat="server" /></h1>
+        <h1 class="Center Section">Graphs<asp:ImageButton ID="ibGraphs" OnClick="ToggleGraphs" ImageUrl="~/Images/expand.png" style="margin-left:20px;" runat="server" /></h1>
         <asp:Panel ID="cpGraphs" runat="server" Visible="false">
-            <h1 class="Center">Velocity<asp:ImageButton ID="ibVelocity" OnClick="ToggleVelocity" ImageUrl="~/Images/collapse.jpg" style="margin-left:20px;" runat="server" /></h1>
+            <h1 class="Center">Velocity<asp:ImageButton ID="ibVelocity" OnClick="ToggleVelocity" ImageUrl="~/Images/collapse.png" style="margin-left:20px;" runat="server" /></h1>
             <asp:Panel ID="cpVelocity" runat="server" Visible="true">
                 <h3 class="Center">Coming Soon!!!</h3>
 <%--                <asp:Chart ID="chartVelocity" runat="server"><Series>
@@ -127,8 +127,8 @@
     </asp:Panel>
     
     <asp:Panel ID="pnlActivity" CssClass="Center" style="width:100%;" Visible="false" runat="server">
-        <h1 class="Center Section">Activity<asp:ImageButton ID="ibActivity" OnClick="ToggleActivity" ImageUrl="~/Images/collapse.jpg" style="margin-left:20px;" runat="server" /></h1>
-        <asp:Panel ID="cpActivity" runat="server" Visible="true">
+        <h1 class="Center Section">Activity<asp:ImageButton ID="ibActivity" OnClick="ToggleActivity" ImageUrl="~/Images/expand.png" style="margin-left:20px;" runat="server" /></h1>
+        <asp:Panel ID="cpActivity" runat="server" Visible="false">
             <label class="Instructions">Select an Activity:</label>
             <asp:DropDownList ID="ddlActivity" runat="server" OnSelectedIndexChanged="ActivityChanged" AutoPostBack="true">
                 <asp:ListItem Text="Not Sure" Value="NotSure"></asp:ListItem>
@@ -143,9 +143,11 @@
                 <asp:ListItem Text="Flying" Value="Flying"></asp:ListItem>
             </asp:DropDownList>
         </asp:Panel>
-
-        <h1 class="Center Section"><asp:Label ID="lblResultsTitle" runat="server" Text="Results" /><asp:ImageButton ID="ibResults" OnClick="ToggleResults" ImageUrl="~/Images/collapse.jpg" style="margin-left:20px;" runat="server" /></h1>
-        <asp:Panel ID="cpResults" runat="server" Visible="true">
+    </asp:Panel>
+    
+    <asp:Panel ID="pnlActivitySpecific" style="width:100%;" Visible="true" runat="server">
+        <h1 class="Center Section"><asp:Label ID="lblResultsTitle" runat="server" Text="Results" /><asp:ImageButton ID="ibResults" OnClick="ToggleResults" ImageUrl="~/Images/expand.png" style="margin-left:20px;" runat="server" /></h1>
+        <asp:Panel ID="cpResults" runat="server" Visible="false">
     
             <asp:Panel ID="pnlNotSure" style="width:100%;" Visible="false" runat="server">
                 <h3 class="Center">Enter an activity to see more information!</h3>
@@ -154,16 +156,16 @@
             <asp:Panel ID="pnlSlow" style="width:100%;" Visible="false" runat="server">
                 <div>Average <%= ddlActivity.SelectedItem.Text %> Speed: <asp:Label ID="lblAverageHikeSpeed" runat="server" /></div>
                 <div>Total <%= ddlActivity.SelectedItem.Text %> Time: <asp:Label ID="lblTotalHikeTime" runat="server" /></div>
-
+                <br />
                 <div>Average Uphill Speed: <asp:Label ID="lblUphillHikeSpeed" runat="server" /></div>
                 <div>Average Downhill Speed: <asp:Label ID="lblDownhillHikeSpeed" runat="server" /></div>
-                
+                <br />
                 <div>Lowest Elevation: <asp:Label ID="lblMinElevation" runat="server" /></div>
                 <div>Highest Elevation: <asp:Label ID="lblMaxElevation" runat="server" /></div>
-                
+                <br />
                 <div>Starting Elevation: <asp:Label ID="lblStartElevation" runat="server" /></div>
                 <div>Ending Elevation: <asp:Label ID="lblEndElevation" runat="server" /></div>
-
+                <br />
                 <div>Number of Rests: <asp:Label ID="lblNumberHikingRests" runat="server" /></div>
                 <div>Total Rest Time: <asp:Label ID="lblTotalHikeRestTime" runat="server" /></div>
             </asp:Panel>
@@ -172,10 +174,10 @@
                 <div>Number of Runs: <asp:Label ID="lblNumberOfRuns" runat="server" /></div>
                 <div>Number of Lifts: <asp:Label ID="lblNumberOfLifts" runat="server" /></div>
                 <div>Number of Falls: <asp:Label ID="lblNumberOfFalls" runat="server" /></div>
-                
+                <br />
                 <div>Total Distance: <asp:Label ID="lblTotalDownhillDistance" runat="server" /></div>
                 <div>Vertical Difference: <asp:Label ID="lblVerticalDistance" runat="server" /></div>
-
+                <br />
                 <div>Average Lift Speed: <asp:Label ID="lblAverageLiftSpeed" runat="server" /></div>
                 <div>Average <%= ddlActivity.SelectedItem.Text %> Speed: <asp:Label ID="lblAverageSkiSpeed" runat="server" /></div>
             </asp:Panel>
@@ -183,11 +185,11 @@
             <asp:Panel ID="pnlFast" style="width:100%;" Visible="false" runat="server">
                 <div>Total Distance: <asp:Label ID="lblTotalFastDistance" runat="server" /></div>
                 <div>Total <%= ddlActivity.SelectedItem.Text %> Time: <asp:Label ID="lblTotalFastTime" runat="server" /></div>
-                
+                <br />
                 <div>Number of Stops: <asp:Label ID="lblNumberStops" runat="server" /></div>
                 <div>Maximum Acceleration: <asp:Label ID="lblMaxAcceleration" runat="server" /></div>
                 <div>Maximum Deceleration: <asp:Label ID="lblMaxDeceleration" runat="server" /></div>
-                
+                <br />
                 <div>Rest Time: <asp:Label ID="lblVehicleRestTime" runat="server" /></div>
                 <div>Coasting Time: <asp:Label ID="lblCoastTime" runat="server" /></div>
                 <div>Acceleration Time: <asp:Label ID="lblAccelerationTime" runat="server" /></div>
@@ -197,11 +199,11 @@
             <asp:Panel ID="pnlFlight" style="width:100%;" Visible="false" runat="server">
                 <div>Total Time in Flight: <asp:Label ID="lblTotalFlightTime" runat="server" /></div>
                 <div>Total Distance Flown: <asp:Label ID="lblTotalFlightDistance" runat="server" /></div>
-                
+                <br />
                 <div>Average Flight Velocity: <asp:Label ID="lvlAverageFlightVelocity" runat="server" /></div>
                 <div>Average Climbing Velocity: <asp:Label ID="lblAverageClimbingVelocity" runat="server" /></div>
                 <div>Average Descent Velocity: <asp:Label ID="lblAverageDescentVelocity" runat="server" /></div>
-
+                <br />
                 <div>Maximum Velocity: <asp:Label ID="lblMaximumVelocity" runat="server" /></div>
                 <div>Maximum Acceleration: <asp:Label ID="lblMaximumAcceleration" runat="server" /></div>
                 <div>Maximum Deceleration: <asp:Label ID="lblMaximumDeceleration" runat="server" /></div>
