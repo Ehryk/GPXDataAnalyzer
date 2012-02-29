@@ -5,8 +5,24 @@
 <head runat="server">
     <title>GPX Data Analyzer</title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
+
+    <meta name="google-site-verification" content="FGErQ1_4c3cMnk8MWoujNBNCQDlsR6JSNf7d_NTxteo" />
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-29546986-1']);
+        _gaq.push(['_setDomainName', 'gpxdataanalyzer.com']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
 </head>
 <body>
     <form runat="server">
