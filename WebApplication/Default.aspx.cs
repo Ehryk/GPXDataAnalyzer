@@ -10,15 +10,15 @@ using WebApplication.App_Code;
 
 namespace WebApplication
 {
-    public partial class _Default : BasePage
+    public partial class Default : BasePage
     {
         #region Properties
 
-        //protected DataAnalyzer analyzer
-        //{
-        //    get { return Session["DataAnalyzer"] as DataAnalyzer; }
-        //    set { Session["DataAnalyzer"] = value; }
-        //}
+        protected DataAnalyzer analyzer
+        {
+            get { return Session["DataAnalyzer"] as DataAnalyzer; }
+            set { Session["DataAnalyzer"] = value; }
+        }
 
         protected bool ActivityPanelsVisible
         {
@@ -295,20 +295,20 @@ namespace WebApplication
         {
             lblResultsTitle.Text = pTitle;
 
-            //lblAverageHikeSpeed.Text = FormatVelocity(analyzer.GetHikingSpeed());
-            //lblTotalHikeTime.Text = FormatTime(analyzer.GetHikingTime());
+            lblAverageHikeSpeed.Text = FormatVelocity(analyzer.GetHikingSpeed());
+            lblTotalHikeTime.Text = FormatTime(analyzer.GetHikingTime());
 
-            //lblMinElevation.Text = FormatDistance(analyzer.GetMinElevation());
-            //lblMaxElevation.Text = FormatDistance(analyzer.GetMaxElevation());
+            lblMinElevation.Text = FormatDistance(analyzer.GetMinElevation());
+            lblMaxElevation.Text = FormatDistance(analyzer.GetMaxElevation());
 
-            //lblStartElevation.Text = FormatDistance(analyzer.GetStartElevation());
-            //lblEndElevation.Text = FormatDistance(analyzer.GetEndElevation());
+            lblStartElevation.Text = FormatDistance(analyzer.GetStartElevation());
+            lblEndElevation.Text = FormatDistance(analyzer.GetEndElevation());
 
-            //lblUphillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageUpSpeed());
-            //lblDownhillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageDownSpeed());
+            lblUphillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageUpSpeed());
+            lblDownhillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageDownSpeed());
 
-            //lblNumberHikingRests.Text = analyzer.GetNumberHikingRests().ToString();
-            //lblTotalHikeRestTime.Text = FormatTime(analyzer.GetHikingRestTime());
+            lblNumberHikingRests.Text = analyzer.GetNumberHikingRests().ToString();
+            lblTotalHikeRestTime.Text = FormatTime(analyzer.GetHikingRestTime());
         }
 
         protected void LoadDownhillResults(string pTitle)

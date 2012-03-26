@@ -4,15 +4,39 @@ using System.Collections.Generic;
 
 namespace GPX
 {
-    public class TrackResults
+    public class Segment
     {
+        public string Name { get; set; }
+
+        public double Distance { get; set; }
+        public double VerticalDistance { get; set; }
+        public double FlatEarthDistance { get; set; }
+
+        public double Time { get; set; }
+
+        public double Velocity { get; set; }
+        public double VerticalVelocity { get; set; }
+        public double FlatEarthVelocity { get; set; }
+        
+        public double StartElevation { get; set; }
+        public double EndElevation { get; set; }
+
+        public double Course { get; set; }
+    }
+
+    public class DataAnalyzer
+    {
+        #region Properties
+
         public List<wptType> TrackPoints;
+        public List<Segment> Segments;
 
         public List<double> Distances;
         public List<double> VerticalDistances;
         public List<double> FlatEarthDistances;
-
+        
         public List<double> Times;
+        public List<double> Elevations;
 
         public List<double> Velocities;
         public List<double> VerticalVelocities;
@@ -20,64 +44,57 @@ namespace GPX
 
         public List<double> Courses;
 
-        public List<Segment> Segments;
+        #endregion
 
-        public double TotalDistance;
-        public double TotalVerticalDistance;
-        public double TotalFlatEarthDistance;
+        #region Constructors
 
-        public double TotalTime;
-
-        public double AverageDistance;
-        public double AverageVerticalDistance;
-        public double AverageFlatEarthDistance;
-
-        public double AverageTime;
-        public double AverageCourse;
-
-        public double AverageVelocity;
-        public double AverageVerticalVelocity;
-        public double AverageFlatEarthVelocity;
-    }
-
-    public class Segment
-    {
-        public string Name { get; set; }
-        public double Distance { get; set; }
-        public double VerticalDistance { get; set; }
-        public double FlatEarthDistance { get; set; }
-        public double Time { get; set; }
-        public double Velocity { get; set; }
-        public double VerticalVelocity { get; set; }
-        public double FlatEarthVelocity { get; set; }
-        public double Course { get; set; }
-    }
-
-    public class Loader
-    {
-        public static TrackResults GetResults(List<wptType> trackPoints)
+        public DataAnalyzer(List<wptType> trackPoints)
         {
-            TrackResults results = new TrackResults();
+            TrackPoints = trackPoints;
 
-            results.TrackPoints = trackPoints;
+            Segments = BuildSegments(TrackPoints);
+        }
 
-            results.Distances = new List<double>();
-            results.VerticalDistances = new List<double>();
-            results.FlatEarthDistances = new List<double>();
+        public DataAnalyzer(GPXFile file, trkType track)
+        {
+            TrackPoints = file.GetTrackFirstSegmentPoints(track.name);
 
-            results.Times = new List<double>();
-            results.Courses = new List<double>();
+            Segments = BuildSegments(TrackPoints);
+        }
 
-            results.Velocities = new List<double>();
-            results.VerticalVelocities = new List<double>();
-            results.FlatEarthVelocities = new List<double>();
+        public DataAnalyzer(GPXFile file, string trackName)
+        {
+            TrackPoints = file.GetTrackFirstSegmentPoints(trackName);
 
-            results.Segments = new List<Segment>();
+            Segments = BuildSegments(TrackPoints);
+        }
+
+        public List<Segment> BuildSegments(List<wptType> trackPoints, bool computeSublists = true)
+        {
+            if (computeSublists)
+            {
+                Distances = new List<double>();
+                VerticalDistances = new List<double>();
+                FlatEarthDistances = new List<double>();
+
+                Times = new List<double>();
+                Elevations = new List<double>();
+                Courses = new List<double>();
+
+                Velocities = new List<double>();
+                VerticalVelocities = new List<double>();
+                FlatEarthVelocities = new List<double>();
+
+                foreach (wptType trackPoint in trackPoints)
+                    Elevations.Add(ToDouble(trackPoint.ele));
+            }
+
+            List<Segment> segments = new List<Segment>();
 
             if (trackPoints.Count < 2)
             {
-                //Not enough trackpoints to calculate distances
-                return results;
+                //Not enough trackpoints to have any segments
+                return segments;
             }
 
             for (int x = 1; x < trackPoints.Count(); x++)
@@ -89,55 +106,127 @@ namespace GPX
                 double velocity = Velocity(trackPoints[x - 1], trackPoints[x]);
                 double verticalVelocity = VerticalVelocity(trackPoints[x - 1], trackPoints[x]);
                 double flatEarthVelocity = Velocity(trackPoints[x - 1], trackPoints[x], true);
-
+                
                 double time = Time(trackPoints[x - 1], trackPoints[x]);
                 double course = Course(trackPoints[x - 1], trackPoints[x]);
 
-                results.Distances.Add(distance);
-                results.VerticalDistances.Add(verticalDistance);
-                results.FlatEarthDistances.Add(flatEarthDistance);
+                if (computeSublists)
+                {
+                    Distances.Add(distance);
+                    VerticalDistances.Add(verticalDistance);
+                    FlatEarthDistances.Add(flatEarthDistance);
 
-                results.Times.Add(time);
+                    Times.Add(time);
 
-                results.Velocities.Add(velocity);
-                results.VerticalVelocities.Add(verticalVelocity);
-                results.FlatEarthVelocities.Add(flatEarthVelocity);
+                    Velocities.Add(velocity);
+                    VerticalVelocities.Add(verticalVelocity);
+                    FlatEarthVelocities.Add(flatEarthVelocity);
 
-                results.Courses.Add(course);
+                    Courses.Add(course);
+                }
 
-                results.Segments.Add(new Segment
-                                        {
-                                            Name = String.Format("Point {0} to {1}", x, x + 1),
-                                            Distance = distance,
-                                            VerticalDistance = verticalDistance,
-                                            FlatEarthDistance = flatEarthDistance,
-                                            Time = time,
-                                            Velocity = velocity,
-                                            VerticalVelocity = verticalVelocity,
-                                            FlatEarthVelocity = flatEarthVelocity,
-                                            Course = course
-                                        });
+                segments.Add(new Segment
+                {
+                    Name = String.Format("Point {0} to {1}", x, x + 1),
+
+                    Distance = distance,
+                    VerticalDistance = verticalDistance,
+                    FlatEarthDistance = flatEarthDistance,
+
+                    Time = time,
+
+                    Velocity = velocity,
+                    VerticalVelocity = verticalVelocity,
+                    FlatEarthVelocity = flatEarthVelocity,
+                    
+                    StartElevation = ToDouble(trackPoints[x - 1].ele),
+                    EndElevation = ToDouble(trackPoints[x].ele),
+
+                    Course = course
+                });
             }
 
-            results.TotalDistance = Total(results.Distances);
-            results.TotalVerticalDistance = Total(results.VerticalDistances);
-            results.TotalFlatEarthDistance = Total(results.FlatEarthDistances);
-
-            results.TotalTime = Total(results.Times);
-
-            results.AverageDistance = Average(results.Distances);
-            results.AverageVerticalDistance = Average(results.VerticalDistances);
-            results.AverageFlatEarthDistance = Average(results.FlatEarthDistances);
-
-            results.AverageTime = Average(results.Times);
-            results.AverageCourse = Average(results.Courses);
-
-            results.AverageVelocity = Average(results.Velocities);
-            results.AverageVerticalVelocity = Average(results.VerticalVelocities);
-            results.AverageFlatEarthVelocity = Average(results.FlatEarthVelocities);
-
-            return results;
+            return segments;
         }
+
+        #endregion
+
+        #region Summary - Non Activity Specific
+
+        public double AverageDistance()
+        {
+            return Average(Distances);
+        }
+
+        public double AverageVerticalDistance()
+        {
+            return Average(VerticalDistances);
+        }
+
+        public double AverageFlatEarthDistance()
+        {
+            return Average(FlatEarthDistances);
+        }
+
+        public double TotalDistance()
+        {
+            return Total(Distances);
+        }
+
+        public double TotalVerticalDistance()
+        {
+            return Total(VerticalDistances);
+        }
+
+        public double TotalFlatEarthDistance()
+        {
+            return Total(FlatEarthDistances);
+        }
+
+        public double AverageTime()
+        {
+            return Average(Times);
+        }
+
+        public double TotalTime()
+        {
+            return Total(Times);
+        }
+
+        public double AverageElevationChange()
+        {
+            return Average(VerticalDistances);
+        }
+
+        public double TotalElevationChange()
+        {
+            return Total(VerticalDistances);
+        }
+
+        public double MaximumElevation()
+        {
+            return Maximum(Elevations);
+        }
+
+        public double MinimumElevation()
+        {
+            return Minimum(Elevations);
+        }
+
+        public double AverageCourse()
+        {
+            return Average(Courses);
+        }
+
+        public double TotalCourse()
+        {
+            if (TrackPoints.Count() < 2)
+                return 0;
+
+            return Course(TrackPoints.First(), TrackPoints.Last());
+        }
+
+        #endregion
 
         #region Distance
 
@@ -246,7 +335,7 @@ namespace GPX
 
         #endregion
 
-        #region Generic
+        #region Helper Methods
 
         public static double Distance(decimal d1, decimal d2 = 0, decimal d3 = 0)
         {
@@ -269,6 +358,16 @@ namespace GPX
             return values.Sum();
         }
 
+        public static double Maximum(List<double> values)
+        {
+            return values.Max();
+        }
+
+        public static double Minimum(List<double> values)
+        {
+            return values.Min();
+        }
+
         public static double DegreesToRadians(double degrees)
         {
             return degrees * Math.PI / 180.0;
@@ -285,10 +384,31 @@ namespace GPX
             return radians * 60 * 180 / Math.PI;
         }
 
+        public static double RadiansToMiles(double radians)
+        {
+            // There are 1.15077945 miles in a nautical mile
+            return RadiansToNauticalMiles(radians) / 1.15077945;
+        }
+
         public static double RadiansToMeters(double radians)
         {
             // there are 1852 meters in a nautical mile
             return 1852 * RadiansToNauticalMiles(radians);
+        }
+
+        public static double ToDouble(object o)
+        {
+            return Convert.ToDouble(o);
+        }
+
+        public static decimal ToDecimal(object o)
+        {
+            return Convert.ToDecimal(o);
+        }
+
+        public static int ToInt(object o)
+        {
+            return Convert.ToInt32(o);
         }
 
         #endregion
