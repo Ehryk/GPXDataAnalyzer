@@ -22,6 +22,22 @@ namespace GPX
         public double EndElevation { get; set; }
 
         public double Course { get; set; }
+        
+        public double AbsoluteVerticalVelocity { get { return Math.Abs(VerticalVelocity); } }
+        public double AbsoluteVerticalDistance { get { return Math.Abs(VerticalDistance); } }
+    }
+
+    public class Segue
+    {
+        public string Name { get; set; }
+
+        public double Acceleration { get; set; }
+        public double VerticalAcceleration { get; set; }
+        public double FlatEarthAcceleration { get; set; }
+        
+        public double AbsoluteAcceleration { get { return Math.Abs(Acceleration); } }
+        public double AbsoluteVerticalAcceleration { get { return Math.Abs(VerticalAcceleration); } }
+        public double AbsoluteFlatEarthAcceleration { get { return Math.Abs(FlatEarthAcceleration); } }
     }
 
     public class DataAnalyzer
@@ -30,6 +46,7 @@ namespace GPX
 
         public List<wptType> TrackPoints;
         public List<Segment> Segments;
+        public List<Segue> Segues;
 
         public List<double> Distances;
         public List<double> VerticalDistances;
@@ -37,22 +54,30 @@ namespace GPX
         
         public List<double> Times;
         public List<double> Elevations;
+        public List<double> Courses;
 
         public List<double> Velocities;
         public List<double> VerticalVelocities;
         public List<double> FlatEarthVelocities;
 
-        public List<double> Courses;
-
         #endregion
 
         #region Constructors
+
+        public DataAnalyzer(List<Segment> segments, wptType startPoint = null)
+        {
+            TrackPoints = BuildTrackPoints(segments, startPoint);
+
+            Segments = segments;
+            Segues = BuildSegues(Segments);
+        }
 
         public DataAnalyzer(List<wptType> trackPoints)
         {
             TrackPoints = trackPoints;
 
             Segments = BuildSegments(TrackPoints);
+            Segues = BuildSegues(Segments);
         }
 
         public DataAnalyzer(GPXFile file, trkType track)
@@ -60,13 +85,15 @@ namespace GPX
             TrackPoints = file.GetTrackFirstSegmentPoints(track.name);
 
             Segments = BuildSegments(TrackPoints);
+            Segues = BuildSegues(Segments);
         }
 
         public DataAnalyzer(GPXFile file, string trackName)
         {
             TrackPoints = file.GetTrackFirstSegmentPoints(trackName);
-
+            
             Segments = BuildSegments(TrackPoints);
+            Segues = BuildSegues(Segments);
         }
 
         public List<Segment> BuildSegments(List<wptType> trackPoints, bool computeSublists = true)
@@ -149,9 +176,60 @@ namespace GPX
             return segments;
         }
 
+        public List<Segue> BuildSegues(List<Segment> segments, bool computeSublists = true)
+        {
+            List<Segue> segues = new List<Segue>();
+
+            if (segments.Count < 2)
+            {
+                //Not enough segments to have any segues
+                return segues;
+            }
+
+            for (int x = 1; x < segments.Count(); x++)
+            {
+                segues.Add(new Segue
+                {
+                    Name = String.Format("Segment {0} to {1}", x, x + 1),
+                    
+                    Acceleration = Acceleration(segments[x-1], segments[x]),
+                    FlatEarthAcceleration = FlatEarthAcceleration(segments[x-1], segments[x]),
+                    VerticalAcceleration = VerticalAcceleration(segments[x-1], segments[x])
+                });
+            }
+
+            return segues;
+        }
+
+        public List<wptType> BuildTrackPoints(List<Segment> segments, wptType startPoint = null)
+        {
+            List<wptType> points = new List<wptType>();
+
+            wptType start = startPoint ?? new wptType();
+            start.name = "Point 1";
+            points.Add(start);
+            
+            decimal lat = start.lat;
+            decimal lon = start.lon;
+            decimal ele = start.ele;
+            DateTime time = start.time;
+
+            foreach(Segment s in segments)
+            {
+                lat += ToDecimal(s.FlatEarthDistance * Math.Cos(s.Course));
+                lon += ToDecimal(s.FlatEarthDistance * Math.Sin(s.Course));
+                ele += ToDecimal(ele + ToDecimal(s.VerticalDistance));
+                time += new TimeSpan(0, 0, 0, ToInt(Math.Floor(s.Time)), ToInt(1000 * (s.Time - ToInt(Math.Floor(s.Time)))));
+
+                points.Add(new wptType { name = String.Format("Point {0}", points.Count() + 1), lat = lat, lon = lon, ele = ele, time = time });
+            }
+
+            return points;
+        }
+
         #endregion
 
-        #region Summary - Non Activity Specific
+        #region Common - Non Activity Specific
 
         public double AverageDistance()
         {
@@ -181,6 +259,66 @@ namespace GPX
         public double TotalFlatEarthDistance()
         {
             return Total(FlatEarthDistances);
+        }
+
+        public double AverageVelocity()
+        {
+            return Average(Velocities);
+        }
+
+        public double AverageVerticalVelocity()
+        {
+            return Average(VerticalVelocities);
+        }
+
+        public double AverageFlatEarthVelocity()
+        {
+            return Average(FlatEarthVelocities);
+        }
+
+        public double TotalVelocity()
+        {
+            return Total(Velocities);
+        }
+
+        public double TotalVerticalVelocity()
+        {
+            return Total(VerticalVelocities);
+        }
+
+        public double TotalFlatEarthVelocity()
+        {
+            return Total(FlatEarthVelocities);
+        }
+
+        public double MaximumVelocity(bool flatEarth = false)
+        {
+            return Maximum(flatEarth ? FlatEarthVelocities : Velocities);
+        }
+
+        public double MinimumVelocity(bool flatEarth = false)
+        {
+            return Minimum(flatEarth ? FlatEarthVelocities : Velocities);
+        }
+
+        public double MaximumFlatEarthVelocity()
+        {
+            return Maximum(FlatEarthVelocities);
+        }
+
+        public double MinimumFlatEarthVelocity()
+        {
+            return Minimum(FlatEarthVelocities);
+        }
+
+        public double MaximumVerticalVelocity()
+        {
+            return Maximum(VerticalVelocities);
+        }
+
+        public double MinimumVerticalVelocity()
+        {
+            return Minimum(VerticalVelocities);
         }
 
         public double AverageTime()
@@ -213,6 +351,16 @@ namespace GPX
             return Minimum(Elevations);
         }
 
+        public double StartElevation()
+        {
+            return ToDouble((TrackPoints.FirstOrDefault() ?? new wptType()).ele);
+        }
+
+        public double EndElevation()
+        {
+            return ToDouble((TrackPoints.LastOrDefault() ?? new wptType()).ele);
+        }
+
         public double AverageCourse()
         {
             return Average(Courses);
@@ -224,6 +372,458 @@ namespace GPX
                 return 0;
 
             return Course(TrackPoints.First(), TrackPoints.Last());
+        }
+
+        public double AverageUpSpeed()
+        {
+	        double upSpeeds = 0;
+	        int upSegments = 0;
+
+	        for (int i = 0; i < Segments.Count(); i++)
+	        {
+		        if (Segments[i].VerticalDistance > 0)
+		        {
+			        upSpeeds += Segments[i].Velocity;
+			        upSegments++;
+		        }
+	        }
+
+	        if (upSegments == 0)
+		        return 0;
+
+	        return upSpeeds / upSegments;
+        }
+
+        public double AverageDownSpeed()
+        {
+	        double downSpeeds = 0;
+	        int downSegments = 0;
+
+	        for (int i = 0; i < Segments.Count(); i++)
+	        {
+		        if (Segments[i].VerticalDistance < 0)
+		        {
+			        downSpeeds += Segments[i].Velocity;
+			        downSegments++;
+		        }
+	        }
+
+	        if (downSegments == 0)
+		        return 0;
+
+	        return downSpeeds / downSegments;
+        }
+
+        #endregion
+
+        #region Hiking / Jogging
+
+        public int NumberHikingRests()
+        {    
+	        int numRests = 0;
+
+	        for(int i = 0; i < Segments.Count; i++)
+	        {
+                if(Segments[i].Velocity < .2)
+		        {
+                    numRests++;
+
+			        while (Segments[i].Velocity < .2 && i < Segments.Count)
+			        {
+				        i ++;
+			        }
+                }
+	        }
+
+	        return numRests;
+        }
+
+        public double HikingRestTime() 
+        {
+            double restTime = 0;
+
+            for(int i = 0; i < Segments.Count(); i++)
+	        {
+                if(Segments[i].Velocity < .2)
+		        {
+                    restTime += Segments[i].Time;
+                }
+	        }
+
+            return restTime;
+        }
+
+        public double HikingTime() 
+        {
+            double hikeTime = 0;
+
+            for(int i = 0; i < Segments.Count(); i++)
+	        {
+                if(Segments[i].Velocity >= .2)
+		        {
+                    hikeTime += Segments[i].Time;
+                }
+	        }
+
+            return hikeTime;
+        }
+
+        public double HikingSpeed()		
+        {
+	        double hikeSpeed = 0;
+	        int hikeSegments = 0;
+
+	        for(int i = 0; i < Segments.Count(); i++) 
+	        {
+		        if (Segments[i].Velocity > .2)
+		        {
+			        hikeSpeed += Segments[i].Velocity;
+			        hikeSegments ++;
+		        }
+	        }
+
+	        hikeSpeed = hikeSpeed / hikeSegments;
+	        return hikeSpeed;
+        }
+
+        #endregion
+
+        #region Skiing / Snowboarding
+
+        public int NumberRuns()			
+        {
+	        int runs = 0;
+
+	        for(int i = 0; i < Segments.Count(); i++)
+            {
+		        if(Segments[i].VerticalDistance < 0)
+                {
+			        //Noving downhill
+			        runs++;
+			
+			        while(Segments[i].VerticalDistance < .2 && i < Segments.Count()) {
+				        //Move counter forward until you start moving up again
+				        i++;
+			        }
+		        }
+	        }
+	        return runs;
+        }
+
+        public int NumberLifts()				
+        {
+	        int runs = 0;
+
+	        for(int i = 0; i < Segments.Count(); i++)
+            {
+		        if(Segments[i].VerticalDistance > 0)
+                {
+			        //Moving uphill
+			        runs++;
+			
+			        while(Segments[i].VerticalDistance > -.2 && i < Segments.Count())
+                    {
+				        //Move counter forward until you start moving down again
+				        i++;
+			        }
+		        }
+	        }
+	        return runs;
+        }
+
+        public int NumberFalls()			
+        {
+	        int falls = 0;
+
+	        for(int i = 0; i < Segments.Count(); i++)
+            {
+		        if(Segments[i].VerticalDistance < 0 && Segments[i].Velocity < .2)
+                {
+			        //Moving downhill AND hit slow spot
+			
+			        while(Segments[i].Velocity < .2 && i < Segments.Count()) {
+				        //Move counter forward until you start moving fast again
+				        i++;
+			        }
+
+			        if (Segments[i].VerticalDistance < .2)
+                        //If continuing downhill, it's a fall
+				        falls++;
+		        }
+	        }
+
+	        return falls;
+        }
+
+        public double AverageLiftSpeed()
+        {
+	        double upSpeeds = 0;
+	        int upSegments = 0;
+
+	        for (int i = 0; i < Segments.Count(); i++)
+	        {
+		        if (Segments[i].VerticalDistance > 0)
+		        {
+			        upSpeeds += Segments[i].Velocity;
+			        upSegments++;
+		        }
+	        }
+
+	        if (upSegments == 0)
+		        return 0;
+
+	        return upSpeeds / upSegments;
+        }
+
+        public double AverageSkiSpeed()
+        {
+	        double downSpeeds = 0;
+	        int downSegments = 0;
+
+	        for (int i = 0; i < Segments.Count(); i++)
+	        {
+		        if (Segments[i].VerticalDistance > 0)
+		        {
+			        downSpeeds += Segments[i].Velocity;
+			        downSegments++;
+		        }
+	        }
+
+	        if (downSegments == 0)
+		        return 0;
+
+	        return downSpeeds / downSegments;
+        }
+
+        public double AverageLiftWaitTime()		
+        {
+	        double waitTime = 0;
+            int waitCount = 0;
+
+	        for(int i = 0; i < Segments.Count(); i++)
+            {
+		        if(Segments[i].VerticalDistance < 0 && Segments[i].Velocity < .2)
+                {
+			        //Moving downhill AND hit slow spot
+			        double stopTime = 0;
+			
+			        while(Segments[i].Velocity < .2 && i < Segments.Count()) {
+				        //Move counter forward until you start moving fast again
+				        stopTime += Segments[i].Time;
+				        i++;
+			        }
+
+			        if (Segments[i].VerticalDistance > -.2)
+			        {
+			            waitTime += stopTime;
+                        waitCount ++;
+			        }
+                }
+	        }
+
+            if (waitCount == 0)
+                return 0;
+
+	        return waitTime / waitCount;
+        }
+
+        public double TotalLiftWaitTime()		
+        {
+	        double waitTime = 0;
+
+	        for(int i = 0; i < Segments.Count(); i++)
+            {
+		        if(Segments[i].VerticalDistance < 0 && Segments[i].Velocity < .2)
+                {
+			        //Moving downhill AND hit slow spot
+			        double stopTime = 0;
+			
+			        while(Segments[i].Velocity < .2 && i < Segments.Count()) {
+				        //Move counter forward until you start moving fast again
+				        stopTime += Segments[i].Time;
+				        i++;
+			        }
+
+			        if (Segments[i].VerticalDistance > -.2)
+				        waitTime += stopTime;
+		        }
+	        }
+
+	        return waitTime;		
+        }
+	
+        public double AverageLiftTime()		
+        {
+	        return TotalLiftTime()/NumberLifts();
+        }
+
+        public double TotalLiftTime()		
+        {
+	        double total = 0;
+
+	        for(int i = 1; i < Segments.Count(); i++)
+            {
+		        if(Segments[i].VerticalDistance > 0)
+                {
+			        total += Segments[i].Time;
+		        }
+	        }
+
+	        return total;
+        }
+
+        public double AverageRunTime()		
+        {
+	        return TotalSkiTime()/NumberRuns();
+        }
+
+        public double TotalSkiTime()
+        {
+	        double total = 0;
+
+	        for(int i = 1; i < Segments.Count(); i++)
+            {
+		        if(Segments[i].VerticalDistance < 0)
+                {
+			        total += Segments[i].Time;
+		        }
+	        }
+
+	        return total;
+        }
+
+        public double AverageBindingTime()
+        {
+	        double restTime = 0;
+	        int count = 0;
+
+            for(int i = 1; i < Segments.Count(); i++)
+	        {
+               while(Segments[i-1].VerticalDistance > 0 && Segments[i].VerticalDistance < 0) 
+	           {
+			        if(Segments[i-1].Velocity < .2)
+			        {
+				        restTime += Segments[i-1].Time;
+				        count++;
+			        }
+	           }
+	        }
+
+            if (count == 0)
+                return 0;
+
+            return restTime / count;
+        }
+
+        public double TotalBindingTime()
+        {
+	        double restTime = 0;
+
+            for(int i = 1; i < Segments.Count(); i++)
+	        {
+               while(Segments[i-1].VerticalDistance > 0 && Segments[i].VerticalDistance < 0) 
+	           {
+			        if(Segments[i-1].VerticalDistance < .2)
+			        {
+				        restTime += Segments[i-1].Time;
+			        }
+	           }
+	        }
+
+            return restTime;
+        }
+
+        public double SkiDistance()
+        {
+	        double total = 0;
+
+            for(int i = 0; i < Segments.Count(); i++)
+	        {
+		        if(Segments[i+1].VerticalDistance < Segments[i].VerticalDistance)
+		        {
+			        total += Segments[i].Distance;
+		        }
+            }
+
+            return total;
+        }
+
+        #endregion
+
+        #region Vehicle (Snowmobile/4-Wheeler/Car)
+
+        public int NumberStops()
+        {
+	        int numRests = 0;
+
+	        for(int i = 0; i < Segments.Count(); i++)
+	        {
+                if(Segments[i].Velocity < 2.5)
+		        {
+			        while (Segments[i].Velocity < 2.5 && i < Segments.Count())
+				        i++;
+
+                    numRests++;
+                }
+	        }
+
+	        return numRests;
+        }
+
+        public double MaximumAcceleration(bool absolute = false)
+        {
+	        return Maximum(Segues.Select(s => absolute ? s.AbsoluteAcceleration : s.Acceleration).ToList());
+        }
+
+        public double MaximumDeceleration()
+        {
+	        return Minimum(Segues.Select(s => s.Acceleration).ToList());
+        }
+
+        public double VehicleRestTime()
+        {
+	        return Segments.Where(s => s.Velocity < 2.5).Select(s => s.Time).Sum();
+        }
+
+        public double CoastTime()
+        {
+	        double total = 0;
+
+	        for(int i = 1; i < Segments.Count(); i++)
+            {
+		        double acceleration = Acceleration(Segments[i], Segments[i-1]);
+
+		        if(-1 < acceleration && acceleration < 1 && Segments[i].Velocity > 10)
+			        total += Segments[i].Time;
+	        }
+
+	        return total;
+        }
+
+        public double AcceleratingTime(double cutoff = 1)
+        {
+	        double total = 0;
+
+	        for(int i = 1; i < Segments.Count(); i++)
+	        {
+		        if(Acceleration(Segments[i], Segments[i-1]) > cutoff)
+			        total += Segments[i].Time;
+	        }
+
+	        return total;
+        }
+
+        public double DeceleratingTime(double cutoff = 1)
+        {
+	        double total = 0;
+
+	        for(int i = 1; i < Segments.Count(); i++)
+	        {
+		        if(Acceleration(Segments[i], Segments[i-1]) < cutoff)
+			        total += Segments[i].Time;
+	        }
+
+	        return total;
         }
 
         #endregion
@@ -290,6 +890,33 @@ namespace GPX
             double seconds = time.TotalMilliseconds / 1000;
 
             return distance / seconds;
+        }
+
+        #endregion
+
+        #region Acceleration
+
+        public static double Acceleration(double velocity1, double velocity2, double time)
+        {
+            return (velocity2 - velocity1) / time;
+        }
+
+        public static double Acceleration(Segment s1, Segment s2, bool flatEarth = false)
+        {
+            if (flatEarth)
+                return Acceleration(s1.FlatEarthVelocity, s2.FlatEarthVelocity, s2.Time);
+
+            return Acceleration(s1.Velocity, s2.Velocity, s2.Time);
+        }
+
+        public static double FlatEarthAcceleration(Segment s1, Segment s2)
+        {
+            return Acceleration(s1.FlatEarthVelocity, s2.FlatEarthVelocity, s2.Time);
+        }
+
+        public static double VerticalAcceleration(Segment s1, Segment s2)
+        {
+            return Acceleration(s1.VerticalVelocity, s2.VerticalVelocity, s2.Time);
         }
 
         #endregion
@@ -394,6 +1021,11 @@ namespace GPX
         {
             // there are 1852 meters in a nautical mile
             return 1852 * RadiansToNauticalMiles(radians);
+        }
+
+        public static double AbsoluteValue(double d)
+        {
+            return Math.Abs(d);
         }
 
         public static double ToDouble(object o)

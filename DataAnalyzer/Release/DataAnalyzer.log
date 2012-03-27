@@ -1,29 +1,20 @@
-﻿Build started 3/16/2012 1:44:58 PM.
+﻿Build started 3/26/2012 9:53:03 PM.
      1>Project "C:\Projects\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Release\DataAnalyzer.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Release\DataAnalyzer.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt Stdafx.cpp /clr:nostdlib 
-         Stdafx.cpp
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\DataAnalyzer.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt AssemblyInfo.cpp DataAnalyzer.cpp /clr:nostdlib 
-         AssemblyInfo.cpp
-         DataAnalyzer.cpp
-     1>DataAnalyzer.cpp(780): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
-         Generating Code...
-     1>c:\projects\gpxdataanalyzer\dataanalyzer\dataanalyzer.cpp(627): warning C4700: uninitialized local variable 'total_time' used
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /TP /analyze- /errorReport:prompt "C:\Users\Ehryk\AppData\Local\Temp\.NETFramework,Version=v4.0.AssemblyAttributes.cpp"
-         .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+         All outputs are up-to-date.
        ResourceCompile:
-         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Release\app.res" app.rc 
+         All outputs are up-to-date.
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Projects\GPXDataAnalyzer\Release\DataAnalyzer.dll" /INCREMENTAL:NO /NOLOGO /MANIFEST /ManifestFile:"Release\DataAnalyzer.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Projects\GPXDataAnalyzer\Release\DataAnalyzer.pdb" /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /DLL Release\app.res
-         Release\AssemblyInfo.obj
-         Release\DataAnalyzer.obj
-         Release\Stdafx.obj
-         "Release\.NETFramework,Version=v4.0.AssemblyAttributes.obj"
+         All outputs are up-to-date.
          DataAnalyzer.vcxproj -> C:\Projects\GPXDataAnalyzer\Release\DataAnalyzer.dll
-       Manifest:
-         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Projects\GPXDataAnalyzer\Release\DataAnalyzer.dll;#2" /manifest Release\DataAnalyzer.dll.intermediate.manifest
+       MetaGen:
+       Skipping target "MetaGen" because all output files are up-to-date with respect to the input files.
        FinalizeBuildStatus:
          Deleting file "Release\DataAnalyzer.unsuccessfulbuild".
          Touching "Release\DataAnalyzer.lastbuildstate".
@@ -31,4 +22,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.88
+Time Elapsed 00:00:00.12

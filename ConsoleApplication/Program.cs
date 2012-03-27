@@ -481,13 +481,13 @@ namespace ConsoleApplication
 
             for (int x = 1; x < trackPoints.Count(); x++)
             {
-                distances.Add(Loader.Distance(trackPoints[x - 1], trackPoints[x]));
-                verticalDistances.Add(Loader.VerticalDistance(trackPoints[x - 1], trackPoints[x]));
-                flatEarthDistances.Add(Loader.Distance(trackPoints[x - 1], trackPoints[x], true));
+                distances.Add(GPX.DataAnalyzer.Distance(trackPoints[x - 1], trackPoints[x]));
+                verticalDistances.Add(GPX.DataAnalyzer.VerticalDistance(trackPoints[x - 1], trackPoints[x]));
+                flatEarthDistances.Add(GPX.DataAnalyzer.Distance(trackPoints[x - 1], trackPoints[x], true));
 
-                velocities.Add(Loader.Velocity(trackPoints[x - 1], trackPoints[x]));
-                verticalVelocities.Add(Loader.VerticalVelocity(trackPoints[x - 1], trackPoints[x]));
-                flatEarthVelocities.Add(Loader.Velocity(trackPoints[x - 1], trackPoints[x], true));
+                velocities.Add(GPX.DataAnalyzer.Velocity(trackPoints[x - 1], trackPoints[x]));
+                verticalVelocities.Add(GPX.DataAnalyzer.VerticalVelocity(trackPoints[x - 1], trackPoints[x]));
+                flatEarthVelocities.Add(GPX.DataAnalyzer.Velocity(trackPoints[x - 1], trackPoints[x], true));
             }
 
             Console.WriteLine("{0, -20} {1, -25} {2, -25}", "-Between Points-", "-Distance-", "-Velocity-");
@@ -500,17 +500,17 @@ namespace ConsoleApplication
             Console.ReadKey(true);
 
             Console.WriteLine();
-            Console.WriteLine("Total Distance: {0}", Loader.Total(distances) + " m");
-            Console.WriteLine("Total Vertical Distance: {0}", Loader.Total(verticalDistances) + " m");
-            Console.WriteLine("Total Flat Earth Distance: {0}", Loader.Total(flatEarthDistances) + " m");
+            Console.WriteLine("Total Distance: {0}", GPX.DataAnalyzer.Total(distances) + " m");
+            Console.WriteLine("Total Vertical Distance: {0}", GPX.DataAnalyzer.Total(verticalDistances) + " m");
+            Console.WriteLine("Total Flat Earth Distance: {0}", GPX.DataAnalyzer.Total(flatEarthDistances) + " m");
             Console.WriteLine();
-            Console.WriteLine("Average Distance: {0}", Loader.Average(distances) + " m");
-            Console.WriteLine("Average Vertical Distance: {0}", Loader.Average(verticalDistances) + " m");
-            Console.WriteLine("Average Flat Earth Distance: {0}", Loader.Average(flatEarthDistances) + " m");
+            Console.WriteLine("Average Distance: {0}", GPX.DataAnalyzer.Average(distances) + " m");
+            Console.WriteLine("Average Vertical Distance: {0}", GPX.DataAnalyzer.Average(verticalDistances) + " m");
+            Console.WriteLine("Average Flat Earth Distance: {0}", GPX.DataAnalyzer.Average(flatEarthDistances) + " m");
             Console.WriteLine();
-            Console.WriteLine("Average Velocity: {0}", Loader.Average(velocities) + " m/s");
-            Console.WriteLine("Average Vertical Velocity: {0}", Loader.Average(verticalVelocities) + " m/s");
-            Console.WriteLine("Average Flat Earth Velocity: {0}", Loader.Average(flatEarthVelocities) + " m/s");
+            Console.WriteLine("Average Velocity: {0}", GPX.DataAnalyzer.Average(velocities) + " m/s");
+            Console.WriteLine("Average Vertical Velocity: {0}", GPX.DataAnalyzer.Average(verticalVelocities) + " m/s");
+            Console.WriteLine("Average Flat Earth Velocity: {0}", GPX.DataAnalyzer.Average(flatEarthVelocities) + " m/s");
             Console.WriteLine();
         }
 

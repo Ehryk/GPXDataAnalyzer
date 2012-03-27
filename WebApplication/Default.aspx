@@ -67,25 +67,6 @@
                     </EmptyDataTemplate>
                 </asp:GridView>
             </asp:Panel>
-            <h1 class="Center">Basic Analysis<asp:ImageButton ID="ibTotals" OnClick="ToggleTotals" ImageUrl="~/Images/expand.png" style="margin-left:20px;" runat="server" /></h1>
-            <asp:Panel ID="cpTotals" runat="server" Visible="false">
-                <div>Total Distance: <asp:Label ID="lblTotalDistance" runat="server" /></div>
-                <div>Total Vertical Distance: <asp:Label ID="lblTotalVerticalDistance" runat="server" /></div>
-                <div>Total Flat Earth Distance: <asp:Label ID="lblTotalFlatEarthDistance" runat="server" /></div>
-                <br />
-                <div>Total Time: <asp:Label ID="lblTotalTime" runat="server" /></div>
-                <br />
-                <div>Average Distance: <asp:Label ID="lblAverageDistance" runat="server" /></div>
-                <div>Average Vertical Distance: <asp:Label ID="lblAverageVerticalDistance" runat="server" /></div>
-                <div>Average Flat Earth Distance: <asp:Label ID="lblAverageFlatEarthDistance" runat="server" /></div>
-                <br />
-                <div>Average Time: <asp:Label ID="lblAverageTime" runat="server" /></div>
-                <div>Average Course: <asp:Label ID="lblAverageCourse" runat="server" /></div>
-                <br />
-                <div>Average Velocity: <asp:Label ID="lblAverageVelocity" runat="server" /></div>
-                <div>Average Vertical Velocity: <asp:Label ID="lblAverageVerticalVelocity" runat="server" /></div>
-                <div>Average Flat Earth Velocity: <asp:Label ID="lblAverageFlatEarthVelocity" runat="server" /></div>
-            </asp:Panel>
         </asp:Panel>
 
         <h1 class="Center Section">Graphs<asp:ImageButton ID="ibGraphs" OnClick="ToggleGraphs" ImageUrl="~/Images/expand.png" style="margin-left:20px;" runat="server" /></h1>
@@ -147,7 +128,7 @@
     </asp:Panel>
     
     <asp:Panel ID="pnlActivitySpecific" style="width:100%;" Visible="false" runat="server">
-        <h1 class="Center Section"><asp:Label ID="lblResultsTitle" runat="server" Text="Results" /><asp:ImageButton ID="ibResults" OnClick="ToggleResults" ImageUrl="~/Images/expand.png" style="margin-left:20px;" runat="server" /></h1>
+        <h1 class="Center Section"><asp:Label ID="lblResultsTitle" runat="server" Text="Activity-Specific Results" /><asp:ImageButton ID="ibResults" OnClick="ToggleResults" ImageUrl="~/Images/expand.png" style="margin-left:20px;" runat="server" /></h1>
         <asp:Panel ID="cpResults" runat="server" Visible="false">
     
             <asp:Panel ID="pnlNotSure" style="width:100%;" Visible="false" runat="server">
@@ -208,9 +189,30 @@
                 <div>Maximum Velocity: <asp:Label ID="lblMaximumVelocity" runat="server" /></div>
                 <div>Maximum Acceleration: <asp:Label ID="lblMaximumAcceleration" runat="server" /></div>
                 <div>Maximum Deceleration: <asp:Label ID="lblMaximumDeceleration" runat="server" /></div>
-
             </asp:Panel>
 
+        </asp:Panel>
+            
+        <hr />
+
+        <h1 class="Center">Basic Analysis<asp:ImageButton ID="ibTotals" OnClick="ToggleTotals" ImageUrl="~/Images/expand.png" style="margin-left:20px;" runat="server" /></h1>
+        <asp:Panel ID="cpTotals" runat="server" Visible="false">
+            <div>Total Distance: <asp:Label ID="lblTotalDistance" runat="server" /></div>
+            <div>Total Vertical Distance: <asp:Label ID="lblTotalVerticalDistance" runat="server" /></div>
+            <div>Total Flat Earth Distance: <asp:Label ID="lblTotalFlatEarthDistance" runat="server" /></div>
+            <br />
+            <div>Total Time: <asp:Label ID="lblTotalTime" runat="server" /></div>
+            <br />
+            <div>Average Distance: <asp:Label ID="lblAverageDistance" runat="server" /></div>
+            <div>Average Vertical Distance: <asp:Label ID="lblAverageVerticalDistance" runat="server" /></div>
+            <div>Average Flat Earth Distance: <asp:Label ID="lblAverageFlatEarthDistance" runat="server" /></div>
+            <br />
+            <div>Average Time: <asp:Label ID="lblAverageTime" runat="server" /></div>
+            <div>Average Course: <asp:Label ID="lblAverageCourse" runat="server" /></div>
+            <br />
+            <div>Average Velocity: <asp:Label ID="lblAverageVelocity" runat="server" /></div>
+            <div>Average Vertical Velocity: <asp:Label ID="lblAverageVerticalVelocity" runat="server" /></div>
+            <div>Average Flat Earth Velocity: <asp:Label ID="lblAverageFlatEarthVelocity" runat="server" /></div>
         </asp:Panel>
 
     </asp:Panel>

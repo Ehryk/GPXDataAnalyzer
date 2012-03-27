@@ -14,7 +14,7 @@ namespace WebApplication
     {
         #region Properties
 
-        protected DataAnalyzer analyzer
+        protected DataAnalyzer Analyzer
         {
             get { return Session["DataAnalyzer"] as DataAnalyzer; }
             set { Session["DataAnalyzer"] = value; }
@@ -123,7 +123,7 @@ namespace WebApplication
             if (String.IsNullOrEmpty(ddlTracks.SelectedValue))
             {
                 pnlAnalysis.Visible = false;
-                pnlActivity.Visible = false;
+                pnlActivity.Visible = true;
                 ActivityPanelsVisible = false;
                 return;
             }
@@ -132,36 +132,34 @@ namespace WebApplication
 
             lblTrackPointCount.Text = String.Format(" ({0})", trackPoints.Count());
 
-            TrackResults results = Loader.GetResults(trackPoints);
+            Analyzer = new DataAnalyzer(trackPoints);
 
-            gvTrackPoints.DataSource = results.TrackPoints;
+            gvTrackPoints.DataSource = Analyzer.TrackPoints;
             gvTrackPoints.DataBind();
 
-            lblSegmentCount.Text = String.Format(" ({0})", results.Segments.Count());
+            lblSegmentCount.Text = String.Format(" ({0})", Analyzer.Segments.Count());
 
-            gvSegments.DataSource = results.Segments;
+            gvSegments.DataSource = Analyzer.Segments;
             gvSegments.DataBind();
 
-            lblTotalDistance.Text = FormatDistance(results.TotalDistance);
-            lblTotalVerticalDistance.Text = FormatDistance(results.TotalVerticalDistance);
-            lblTotalFlatEarthDistance.Text = FormatDistance(results.TotalFlatEarthDistance);
+            lblTotalDistance.Text = FormatDistance(Analyzer.TotalDistance());
+            lblTotalVerticalDistance.Text = FormatDistance(Analyzer.TotalVerticalDistance());
+            lblTotalFlatEarthDistance.Text = FormatDistance(Analyzer.TotalFlatEarthDistance());
 
-            lblTotalTime.Text = FormatTime(results.TotalTime);
+            lblTotalTime.Text = FormatTime(Analyzer.TotalTime());
 
-            lblAverageDistance.Text = FormatDistance(results.AverageDistance);
-            lblAverageVerticalDistance.Text = FormatDistance(results.AverageVerticalDistance);
-            lblAverageFlatEarthDistance.Text = FormatDistance(results.AverageFlatEarthDistance);
+            lblAverageDistance.Text = FormatDistance(Analyzer.AverageDistance());
+            lblAverageVerticalDistance.Text = FormatDistance(Analyzer.AverageVerticalDistance());
+            lblAverageFlatEarthDistance.Text = FormatDistance(Analyzer.AverageFlatEarthDistance());
 
-            lblAverageTime.Text = FormatTime(results.AverageTime);
-            lblAverageCourse.Text = FormatCourse(results.AverageCourse);
+            lblAverageTime.Text = FormatTime(Analyzer.AverageTime());
+            lblAverageCourse.Text = FormatCourse(Analyzer.AverageCourse());
 
-            lblAverageVelocity.Text = FormatVelocity(results.AverageVelocity);
-            lblAverageVerticalVelocity.Text = FormatVelocity(results.AverageVerticalVelocity);
-            lblAverageFlatEarthVelocity.Text = FormatVelocity(results.AverageFlatEarthVelocity);
+            lblAverageVelocity.Text = FormatVelocity(Analyzer.AverageVelocity());
+            lblAverageVerticalVelocity.Text = FormatVelocity(Analyzer.AverageVerticalVelocity());
+            lblAverageFlatEarthVelocity.Text = FormatVelocity(Analyzer.AverageFlatEarthVelocity());
 
             pnlAnalysis.Visible = true;
-
-            LoadDataAnalyzer(results);
 
             pnlActivity.Visible = true;
             ActivityChanged(ddlActivity, EventArgs.Empty);
@@ -258,19 +256,18 @@ namespace WebApplication
 
         #region Methods
 
-        protected void LoadDataAnalyzer(TrackResults pResults)
+        protected void Show(Panel panel)
         {
-            wptType start = pResults.TrackPoints.FirstOrDefault();
+            //Show it
+            panel.Visible = true;
+            imageButton.ImageUrl = "~/Images/collapse.png";
+        }
 
-            //if (start != null)
-            //    analyzer = new DataAnalyzer(pResults.Segments.Count, (double)start.ele, start.time, (double)start.lat, (double)start.lon);
-            //else
-            //    analyzer = new DataAnalyzer(pResults.Segments.Count);
-
-            //foreach (Segment segment in pResults.Segments)
-            //{
-            //    analyzer.AddSegment(segment.Distance, segment.Time, segment.Course, segment.VerticalDistance, segment.FlatEarthDistance);
-            //}
+        protected void Hide(Panel panel)
+        {
+            //Hide it
+            panel.Visible = false;
+            ((ImageButton)panel.FindControl("")).ImageUrl = "~/Images/expand.png";
         }
 
         protected void Toggle(Panel panel, ImageButton imageButton)
@@ -295,65 +292,65 @@ namespace WebApplication
         {
             lblResultsTitle.Text = pTitle;
 
-            lblAverageHikeSpeed.Text = FormatVelocity(analyzer.GetHikingSpeed());
-            lblTotalHikeTime.Text = FormatTime(analyzer.GetHikingTime());
+            lblAverageHikeSpeed.Text = FormatVelocity(Analyzer.HikingSpeed());
+            lblTotalHikeTime.Text = FormatTime(Analyzer.HikingTime());
 
-            lblMinElevation.Text = FormatDistance(analyzer.GetMinElevation());
-            lblMaxElevation.Text = FormatDistance(analyzer.GetMaxElevation());
+            lblMinElevation.Text = FormatDistance(Analyzer.MinimumElevation());
+            lblMaxElevation.Text = FormatDistance(Analyzer.MaximumElevation());
 
-            lblStartElevation.Text = FormatDistance(analyzer.GetStartElevation());
-            lblEndElevation.Text = FormatDistance(analyzer.GetEndElevation());
+            lblStartElevation.Text = FormatDistance(Analyzer.StartElevation());
+            lblEndElevation.Text = FormatDistance(Analyzer.EndElevation());
 
-            lblUphillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageUpSpeed());
-            lblDownhillHikeSpeed.Text = FormatVelocity(analyzer.GetAverageDownSpeed());
+            lblUphillHikeSpeed.Text = FormatVelocity(Analyzer.AverageUpSpeed());
+            lblDownhillHikeSpeed.Text = FormatVelocity(Analyzer.AverageDownSpeed());
 
-            lblNumberHikingRests.Text = analyzer.GetNumberHikingRests().ToString();
-            lblTotalHikeRestTime.Text = FormatTime(analyzer.GetHikingRestTime());
+            lblNumberHikingRests.Text = Analyzer.NumberHikingRests().ToString();
+            lblTotalHikeRestTime.Text = FormatTime(Analyzer.HikingRestTime());
         }
 
         protected void LoadDownhillResults(string pTitle)
         {
             lblResultsTitle.Text = pTitle;
-            //lblNumberOfRuns.Text = analyzer.GetNumberRuns().ToString();
-            //lblNumberOfLifts.Text = analyzer.GetNumberRuns().ToString();
-            //lblNumberOfFalls.Text = analyzer.GetNumberRuns().ToString();
+            lblNumberOfRuns.Text = Analyzer.NumberRuns().ToString();
+            lblNumberOfLifts.Text = Analyzer.NumberRuns().ToString();
+            lblNumberOfFalls.Text = Analyzer.NumberRuns().ToString();
 
-            //lblTotalDownhillDistance.Text = FormatDistance(analyzer.GetSkiDistance());
-            //lblVerticalDistance.Text = FormatDistance(analyzer.GetMaxElevation() - analyzer.GetEndElevation());
+            lblTotalDownhillDistance.Text = FormatDistance(Analyzer.SkiDistance());
+            lblVerticalDistance.Text = FormatDistance(Analyzer.MaximumElevation() - Analyzer.EndElevation());
 
-            //lblAverageLiftSpeed.Text = FormatVelocity(analyzer.GetAverageLiftSpeed());
-            //lblAverageSkiSpeed.Text = FormatVelocity(analyzer.GetAverageSkiSpeed());
+            lblAverageLiftSpeed.Text = FormatVelocity(Analyzer.AverageLiftSpeed());
+            lblAverageSkiSpeed.Text = FormatVelocity(Analyzer.AverageSkiSpeed());
         }
 
         protected void LoadFastResults(string pTitle)
         {
             lblResultsTitle.Text = pTitle;
-            //lblTotalFastTime.Text = FormatTime(analyzer.GetTotalTime());
-            //lblTotalFastDistance.Text = FormatDistance(analyzer.GetTotalDistance());
+            lblTotalFastTime.Text = FormatTime(Analyzer.TotalTime());
+            lblTotalFastDistance.Text = FormatDistance(Analyzer.TotalDistance());
 
-            //lblNumberStops.Text = analyzer.GetNumberStops().ToString();
-            //lblMaxAcceleration.Text = FormatAcceleration(analyzer.GetMaximumAcceleration());
-            //lblMaxDeceleration.Text = FormatAcceleration(analyzer.GetMaximumDeceleration());
+            lblNumberStops.Text = Analyzer.NumberStops().ToString();
+            lblMaxAcceleration.Text = FormatAcceleration(Analyzer.MaximumAcceleration());
+            lblMaxDeceleration.Text = FormatAcceleration(Analyzer.MaximumDeceleration());
 
-            //lblVehicleRestTime.Text = FormatTime(analyzer.GetVehicleRestTime());
-            //lblCoastTime.Text = FormatTime(analyzer.GetCoastTime());
-            //lblAccelerationTime.Text = FormatAcceleration(analyzer.GetAcceleratingTime());
-            //lblDecelerationTime.Text = FormatAcceleration(analyzer.GetDeceleratingTime());
+            lblVehicleRestTime.Text = FormatTime(Analyzer.VehicleRestTime());
+            lblCoastTime.Text = FormatTime(Analyzer.CoastTime());
+            lblAccelerationTime.Text = FormatAcceleration(Analyzer.AcceleratingTime());
+            lblDecelerationTime.Text = FormatAcceleration(Analyzer.DeceleratingTime());
         }
 
         protected void LoadFlightResults(string pTitle)
         {
             lblResultsTitle.Text = pTitle;
-            //lblTotalFlightTime.Text = FormatTime(analyzer.GetTotalTime());
-            //lblTotalFlightDistance.Text = FormatDistance(analyzer.GetTotalDistance());
+            lblTotalFlightTime.Text = FormatTime(Analyzer.TotalTime());
+            lblTotalFlightDistance.Text = FormatDistance(Analyzer.TotalDistance());
 
-            //lvlAverageFlightVelocity.Text = FormatVelocity(analyzer.GetAverageSkiSpeed());
-            //lblAverageClimbingVelocity.Text = FormatVelocity(analyzer.GetAverageUpSpeed());
-            //lblAverageDescentVelocity.Text = FormatVelocity(analyzer.GetAverageDownSpeed());
+            lvlAverageFlightVelocity.Text = FormatVelocity(Analyzer.AverageSkiSpeed());
+            lblAverageClimbingVelocity.Text = FormatVelocity(Analyzer.AverageUpSpeed());
+            lblAverageDescentVelocity.Text = FormatVelocity(Analyzer.AverageDownSpeed());
 
-            //lblMaximumVelocity.Text = FormatVelocity(analyzer.GetMaxVelocity());
-            //lblMaximumAcceleration.Text = FormatAcceleration(analyzer.GetMaximumAcceleration());
-            //lblMaximumDeceleration.Text = FormatAcceleration(analyzer.GetMaximumDeceleration());
+            lblMaximumVelocity.Text = FormatVelocity(Analyzer.MaximumVelocity());
+            lblMaximumAcceleration.Text = FormatAcceleration(Analyzer.MaximumAcceleration());
+            lblMaximumDeceleration.Text = FormatAcceleration(Analyzer.MaximumDeceleration());
         }
 
         public static string FormatTime(double seconds)
