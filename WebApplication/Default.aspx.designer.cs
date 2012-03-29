@@ -265,22 +265,13 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.DropDownList ddlActivity;
         
         /// <summary>
-        /// pnlActivitySpecific control.
+        /// pnlResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlActivitySpecific;
-        
-        /// <summary>
-        /// lblResultsTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResultsTitle;
+        protected global::System.Web.UI.WebControls.Panel pnlResults;
         
         /// <summary>
         /// ibResults control.
@@ -299,6 +290,33 @@ namespace WebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel cpResults;
+        
+        /// <summary>
+        /// lblResultsTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResultsTitle;
+        
+        /// <summary>
+        /// ibSpecific control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ibSpecific;
+        
+        /// <summary>
+        /// cpSpecific control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel cpSpecific;
         
         /// <summary>
         /// pnlNotSure control.
@@ -634,6 +652,15 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Label lblMaximumVelocity;
         
         /// <summary>
+        /// lblMinimumVelocity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMinimumVelocity;
+        
+        /// <summary>
         /// lblMaximumAcceleration control.
         /// </summary>
         /// <remarks>
@@ -652,22 +679,31 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Label lblMaximumDeceleration;
         
         /// <summary>
-        /// ibTotals control.
+        /// lblBasicTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ibTotals;
+        protected global::System.Web.UI.WebControls.Label lblBasicTitle;
         
         /// <summary>
-        /// cpTotals control.
+        /// ibBasic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel cpTotals;
+        protected global::System.Web.UI.WebControls.ImageButton ibBasic;
+        
+        /// <summary>
+        /// cpBasic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel cpBasic;
         
         /// <summary>
         /// lblTotalDistance control.

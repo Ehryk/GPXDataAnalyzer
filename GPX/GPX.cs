@@ -428,7 +428,7 @@ namespace GPX
 		        {
                     numRests++;
 
-			        while (Segments[i].Velocity < .2 && i < Segments.Count)
+			        while (i < Segments.Count && Segments[i].Velocity < .2)
 			        {
 				        i ++;
 			        }
@@ -501,7 +501,8 @@ namespace GPX
 			        //Noving downhill
 			        runs++;
 			
-			        while(Segments[i].VerticalDistance < .2 && i < Segments.Count()) {
+			        while(i < Segments.Count() && Segments[i].VerticalDistance < .2)
+                    {
 				        //Move counter forward until you start moving up again
 				        i++;
 			        }
@@ -521,7 +522,7 @@ namespace GPX
 			        //Moving uphill
 			        runs++;
 			
-			        while(Segments[i].VerticalDistance > -.2 && i < Segments.Count())
+			        while(i < Segments.Count() && Segments[i].VerticalDistance > -.2)
                     {
 				        //Move counter forward until you start moving down again
 				        i++;
@@ -541,7 +542,8 @@ namespace GPX
                 {
 			        //Moving downhill AND hit slow spot
 			
-			        while(Segments[i].Velocity < .2 && i < Segments.Count()) {
+			        while(i < Segments.Count() && Segments[i].Velocity < .2)
+                    {
 				        //Move counter forward until you start moving fast again
 				        i++;
 			        }
@@ -582,7 +584,7 @@ namespace GPX
 
 	        for (int i = 0; i < Segments.Count(); i++)
 	        {
-		        if (Segments[i].VerticalDistance > 0)
+		        if (Segments[i].VerticalDistance < 0)
 		        {
 			        downSpeeds += Segments[i].Velocity;
 			        downSegments++;
@@ -739,7 +741,7 @@ namespace GPX
 
             for(int i = 0; i < Segments.Count(); i++)
 	        {
-		        if(Segments[i+1].VerticalDistance < Segments[i].VerticalDistance)
+		        if(Segments[i].VerticalDistance < 0)
 		        {
 			        total += Segments[i].Distance;
 		        }

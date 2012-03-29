@@ -24,7 +24,6 @@ namespace WebApplication
         {
             set
             {
-                pnlActivitySpecific.Visible = true;
                 pnlNotSure.Visible = value;
                 pnlSlow.Visible = value;
                 pnlDownhill.Visible = value;
@@ -65,7 +64,7 @@ namespace WebApplication
 
             pnlTracks.Visible = false;
             pnlAnalysis.Visible = false;
-            pnlActivitySpecific.Visible = false;
+            pnlResults.Visible = false;
         }
 
         protected void FileChanged(object sender, EventArgs e)
@@ -76,7 +75,7 @@ namespace WebApplication
                 pnlAnalysis.Visible = false;
                 pnlActivity.Visible = false;
                 ActivityPanelsVisible = false;
-                pnlActivitySpecific.Visible = false;
+                pnlResults.Visible = false;
                 FileStatus = "Select a file.";
                 return;
             }
@@ -86,7 +85,7 @@ namespace WebApplication
                 pnlAnalysis.Visible = false;
                 pnlActivity.Visible = false;
                 ActivityPanelsVisible = false;
-                pnlActivitySpecific.Visible = false;
+                pnlResults.Visible = false;
                 FileStatus = "File not found.";
                 return;
             }
@@ -123,7 +122,7 @@ namespace WebApplication
             if (String.IsNullOrEmpty(ddlTracks.SelectedValue))
             {
                 pnlAnalysis.Visible = false;
-                pnlActivity.Visible = true;
+                pnlActivity.Visible = false;
                 ActivityPanelsVisible = false;
                 return;
             }
@@ -195,7 +194,7 @@ namespace WebApplication
                 pnlFlight.Visible = true;
             }
 
-            pnlActivitySpecific.Visible = true;
+            pnlResults.Visible = true;
         }
 
         #endregion
@@ -227,11 +226,6 @@ namespace WebApplication
             Toggle(cpSegments, ibSegments);
         }
 
-        protected void ToggleTotals(object sender, EventArgs e)
-        {
-            Toggle(cpTotals, ibTotals);
-        }
-
         protected void ToggleGraphs(object sender, EventArgs e)
         {
             Toggle(cpGraphs, ibGraphs);
@@ -252,6 +246,16 @@ namespace WebApplication
             Toggle(cpResults, ibResults);
         }
 
+            protected void ToggleSpecific(object sender, EventArgs e)
+            {
+                Toggle(cpSpecific, ibSpecific);
+            }
+
+            protected void ToggleBasic(object sender, EventArgs e)
+            {
+                Toggle(cpBasic, ibBasic);
+            }
+
         #endregion
 
         #region Methods
@@ -260,14 +264,14 @@ namespace WebApplication
         {
             //Show it
             panel.Visible = true;
-            imageButton.ImageUrl = "~/Images/collapse.png";
+            ((ImageButton)panel.Controls[0]).ImageUrl = "~/Images/collapse.png";
         }
 
         protected void Hide(Panel panel)
         {
             //Hide it
             panel.Visible = false;
-            ((ImageButton)panel.FindControl("")).ImageUrl = "~/Images/expand.png";
+            ((ImageButton)panel.Controls[0]).ImageUrl = "~/Images/expand.png";
         }
 
         protected void Toggle(Panel panel, ImageButton imageButton)
@@ -312,11 +316,11 @@ namespace WebApplication
         {
             lblResultsTitle.Text = pTitle;
             lblNumberOfRuns.Text = Analyzer.NumberRuns().ToString();
-            lblNumberOfLifts.Text = Analyzer.NumberRuns().ToString();
-            lblNumberOfFalls.Text = Analyzer.NumberRuns().ToString();
+            lblNumberOfLifts.Text = Analyzer.NumberLifts().ToString();
+            lblNumberOfFalls.Text = Analyzer.NumberFalls().ToString();
 
             lblTotalDownhillDistance.Text = FormatDistance(Analyzer.SkiDistance());
-            lblVerticalDistance.Text = FormatDistance(Analyzer.MaximumElevation() - Analyzer.EndElevation());
+            lblVerticalDistance.Text = FormatDistance(Analyzer.MaximumElevation() - Analyzer.MinimumElevation());
 
             lblAverageLiftSpeed.Text = FormatVelocity(Analyzer.AverageLiftSpeed());
             lblAverageSkiSpeed.Text = FormatVelocity(Analyzer.AverageSkiSpeed());
@@ -344,11 +348,12 @@ namespace WebApplication
             lblTotalFlightTime.Text = FormatTime(Analyzer.TotalTime());
             lblTotalFlightDistance.Text = FormatDistance(Analyzer.TotalDistance());
 
-            lvlAverageFlightVelocity.Text = FormatVelocity(Analyzer.AverageSkiSpeed());
+            lvlAverageFlightVelocity.Text = FormatVelocity(Analyzer.AverageVelocity());
             lblAverageClimbingVelocity.Text = FormatVelocity(Analyzer.AverageUpSpeed());
             lblAverageDescentVelocity.Text = FormatVelocity(Analyzer.AverageDownSpeed());
-
+            
             lblMaximumVelocity.Text = FormatVelocity(Analyzer.MaximumVelocity());
+            lblMinimumVelocity.Text = FormatVelocity(Analyzer.MinimumVelocity());
             lblMaximumAcceleration.Text = FormatAcceleration(Analyzer.MaximumAcceleration());
             lblMaximumDeceleration.Text = FormatAcceleration(Analyzer.MaximumDeceleration());
         }
@@ -368,17 +373,17 @@ namespace WebApplication
 
         public static string FormatDistance(double meters)
         {
-            return String.Format("{0:N2} ft ({1:N2} m)", MetersToFeet(meters), meters);
+            return String.Format("{0:N2} ft ({1:N2} m), {2:N2} miles ({3:N2} km)", MetersToFeet(meters), meters, MetersToMiles(meters), MetersToKM(meters));
         }
 
         public static string FormatVelocity(double metersPerSecond)
         {
-            return String.Format("{0:N2} MPH ({1:N2} m/s)", MPStoMPH(metersPerSecond), metersPerSecond);
+            return String.Format("{0:N2} MPH ({1:N2} m/s, {2:N2} km/h)", MPStoMPH(metersPerSecond), metersPerSecond, MPStoKMPH(metersPerSecond));
         }
 
         public static string FormatAcceleration(double metersPerSecondPerSecond)
         {
-            return String.Format("{0:N2} g ({1:N2} m/s^2)", MPSStoG(metersPerSecondPerSecond), metersPerSecondPerSecond);
+            return String.Format("{0:N2} g ({1:N2} m/s^2)", MPSPStoG(metersPerSecondPerSecond), metersPerSecondPerSecond);
         }
 
         public static string FormatCourse(double course)
@@ -386,7 +391,7 @@ namespace WebApplication
             string[] directions = new [] {"N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"};
 
             int index = Convert.ToInt32((course + 23) / 45);
-            return String.Format("{0:N2}&deg; {1}", course, directions[index]);
+            return String.Format("{0:N2}&deg; ({1})", course, directions[index]);
         }
 
         public static double MetersToFeet(double meters)
@@ -394,12 +399,32 @@ namespace WebApplication
             return meters*3.2808399;
         }
 
+        public static double MetersToKM(double meters)
+        {
+            return meters/1000;
+        }
+
+        public static double FeetToMiles(double feet)
+        {
+            return feet/5280;
+        }
+
+        public static double MetersToMiles(double meters)
+        {
+            return meters/1609.344;
+        }
+
         public static double MPStoMPH(double metersPerSecond)
         {
             return metersPerSecond * 2.23693629;
         }
 
-        public static double MPSStoG(double metersPerSecondPerSecond)
+        public static double MPStoKMPH(double metersPerSecond)
+        {
+            return metersPerSecond * 3.6;
+        }
+
+        public static double MPSPStoG(double metersPerSecondPerSecond)
         {
             return metersPerSecondPerSecond * 0.101971621;
         }
