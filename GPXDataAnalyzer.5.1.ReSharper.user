@@ -1,0 +1,83 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="5C3FCA30-3E56-4AD4-B796-BE4B198001AE/f:stdafx.h" caret="269" fromTop="12" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPXClasses.cs" caret="1261" fromTop="0" />
+      <File id="159F1FC4-4759-4DB0-8695-FFD423302DB4/f:GPX.cs" caret="9163" fromTop="16" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx" caret="0" fromTop="0" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Default.aspx.cs" caret="3033" fromTop="13" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx.cs" caret="309" fromTop="13" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:About.aspx" caret="0" fromTop="0" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Upload.aspx" caret="0" fromTop="0" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Site.Master" caret="666" fromTop="0" />
+      <File id="E8C4D0B7-F8CB-4775-9BFE-5BC33604B205/f:Upload.aspx.cs" caret="281" fromTop="12" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="3578" fromTop="0" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="1188" fromTop="52" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:Stdafx.h" caret="178" fromTop="6" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:Analyzer.cpp" caret="91" fromTop="6" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:Analyzer.h" caret="1456" fromTop="5" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:ReadMe.txt" caret="1301" fromTop="11" />
+      <File id="5C3FCA30-3E56-4AD4-B796-BE4B198001AE/f:DataAnalyzerConsole.cpp" caret="242" fromTop="8" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:AssemblyInfo.cpp" caret="240" fromTop="0" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:Stdafx.cpp" caret="0" fromTop="0" />
+      <File id="D99326D4-6E9C-44B4-8A08-9FE4B7662BDA/f:Program.cs" caret="161" fromTop="0" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="1138" fromTop="2" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="1431" fromTop="3" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="1782" fromTop="14" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="1646" fromTop="7" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="79" fromTop="4" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="3277" fromTop="7" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="1806" fromTop="0" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="915" fromTop="7" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="1738" fromTop="10" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="1366" fromTop="4" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="393" fromTop="14" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="393" fromTop="9" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="201" fromTop="2" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.cpp" caret="393" fromTop="9" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:Analyzer.cpp" caret="3116" fromTop="21" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:Analyzer.cpp" caret="3072" fromTop="7" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:Analyzer.h" caret="242" fromTop="16" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="363" fromTop="7" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="613" fromTop="8" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="776" fromTop="6" />
+      <File id="59C7A66A-4154-45B5-B820-0114C4D33C4E/f:DataAnalyzer.h" caret="1188" fromTop="9" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:Analyzer.h" caret="641" fromTop="6" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:Analyzer.h" caret="810" fromTop="4" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:Analyzer.h" caret="1236" fromTop="7" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:Analyzer.h" caret="242" fromTop="13" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:Analyzer.cpp" caret="79" fromTop="5" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:Analyzer.h" caret="58" fromTop="5" />
+      <File id="10BF7D14-1CF2-4EB9-A19E-EAEA5A03E59D/f:Analyzer.h" caret="1456" fromTop="8" />
+      <File id="5C3FCA30-3E56-4AD4-B796-BE4B198001AE/f:DataAnalyzerConsole.cpp" caret="285" fromTop="11" />
+      <File id="D99326D4-6E9C-44B4-8A08-9FE4B7662BDA/f:Program.cs" caret="581" fromTop="14" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="Analyzer`0" priority="0" />
+      <Item value="new" priority="0" />
+      <Item value="Analyzer" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>
