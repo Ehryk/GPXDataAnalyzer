@@ -15,3 +15,4 @@
 _ReSharper.*
 *.resharper
 Ankh.NoLoad
+ipch/
