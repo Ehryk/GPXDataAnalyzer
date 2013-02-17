@@ -1,0 +1,6 @@
+_ReSharper.GPXDataAnalyzer
+Debug
+Release
+*.ReSharper
+obj
+bin

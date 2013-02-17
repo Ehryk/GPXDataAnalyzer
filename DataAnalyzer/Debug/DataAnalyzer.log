@@ -1,22 +1,18 @@
-﻿Build started 11/24/2011 1:55:06 PM.
-     1>Project "C:\Work\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" on node 2 (rebuild target(s)).
-     1>_PrepareForClean:
-         Deleting file "Debug\DataAnalyzer.lastbuildstate".
-       InitializeBuildStatus:
-         Creating "Debug\DataAnalyzer.unsuccessfulbuild" because "AlwaysCreate" was specified.
+﻿Build started 12/1/2011 10:37:12 PM.
+     1>Project "C:\Work\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\DataAnalyzer.unsuccessfulbuild".
        GenerateTargetFrameworkMonikerAttribute:
        Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\DataAnalyzer.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FUC:\Work\GPXDataAnalyzer\GPX\bin\Debug\GPX.dll /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt Stdafx.cpp /clr:nostdlib 
-         Stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\DataAnalyzer.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FUC:\Work\GPXDataAnalyzer\GPX\bin\Debug\GPX.dll /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt AssemblyInfo.cpp DataAnalyzer.cpp /clr:nostdlib 
-         AssemblyInfo.cpp
+         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\DataAnalyzer.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FUC:\Work\GPXDataAnalyzer\GPX\bin\Debug\GPX.dll /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt DataAnalyzer.cpp /clr:nostdlib 
          DataAnalyzer.cpp
-         Generating Code...
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /analyze- /errorReport:prompt "C:\Users\Ehryk\AppData\Local\Temp\.NETFramework,Version=v4.0.AssemblyAttributes.cpp"
-         .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+     1>c:\work\gpxdataanalyzer\dataanalyzer\DataAnalyzer.h(60): warning C4091: '__declspec(dllexport)' : ignored on left of 'DataAnalyzer' when no variable is declared
+     1>C:\Work\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.cpp : warning C4747: Calling managed '_DllMain@12': Managed code may not be run under loader lock, including the DLL entrypoint and calls reached from the DLL entrypoint
+         All outputs are up-to-date.
        ResourceCompile:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Debug\app.res" app.rc 
+         All outputs are up-to-date.
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Work\GPXDataAnalyzer\Debug\DataAnalyzer.dll" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\DataAnalyzer.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Work\GPXDataAnalyzer\Debug\DataAnalyzer.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /DLL Debug\app.res
          Debug\AssemblyInfo.obj
@@ -26,14 +22,11 @@
          DataAnalyzer.vcxproj -> C:\Work\GPXDataAnalyzer\Debug\DataAnalyzer.dll
        Manifest:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Work\GPXDataAnalyzer\Debug\DataAnalyzer.dll;#2" /manifest Debug\DataAnalyzer.dll.intermediate.manifest
-       _CopyFilesMarkedCopyLocal:
-         Copying file from "C:\Work\GPXDataAnalyzer\GPX\bin\Debug\GPX.dll" to "C:\Work\GPXDataAnalyzer\Debug\GPX.dll".
-         Copying file from "C:\Work\GPXDataAnalyzer\GPX\bin\Debug\GPX.pdb" to "C:\Work\GPXDataAnalyzer\Debug\GPX.pdb".
        FinalizeBuildStatus:
          Deleting file "Debug\DataAnalyzer.unsuccessfulbuild".
          Touching "Debug\DataAnalyzer.lastbuildstate".
-     1>Done Building Project "C:\Work\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" (rebuild target(s)).
+     1>Done Building Project "C:\Work\GPXDataAnalyzer\DataAnalyzer\DataAnalyzer.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.37
+Time Elapsed 00:00:02.76

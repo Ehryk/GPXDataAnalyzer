@@ -2,33 +2,59 @@
 
 #pragma once
 
-using namespace std;
-
-struct Result
+__declspec(dllexport) class DataAnalyzer
 {
-	public:
-	//Result(string type, string detail, double min, double avg, double max);
+private:
+	int i;
+	int n;
+	double* distances;
+	double* verticals;
+	double* velocities;
+	double* times;
+	double* courses;
+
+public:
+	DataAnalyzer(int segments);
+	bool AddSegment(double distance, double time, double course, double vertical, double velocity);
+
+	//Common
+	double GetAverageDistance();
+	double GetTotalDistance();
+	double GetAverageTime();
+	double GetTotalTime();
+	double GetAverageVelocity();
+	double GetMaxVelocity();
+	double GetMinElevation();
+	double GetMaxElevation();
 	
-	double Minimum;
-	double Average;
-	double Maximum;
-	double Total;
-	string Type;
-	string Detail;
-};
+	//Hiking / Jogging
+	int GetNumberHikingRests();
+	double GetHikingRestTime();
+	double GetHikingSpeed();
+	double GetAverageUpSpeed();
+	double GetAverageDownSpeed();
+	
+	//Skiing
+	int GetNumberRuns();
+	int GetNumberFalls();
+	double GetAverageLiftSpeed();
+	double GetAverageSkiSpeed();
+	double GetAverageLiftWaitTime();
+	double GetTotalLiftWaitTime();
+	double GetAverageLiftTime();
+	double GetTotalLiftTime();
+	double GetAverageRunTime();
+	double GetTotalSkiTime();
+	double GetAverageBindingTime();
+	double GetTotalBindingTime();
+	double GetSkiDistance();
 
-class DataAnalyzer
-{
-	//public:
-	//Result TotalDistance(trkpt[] trackPoints);
-
-	////Velocity
-	//Result Velocity(trkpt[] trackPoints);
-	//Result VerticalVelocity(trkpt[] trackPoints);
-	//Result FlatEarthVelocity(trkpt[] trackPoints);
-
-	////Acceleration
-	//Result Acceleration(trkpt[] trackPoints);
-	//Result VerticalAcceleration(trkpt[] trackPoints);
-	//Result FlatEarthAcceleration(trkpt[] trackPoints);
+	//Snowmobile / Car
+	int GetNumberStops();
+	double GetMaximumAcceleration();
+	double GetMaximumDeceleration();
+	double GetStoppedTime();
+	double GetCoastTime();
+	double GetAcceleratingTime();
+	double GetDeceleratingTime();
 };

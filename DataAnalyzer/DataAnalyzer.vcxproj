@@ -77,7 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataAnalyzer.h" />
+    <ClInclude Include="Point.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Segment.h" />
     <ClInclude Include="Stdafx.h" />
   </ItemGroup>
   <ItemGroup>
