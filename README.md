@@ -23,12 +23,14 @@ If you'd like to suggest additional analysis items, activities, or have any feed
 
 ### Sample Analysis
 
-#### Driving
-![Driving](https://raw2.github.com/Ehryk/GPXDataAnalyzer/master/Documentation/SampleResults_Driving.png)
+#### Skiing
+![Skiing](https://raw2.github.com/Ehryk/GPXDataAnalyzer/master/Documentation/SampleResults_Skiing.png)
 #### Flying
 ![Flying](https://raw2.github.com/Ehryk/GPXDataAnalyzer/master/Documentation/SampleResults_Flying.png)
 #### Hiking
 ![Hiking](https://raw2.github.com/Ehryk/GPXDataAnalyzer/master/Documentation/SampleResults_Hiking.png)
+#### Driving
+![Driving](https://raw2.github.com/Ehryk/GPXDataAnalyzer/master/Documentation/SampleResults_Driving.png)
 
 ### Setup
 
