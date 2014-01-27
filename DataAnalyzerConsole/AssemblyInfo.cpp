@@ -12,11 +12,11 @@ using namespace System::Security::Permissions;
 // associated with an assembly.
 //
 [assembly:AssemblyTitleAttribute("DataAnalyzerConsole")];
-[assembly:AssemblyDescriptionAttribute("")];
+[assembly:AssemblyDescriptionAttribute("Console application to analyze GPX files")];
 [assembly:AssemblyConfigurationAttribute("")];
-[assembly:AssemblyCompanyAttribute("")];
-[assembly:AssemblyProductAttribute("DataAnalyzerConsole")];
-[assembly:AssemblyCopyrightAttribute("Copyright (c)  2011")];
+[assembly:AssemblyCompanyAttribute("Ehryk, LLC")];
+[assembly:AssemblyProductAttribute("GPX Data Analyzer")];
+[assembly:AssemblyCopyrightAttribute("Copyright © 2011")];
 [assembly:AssemblyTrademarkAttribute("")];
 [assembly:AssemblyCultureAttribute("")];
 

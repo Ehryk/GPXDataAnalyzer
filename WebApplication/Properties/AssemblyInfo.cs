@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("WebApplication")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("WebForms application that facilitates uploading GPX files and displays the analysis of their output.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WebApplication")]
+[assembly: AssemblyCompany("Ehryk, LLC")]
+[assembly: AssemblyProduct("GPX Data Analyzer")]
 [assembly: AssemblyCopyright("Copyright ©  2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
