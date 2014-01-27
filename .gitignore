@@ -16,3 +16,6 @@ _ReSharper.*
 *.resharper
 Ankh.NoLoad
 ipch/
+
+*.Publish.xml
+web.*.config
