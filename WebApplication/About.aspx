@@ -7,8 +7,11 @@
 
     <h1 class="Center Section">Abstract</h1>
     <p>
-        This project allows you to upload GPX files and analyze track data contained within.  Initial Release: December 2011.
-        Written in ASP.NET, C# and C++.
+        This project allows you to upload GPX files and analyze track data contained within. Every track can see the 'Basic Analysis,' 
+	from there, you can then select an Activity to get more detailed analysis that only makes sense in the context of the activity.<br/>
+	<br/>
+	Initial Release: December 2011.<br/>
+        Written in ASP.NET, C# and C++. It is open source and available on <a href="https://github.com/Ehryk/GPXDataAnalyzer">Github</a>.
     </p>
     <h1 class="Center Section">Authors</h1>
     <p>
@@ -20,7 +23,7 @@
         <b>Travis Wilson</b> - UAA<br />
         <b>Gabe Degange</b> - UAA
     </p>
-    <h1 class="Center Section">Details</h1>
+    <h1 class="Center Section">Project Details</h1>
     <p>
         This project consists of:<br />
         <br />
