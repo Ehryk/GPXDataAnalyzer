@@ -40,6 +40,11 @@ namespace GPX
             return result;
         }
 
+        public List<rteType> GetRoutes()
+        {
+            return gpx.rte.ToList();
+        }
+
         public string Load(string path = "..\\..\\Sample.gpx")
         {
             string result = null;
