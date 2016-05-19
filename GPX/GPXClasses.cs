@@ -1080,6 +1080,7 @@ namespace GPX {
         }
 
         [XmlIgnore]
+        public List<wptType> RouteWayPoints
         {
             get
             {
