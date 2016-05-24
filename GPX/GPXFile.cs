@@ -22,6 +22,8 @@ namespace GPX
             Load(path);
         }
 
+        public GPXFile() { }
+
         public string Load(FileStream gpxFile)
         {
             string result = null;
@@ -38,6 +40,21 @@ namespace GPX
             }
 
             return result;
+        }
+
+        public void Save(string fileName, gpxType gpxData)
+        {
+            try
+            {
+                using (StreamWriter stream = new StreamWriter(fileName))
+                {
+                    XmlSerializer ser = new XmlSerializer(typeof(gpxType));
+                    ser.Serialize(stream, gpxData);
+                }
+            }
+            catch (Exception e)
+            {
+            }
         }
 
         public List<rteType> GetRoutes()
