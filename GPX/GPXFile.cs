@@ -59,6 +59,10 @@ namespace GPX
 
         public List<rteType> GetRoutes()
         {
+            if(gpx.rte == null)
+            {
+                return new List<rteType>();
+            }
             return gpx.rte.ToList();
         }
 
