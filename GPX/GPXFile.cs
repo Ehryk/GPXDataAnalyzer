@@ -99,6 +99,10 @@ namespace GPX
 
         public List<trkType> GetTracks()
         {
+            if (gpx.trk == null)
+            {
+                return new List<trkType>();
+            }
             return gpx.trk.ToList();
         }
 
