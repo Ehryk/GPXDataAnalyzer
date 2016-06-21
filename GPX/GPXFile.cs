@@ -94,6 +94,10 @@ namespace GPX
 
         public List<wptType> GetWaypoints()
         {
+            if(gpx.wpt == null)
+            {
+                return new List<wptType>();
+            }
             return gpx.wpt.ToList();
         }
 
