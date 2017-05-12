@@ -31,14 +31,12 @@ namespace GPX
             {
                 XmlSerializer ser = new XmlSerializer(typeof(gpxType));
                 gpx = (gpxType)ser.Deserialize(gpxFile);
-
                 result = "";
             }
             catch (Exception e)
             {
                 result = e.Message;
             }
-
             return result;
         }
 
@@ -82,8 +80,8 @@ namespace GPX
             catch (Exception e)
             {
                 result = e.Message;
+                gpx = new gpxType();
             }
-
             return result;
         }
 

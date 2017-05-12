@@ -75,7 +75,6 @@ namespace GPX
         public DataAnalyzer(List<wptType> trackPoints)
         {
             TrackPoints = trackPoints;
-
             Segments = BuildSegments(TrackPoints);
             Segues = BuildSegues(Segments);
         }
