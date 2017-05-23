@@ -64,6 +64,11 @@ namespace GPX
             return gpx.rte.ToList();
         }
 
+        public string Name
+        {
+            get { return gpx.metadata.name; }
+        }
+
         public string Load(string path = "..\\..\\Sample.gpx")
         {
             string result = null;
