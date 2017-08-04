@@ -23,7 +23,7 @@ namespace GPX {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.topografix.com/GPX/1/1")]
-    [System.Xml.Serialization.XmlRootAttribute("gpx", Namespace="http://www.topografix.com/GPX/1/1", IsNullable=false)]
+    [System.Xml.Serialization.XmlRootAttribute("gpx", Namespace="http://www.topografix.com/GPX/1/1", IsNullable=true)]
     public partial class gpxType {
         
         private metadataType metadataField;
