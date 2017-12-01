@@ -66,7 +66,7 @@ namespace GPX
 
         public string Name
         {
-            get { return gpx.metadata.name; }
+            get { return gpx.metadata?.name; }
         }
 
         public string Load(string path = "..\\..\\Sample.gpx")
