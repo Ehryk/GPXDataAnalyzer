@@ -57,6 +57,12 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WinUX-UWP-Toolkit\WinUX\WinUX.Common\WinUX.Common.csproj">
+      <Project>{55c7fa03-c3b0-4aa0-be48-3fa435ee37c1}</Project>
+      <Name>WinUX.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

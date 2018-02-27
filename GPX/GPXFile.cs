@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 using System.Xml.Serialization;
-
+using WinUX;
 namespace GPX
 {
     public class GPXFile
@@ -12,33 +13,12 @@ namespace GPX
         private gpxType gpx;
         public string Result;
 
-        public GPXFile(FileStream gpxFile)
-        {
-            Load(gpxFile);
-        }
-
         public GPXFile(string path = "..\\..\\Sample.gpx")
         {
             Load(path);
         }
 
         public GPXFile() { }
-
-        public string Load(FileStream gpxFile)
-        {
-            string result = null;
-            try
-            {
-                XmlSerializer ser = new XmlSerializer(typeof(gpxType));
-                gpx = (gpxType)ser.Deserialize(gpxFile);
-                result = "";
-            }
-            catch (Exception e)
-            {
-                result = e.Message;
-            }
-            return result;
-        }
 
         public void Save(string fileName, gpxType gpxData)
         {
@@ -74,12 +54,20 @@ namespace GPX
             string result = null;
             try
             {
-                XmlSerializer ser = new XmlSerializer(typeof(gpxType));
-                using (FileStream str = new FileStream(path, FileMode.Open))
+                var xdocument = XDocument.Load(path);
+                var defaultNS = xdocument.Root.GetDefaultNamespace();
+                if (string.IsNullOrEmpty(defaultNS.NamespaceName))
                 {
-                    gpx = (gpxType)ser.Deserialize(str);
+                    var xml = xdocument.ToString();
+                    var indexOfGpx = xml.IndexOf("<gpx ");
+                    var insertIndex = indexOfGpx + 5;
+                    xml = xml.Insert(5, "xmlns = \"http://www.topografix.com/GPX/1/1\" ");
+                    SetGpxWithMemoryStream(xml);
                 }
-
+                else
+                {
+                    SetGpxWithNormalFileStream(path);
+                }
                 result = "";
             }
             catch (Exception e)
@@ -88,6 +76,24 @@ namespace GPX
                 gpx = new gpxType();
             }
             return result;
+        }
+
+        private void SetGpxWithMemoryStream(string xml)
+        {
+            XmlSerializer ser = new XmlSerializer(typeof(gpxType));
+            using (var stream = xml.ToStream())
+            {
+                gpx = (gpxType)ser.Deserialize(stream);
+            }
+        }
+
+        private void SetGpxWithNormalFileStream(string path)
+        {
+            XmlSerializer ser = new XmlSerializer(typeof(gpxType));
+            using (FileStream str = new FileStream(path, FileMode.Open))
+            {
+                gpx = (gpxType)ser.Deserialize(str);
+            }
         }
 
         public gpxType Get()
