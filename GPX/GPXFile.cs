@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using WinUX;
+
 namespace GPX
 {
     public class GPXFile
@@ -81,7 +81,7 @@ namespace GPX
         private void SetGpxWithMemoryStream(string xml)
         {
             XmlSerializer ser = new XmlSerializer(typeof(gpxType));
-            using (var stream = xml.ToStream())
+            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(xml)))
             {
                 gpx = (gpxType)ser.Deserialize(stream);
             }
@@ -90,9 +90,9 @@ namespace GPX
         private void SetGpxWithNormalFileStream(string path)
         {
             XmlSerializer ser = new XmlSerializer(typeof(gpxType));
-            using (FileStream str = new FileStream(path, FileMode.Open))
+            using (FileStream stream = new FileStream(path, FileMode.Open))
             {
-                gpx = (gpxType)ser.Deserialize(str);
+                gpx = (gpxType)ser.Deserialize(stream);
             }
         }
 

@@ -2,6 +2,8 @@
 [Bb]in
 [Dd]ebug
 [Rr]elease
+[Pp]ublishProfiles
+.vs
 *.user
 *.suo
 *.[Cc]ache

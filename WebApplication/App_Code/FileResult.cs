@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Web.UI;
-using GPX;
 
 namespace WebApplication.App_Code
 {
@@ -10,6 +8,7 @@ namespace WebApplication.App_Code
         public string Path { get; set; }
         public string Name { get; set; }
         public long Size { get; set; }
+        public long SizeKB { get { return Size / 1024; } }
         public DateTime Uploaded { get; set; }
     }
 }

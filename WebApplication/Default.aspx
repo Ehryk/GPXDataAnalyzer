@@ -11,6 +11,7 @@
         }
     </style>
 </asp:Content>
+
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     
     <asp:Panel ID="pnlFiles" CssClass="Center" style="width:100%;" runat="server">
@@ -18,6 +19,7 @@
         <asp:Panel ID="cpFiles" runat="server" Visible="true">
             <label class="Instructions">Select a File: </label>
             <asp:DropDownList ID="ddlFiles" runat="server" OnSelectedIndexChanged="FileChanged" AutoPostBack="true" Width="300px" />
+            <asp:Button ID="btnSave" Text="Save" ToolTip="Download the selected file" OnClick="SaveSelectedFile" CssClass="BlueButton" Visible="false" runat="server" />
         </asp:Panel>
         <asp:Label ID="lblFileStatus" ForeColor="Red" runat="server" />
     </asp:Panel>

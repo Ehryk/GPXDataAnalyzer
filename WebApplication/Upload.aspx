@@ -26,13 +26,18 @@
     <asp:Panel ID="pnlFiles" runat="server">
         <h1 class="Center Section">Uploaded Files (<asp:Label ID="lblFileCount" runat="server" Text="" />)</h1>
         <br />
-        <asp:GridView ID="gvFiles" runat="server" AutoGenerateColumns="false" CssClass="GridView" 
+        <asp:GridView ID="gvFiles" runat="server" AutoGenerateColumns="false" OnDataBound="FilesDataBound" CssClass="GridView" 
             RowStyle="GridRow" AlternatingRowStyle="GridAlternateRow" HeaderStyle-CssClass="GridHeader">
             <Columns>
-                <asp:BoundField HeaderText=""            DataField="Number" />
+                <asp:BoundField HeaderText=""            DataField="Number" ItemStyle-Width="30px" />
                 <asp:BoundField HeaderText="Name"        DataField="Name" />
-                <asp:BoundField HeaderText="Size"        DataField="Size" DataFormatString="{0} b" />
-                <asp:BoundField HeaderText="Uploaded On" DataField="Uploaded" />
+                <asp:BoundField HeaderText="Size"        DataField="SizeKB" DataFormatString="{0} kB" ItemStyle-Width="60px" />
+                <asp:BoundField HeaderText="Uploaded On" DataField="Uploaded" ItemStyle-Width="130px" />
+                <asp:TemplateField HeaderText="" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="80px">
+                    <ItemTemplate>
+                        <asp:Button ID="btnSave" Text="Save" ToolTip="Download this file" OnCommand="SaveFile" CommandArgument='<%# Eval("Name") %>' CssClass="BlueButton" runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
     </asp:Panel>

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GPX;
@@ -47,13 +46,21 @@ namespace WebApplication
 
         #endregion
 
-        #region Events
+        #region Page Events
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
+            {
                 BindFileDDL();
+            }
+
+            ScriptManager.GetCurrent(Page).RegisterPostBackControl(btnSave);
         }
+
+        #endregion
+
+        #region Events
 
         protected void BindFileDDL()
         {
@@ -71,6 +78,7 @@ namespace WebApplication
         {
             if (String.IsNullOrEmpty(ddlFiles.SelectedValue))
             {
+                btnSave.Visible = false;
                 pnlTracks.Visible = false;
                 pnlAnalysis.Visible = false;
                 pnlActivity.Visible = false;
@@ -91,10 +99,23 @@ namespace WebApplication
             }
 
             FileStatus = "";
+            btnSave.Visible = true;
 
             FilePath = ddlFiles.SelectedValue;
 
             LoadTracks();
+        }
+
+        protected void SaveSelectedFile(object sender, EventArgs e)
+        {
+            string fileName = Path.GetFileName(FilePath);
+
+            //Response.Redirect("~/Uploads/" + fileName);
+
+            Response.ContentType = "Application/gpx+xml";
+            Response.AppendHeader("Content-Disposition", String.Format("attachment; filename={0}", fileName));
+            Response.TransmitFile(FilePath);
+            Response.End();
         }
 
         protected void LoadTracks()
